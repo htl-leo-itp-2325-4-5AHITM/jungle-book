@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Europas Urwälder</title>
     <link rel="stylesheet" href="jungleBook.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -66,10 +67,14 @@
 
             <main>
                 <section id="upload" class="backgroundGradiend" style="border-radius: 5px;">
-                    <h2>Fotos hochladen</h2>
-                    <div id="uploadPhoto">
-                        <img id="photo" src="pics/photo.svg" alt="uploadPhoto">
-                    </div>
+                    <div class="contentarea">
+                        <div class="camera">
+                          <video id="video">Video stream not available.</video>
+                          <button id="startbutton">Take photo</button>
+                        </div>
+                      </div>
+                       <canvas id="canvas"></canvas>
+                       
                 </section>
 
                 <section id="map" class="backgroundGradiend" style="border-radius: 5px;">
