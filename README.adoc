@@ -1,2 +1,5 @@
 # Jungelbuch
 A application to log checkpoints in european jungles
+
+The people who live in these areas earn their money by cutting down the trees!
+We now want to put an end to this!
