@@ -1,0 +1,158 @@
+body {
+    background-color: rgb(4, 3, 10);
+    color: white;
+    font-family: "Helvetica Neue LT", "Helvetica Neue", Helvetica, "Noto Sans Kr", "Hiragino Sans", メイリオ, Meiryo, sans-serif, "PingFang SC", "PingFang TC", "Microsoft JhengHei", 微軟正黑體, "Yu Gothic", 游ゴシック体;
+    margin: 0;
+    padding: 0;
+    top: 0;
+}
+
+main {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a {
+    color: #138c58;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+section {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+address {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.backgroundGradiend {
+    background: rgb(118,157,149);
+    background: linear-gradient(90deg, rgba(118,157,149,1) 0%, rgba(49,78,70,1) 48%, rgba(36,50,45,1) 100%);
+}
+
+#googleMap {
+    text-align: center;
+    padding: 3rem;
+    width: 30rem;
+
+}
+
+#uploadPhoto {
+    text-align: center;
+    padding: 3rem;
+    width: 30rem;
+}
+
+#photo {
+    width: 80px;
+}
+
+.navbar {
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
+    width: 20rem;
+    max-height: 500px;
+}
+
+.navelements {
+    margin-top: 0.7rem;
+    padding: 1rem;
+    margin-right: 10px;
+    background-color: white;
+    text-decoration: none;
+    color: #1b2320;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.navelements:hover {
+    color: aquamarine;
+    background-color: #566a63;
+
+}
+
+.donate-container {
+    text-align: center;
+}
+
+.donate-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.donate-button:hover {
+    background-color: #45a049;
+}
+
+
+
+.comments-container {
+    max-width: 600px;
+    margin: auto
+}
+
+.comment {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-form {
+    margin-top: 20px;
+}
+
+.comment-form form {
+    display: grid;
+    gap: 10px;
+}
+
+.comment-form label, .comment-form textarea, .comment-form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.comment-form button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.comment-form button:hover {
+    background-color: #45a049;
+}

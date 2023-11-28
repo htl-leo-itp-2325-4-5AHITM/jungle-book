@@ -1,0 +1,2 @@
+# Jungelbuch
+A application to log checkpoints in european jungles
