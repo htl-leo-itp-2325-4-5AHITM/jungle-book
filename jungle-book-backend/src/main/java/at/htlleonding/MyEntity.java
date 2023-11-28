@@ -1,4 +1,4 @@
-package at.htlleonding.itp;
+package at.htlleonding;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

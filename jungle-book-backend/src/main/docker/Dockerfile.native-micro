@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/jungelbuch .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/jungle-book-backend .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/jungelbuch
+# docker run -i --rm -p 8080:8080 quarkus/jungle-book-backend
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0

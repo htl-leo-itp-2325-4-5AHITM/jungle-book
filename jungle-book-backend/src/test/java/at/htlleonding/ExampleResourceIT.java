@@ -1,4 +1,4 @@
-package at.htlleonding.itp;
+package at.htlleonding;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

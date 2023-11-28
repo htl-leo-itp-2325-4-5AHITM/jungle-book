@@ -1,4 +1,4 @@
-# jungelbuch
+# jungle-book-backend
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
@@ -49,7 +49,7 @@ Or, if you don't have GraalVM installed, you can run the native executable build
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```
 
-You can then execute your native executable with: `./target/jungelbuch-1.0-SNAPSHOT-runner`
+You can then execute your native executable with: `./target/jungle-book-backend-1.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
 
@@ -57,6 +57,8 @@ If you want to learn more about building native executables, please consult http
 
 - Hibernate ORM ([guide](https://quarkus.io/guides/hibernate-orm)): Define your persistent model with Hibernate ORM and
   Jakarta Persistence
+- RESTEasy Classic Multipart ([guide](https://quarkus.io/guides/rest-json#multipart-support)): Multipart support for
+  RESTEasy Classic
 - RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing Jakarta REST and
   more
 - JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC

@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native -t quarkus/jungelbuch .
+# docker build -f src/main/docker/Dockerfile.native -t quarkus/jungle-book-backend .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/jungelbuch
+# docker run -i --rm -p 8080:8080 quarkus/jungle-book-backend
 #
 ###
 FROM registry.access.redhat.com/ubi8/ubi-minimal:8.8
