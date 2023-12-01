@@ -118,12 +118,12 @@
     
     // Convert the array to a Blob
     const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/png'});
-    
+
     // Send the Blob to the server
-    fetch('http://localhost:8080/api/jounal/upload-photo', {
+    fetch('http://localhost:8080/api/journal/upload-photo', {
       method: 'POST',
       body: blob
-    }).then(response => response.blob())
+    }).then(response => console.log(response)) 
     .then(blob => {
       // Create a Blob URL
       const url = window.URL.createObjectURL(blob);
