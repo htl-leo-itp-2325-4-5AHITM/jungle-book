@@ -25,18 +25,19 @@ public class JournalRepository {
     @Transactional
     public byte[] addJournal(byte[] image) throws IOException {
         PDDocument document = new PDDocument();
-        document.addPage(new PDPage());
+        PDPage page = new PDPage();
+        document.addPage(page);
+
+        PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, image, "image");
+
+        try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true)) {
+            contentStream.drawImage(pdImage, 20, 20);
+        }
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         document.save(baos);
         document.close();
 
-        PDPage page = document.getPage(0); // get the first page
-        PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, image, "image");
-
-        try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
-            contentStream.drawImage(pdImage, 20, 20);
-        }
         return baos.toByteArray();
     }
 }
