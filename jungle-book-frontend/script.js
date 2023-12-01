@@ -118,28 +118,31 @@
     
     // Convert the array to a Blob
     const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/png'});
-
+    let formData = new FormData();
+    formData.append("image", blob);
     // Send the Blob to the server
     fetch('http://localhost:8080/api/journal/upload-photo', {
       method: 'POST',
-      body: blob
-    }).then(response => console.log(response)) 
-    .then(blob => {
+      body: formData
+    }).then(response => response.arrayBuffer())
+    .then(buffer => {
+      const blob = new Blob([buffer], {type: 'application/pdf'});
+      
       // Create a Blob URL
       const url = window.URL.createObjectURL(blob);
-  
+    
       // Create a link and set the URL
       const link = document.createElement('a');
       link.href = url;
       link.download = 'Journal.pdf';
-  
+    
       // Append the link to the body
       document.body.appendChild(link);
-  
+    
       // Programmatically click the link to start the download
       link.click();
-  
+    
       // Clean up: remove the link after the download starts
       document.body.removeChild(link);
-    });;
+    });
   }
