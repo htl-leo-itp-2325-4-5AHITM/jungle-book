@@ -126,8 +126,8 @@
       body: formData
     }).then(response => response.arrayBuffer())
     .then(buffer => {
-      const blob = new Blob([buffer], {type: 'application/pdf'});
-      
+      const blob = new Blob([buffer]);
+
       // Create a Blob URL
       const url = window.URL.createObjectURL(blob);
     
@@ -135,14 +135,13 @@
       const link = document.createElement('a');
       link.href = url;
       link.download = 'Journal.pdf';
-    
       // Append the link to the body
       document.body.appendChild(link);
     
       // Programmatically click the link to start the download
       link.click();
-    
+
       // Clean up: remove the link after the download starts
       document.body.removeChild(link);
-    });
+    });;
   }

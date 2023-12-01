@@ -24,19 +24,11 @@ public class JournalResource {
     @Path("/upload-photo")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-
     public Response uploadImage(@MultipartForm MultipartFormDataInput image) throws IOException {
         byte[] imageBytes = image.getFormDataPart("image", byte[].class, null);
         return Response
                 .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
                 .header("content-disposition", "attachment; filename = new.pdf")
                 .build();
-    }
-
-    @GET
-    @Path("/test")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String test() {
-        return "Test";
     }
 }
