@@ -15,10 +15,8 @@ import java.io.IOException;
 @Path("/api/journal")
 public class JournalResource {
     private static final Logger LOG = Logger.getLogger(Quarkus.class);
-
     @Inject
     JournalRepository journalRepository;
-
 
     @POST
     @Path("/upload-photo")

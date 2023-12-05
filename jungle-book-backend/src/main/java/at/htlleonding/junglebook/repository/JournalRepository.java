@@ -13,12 +13,11 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.jboss.logging.Logger;
 
 import java.io.IOException;
-import java.util.Arrays;
+import java.io.WriteAbortedException;
 
 @ApplicationScoped
 public class JournalRepository {
     private static final Logger LOG = Logger.getLogger(Quarkus.class);
-
     @Inject
     EntityManager entityManager;
 
@@ -27,16 +26,22 @@ public class JournalRepository {
         PDDocument document = new PDDocument();
         PDPage page = new PDPage();
         document.addPage(page);
+        LOG.info("page created");
 
         PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, image, "image");
 
         try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true)) {
             contentStream.drawImage(pdImage, 20, 20);
+            LOG.info("image drawn");
+        } catch (Exception e) {
+            LOG.error("image draw failed");
+            throw new RuntimeException(e);
         }
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         document.save(baos);
         document.close();
+        LOG.info("page saved and closed");
 
         return baos.toByteArray();
     }
