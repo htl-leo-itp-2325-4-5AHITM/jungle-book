@@ -13,7 +13,6 @@ import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.jboss.logging.Logger;
 
 import java.io.IOException;
-import java.io.WriteAbortedException;
 
 @ApplicationScoped
 public class JournalRepository {
