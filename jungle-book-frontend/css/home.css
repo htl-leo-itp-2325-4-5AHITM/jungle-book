@@ -1,0 +1,67 @@
+/*firefox*/
+html {
+    scrollbar-width: none;
+}
+/*Chrome, Safari, Opera, and other WebKit-based browsers*/
+body::-webkit-scrollbar{
+    display: none;
+}
+/*IE, Edge*/
+body {
+    -ms-overflow-style: none;
+}
+
+body {
+    background-image: url('../pics/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+
+#header {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    height: 25vh;
+    width: 96%;
+    background-color: #1BA31E;
+    margin: 2%;
+    opacity: 0.6;
+    border: 2px solid gray;
+}
+
+#headerLeft, #headerMid, #headerRight {
+    display: flex;
+}
+
+#headerLeft {
+    justify-content: center;
+    align-items: center;
+}
+
+#headerLeft > img {
+    width: 10vw;
+}
+
+#headerMid {
+    font-size: 2.5em;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#headerRight {
+    align-items: flex-start;
+    justify-content: flex-end;
+} 
+
+#main {
+    text-align: center;
+}
+
+#footer {
+    text-align: center;
+}
+
+a:link {
+    color: white;
+}
