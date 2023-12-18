@@ -34,8 +34,26 @@
 
   .smalltextTwo {
     font-size: 70%;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2%;
+    border-radius: 30px;
+  }
+  .primList {
+    width: 70%;
+    font-size: large;
   }
 
+  .imgPrimZiel {
+    width: 30%;
+  }
 
+  .smalltextThree {
+    padding: 2%;
+    font-size: 80%;
+  }
 
+  .smalltextFour {
+    font-size: 80%;
+  }
 
