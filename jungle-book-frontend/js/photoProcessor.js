@@ -55,6 +55,9 @@
             video.setAttribute("height", height);
             canvas.setAttribute("width", width);
             canvas.setAttribute("height", height);
+
+            canvas.style.display = "none";
+
             streaming = true;
           }
         },
@@ -143,5 +146,6 @@
 
       // Clean up: remove the link after the download starts
       document.body.removeChild(link);
+      canvas.style.display = "inline";
     });;
   }
