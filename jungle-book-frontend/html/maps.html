@@ -1,46 +1,68 @@
-<!-- Under Construction -->
-
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/maps.css">
-    <link rel="stylesheet" href="../css/jungleBook.css">
-    <script src="../js/jungleBook.js" defer></script>
-    <title>Maps</title>
-</head>
-
-<body>
-    <header class="backgroundGradiend">
-        <div class="headerBox">
-            <img style="width: 15rem; margin-left: 4rem; padding: 0.5rem; border-radius: 50%; border: 4px solid white; margin-bottom: -80px; margin-top: 90px; background: rgb(118,157,149);"
-                src="../pics/logo.svg" alt="Logo">
-            <h1 class="headerHome">Urwaldroute</h1>
-
-            <div id="mySidebar" class="sidebar">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a href="comment.html">Help/Comments</a>
-                <a href="maps.html">Maps</a>
-                <a href="jungelBook.html">Home</a>
-                <a href="#">Contact</a>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Europas Urwälder</title>
+        <link rel="stylesheet" href="../css/maps.css">
+        <link rel="stylesheet" href="../css/jungleBook.css">
+        <script src="../js/maps.js" defer></script>
+        <title>Home</title>
+    </head>
+    <body>
+        <div id="header">
+            <div id="headerLeft">
+                <img src="../pics/logo.svg" alt="Logo">
             </div>
-            <div id="sidebar-wrapper">
-                <button class="openbtn" onclick="openNav()">☰</button>
+
+            <div id="headerMid">
+                <h1 id="headerHome">Urwaldroute</h1>
+            </div>
+                
+            <div id="headerRight">
+                <a href="home.html">home</a>
             </div>
         </div>
-    </header>
 
-    <!-- Suchleiste -->
-    <div style="margin-left: 1rem; margin-bottom: 1rem;">
-        <input style="width: 55%; padding: 1rem 0; border-radius: 10px; margin-right: 1.5rem; padding-left: 1rem;"
-            type="text" placeholder="Suche nach einer Urwaldroute...">
-        <button style="width: 25%; padding: 1rem 0; border-radius: 10px;">Suchen</button>
-    </div>
+        <div id="main">
+            
+            <div id="googleMap">
+                <iframe
+                    id="mapIframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13524.156812879364!2d133.7751366022174!3d-25.274398741981396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2cc0bf3b780966a3%3A0xf5dd4fc65b05e9f2!2sSydney%2C%20New%20South%20Wales!5e0!3m2!1sde!2sau!4v1709403819195!5m2!1sde!2sau"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <script src="../js/maps.js"></script>
+                <script>
+                    getLocation();
+                </script>
+            </div>
+            
+        <hr>
+        <div id="footer">
+            <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
+            <address>
+                <div>  
+                    UrwälderEU<br>
+                    meine.imaginaere@adresse.com<br>
+                    Limesstraße 12/14, 4060 Leonding
+                </div>
+            </address>
+            <div>
+                Telefon: +43 6602664130<br>
+                Scrum Master: <a href="mailto:laurin.poelderl@gmail.com">laurin.poelderl@gmail.com</a><br>
+                Folge uns auf <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a><br> 
+                Besuche unseren <a href="[Link zu deinem Blog]">Blog</a><br>
+                <a href="./dsgvo.html" target="_blank" >Datenschutzerklärung</a>
+            </div>
+        </div>
+    </body>
+</html>
 
 
-    <!--Navigation Bar-->
+    <!--
+        
     <nav>
         <section>
             <div class="navbar">
@@ -67,46 +89,10 @@
                 <a class="navelements" href="#">Făgăraș-Urwald</a>
                 <a class="navelements" href="#">Cansiglio-Urwald</a>
                 <a class="navelements" href="#">Val Grande-Urwald</a>
-
             </div>
         </section>
     </nav>
+    --> 
 
 
-    <!-- Map -->
-    <section id="map" class="backgroundGradiend" style="border-radius: 5px;">
-        <h2>Standorte</h2>
-        <div id="googleMap">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2655.789794695176!2d14.249178076871626!3d48.26841964204258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477396fb96f68367%3A0xf2b265395a736637!2sHTL%20Leonding!5e0!3m2!1sde!2sat!4v1700938059421!5m2!1sde!2sat"
-                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
-
-    <footer style="background-color: #151c19;">
-        <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
-
-        <address>
-            <p>UrwälderEU<br>
-                meine.imaginaere@adresse.com<br>
-                Limesstraße 12/14, 4060 Leonding</p>
-        </address>
-
-        <p>Telefon: +43 6509403950<br>
-            E-Mail: <a href="mailto:meine.imaginaere@adresse.com">meine.imaginaere@adresse.com</a></p>
-
-        <p>Folge uns auf <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a> | Besuche unseren <a
-                href="[Link zu deinem Blog]">Blog</a></p>
-
-        <p><a href="[Link zu deiner Datenschutzerklärung]">Datenschutzerklärung</a> | <a
-                href="[Link zu deinen Nutzungsbedingungen]">Nutzungsbedingungen</a></p>
-
-
-        <!--Donate Button-->
-        <div class="donate-container">
-            <button class="donate-button">Jetzt spenden</button>
-        </div>
-    </footer>
-</body>
-</html>
+    
