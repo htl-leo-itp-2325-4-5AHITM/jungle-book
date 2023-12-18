@@ -1,0 +1,41 @@
+.why {
+    height: 25rem;
+}
+
+.textBackground {
+    background-color: black;
+    padding: 2%;
+    border-radius: 30px;
+}
+.flexen {
+    display: flex;
+    align-items: center;
+  }
+
+
+  .flexen > div {
+    float: left; 
+    width: 48%; 
+    margin-right: 2%; 
+    padding: 20px; 
+    box-sizing: border-box;
+  }
+
+  .flexen img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .smalltext {
+    font-size: 60%;
+  }
+
+  .smalltextTwo {
+    font-size: 70%;
+  }
+
+
+
+
