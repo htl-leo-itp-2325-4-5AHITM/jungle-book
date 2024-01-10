@@ -1,0 +1,16 @@
+[
+    {
+        "name": "htl",
+        "longitude": "48.26843208385805",
+        "latitude": "14.251741594509078",
+        "comment": "test",
+        "remark": "test"
+    }, 
+    {
+        "name": "kuernberghalle",
+        "longitude": "48.26610582714547",
+        "latitude": "14.254482416559613",
+        "comment": "test",
+        "remark": "test"
+    }
+]
