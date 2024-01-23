@@ -43,12 +43,59 @@ async function getLocation() {
     return coords;
 }
 
+const jsonDateiPfad = '/data/checkpoints.json';
+
+
 async function checkLocation() {
     let coords = "";    
     coords = await getLocation();
-    
+
     accuracy = coords.accuracy;
-    latitude = coords.latitude;
+    latitude = coords.latitude; 
     longitude = coords.longitude;
     console.log(latitude, longitude, accuracy);
+    await compareCoordinates(latitude, longitude);
 }
+
+async function compareCoordinates(lat, lon) {
+    let checkpoints = await fetch(jsonDateiPfad)
+        .catch(console.error)
+        .then(res => res.json())
+
+    for (let i = 0; i < 2; i++) {
+        let lat2 = checkpoints[i].latitude;
+        let lon2 = checkpoints[i].longitude;
+        const abstand = await haversine(lat, lon, lat2, lon2);
+        let maxAbweichung = 50;
+        console.log(abstand + " abstand");
+        if (abstand <= maxAbweichung) {
+            console.log("checkpoint found: " + checkpoints[i].name)
+            return abstand <= maxAbweichung;
+        }
+    }
+}
+
+async function haversine(lat1, lon1, lat2, lon2) {
+    // Konvertiere Grad in Radian
+    function toRadians(deg) {
+        return deg * (Math.PI / 180);
+    }
+
+    console.log(lat1 + " " + lon1 + " " + lat2 + " " + lon2);
+
+    // Haversine-Formel
+    const R = 6371; // Radius der Erde in Kilometern
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon2 - lon1);
+
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+              Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+              Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const distance = R * c; // Entfernung in Kilometern
+
+    return distance * 1000; // Entfernung in Metern
+}
+
