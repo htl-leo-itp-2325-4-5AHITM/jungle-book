@@ -22,3 +22,11 @@
 #startbutton:hover{
     background-color: #1BA31E;
 }
+
+#map {
+    height: 100%;
+}
+
+#googleMap {
+    text-align: center;
+}

@@ -42,3 +42,7 @@ nb-configuration.xml
 
 # Plugin directory
 /.quarkus/cli/plugins/
+
+
+# Log file
+*.log
