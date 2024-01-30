@@ -86,16 +86,26 @@ a:link:visited {
     padding: 1vw;
 }
 
-#googleMap {
-    text-align: right;
-    padding: 2%;
+#gridMap {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
 }
 
-#googleMapRight {
-    width: auto;
-    display: grid;
+#resultMapRight {
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: left;
+    padding: 2%;
+    margin-left: 0;
+}
+
+#resultMap {
+    padding: 1vw;
+    margin-left: 0 !important;
+}
+
+#googleMap {
+    text-align: center;
     padding: 2%;
 }
 
@@ -134,9 +144,4 @@ a:link:visited {
 
 #map {
     height: 100%;
-}
-
-#gridMap {
-    display: grid;
-    grid-template-columns: 50% 50%;
 }

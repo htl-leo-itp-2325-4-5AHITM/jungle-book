@@ -74,7 +74,6 @@ async function compareCoordinates(lat, lon) {
             console.log("checkpoint found: " + checkpoints[i].name);
             let result = "Checkpoint Found: " + checkpoints[i].name + "<br> Abweichung: " + Math.round(distance * 100) / 100 + " Meter";
             document.getElementById("resultMap").innerHTML = result;
-            document.getElementById("resultMap").style = "padding: 1vw";
             return distance <= maxAbweichung;
         }
     }
