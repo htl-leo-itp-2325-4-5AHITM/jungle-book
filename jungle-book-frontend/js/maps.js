@@ -11,6 +11,7 @@ function getLocationAwait() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
+                    console.log("Got position!", position)
                     resolve(position.coords);
                     coords = position.coords;  
                     latitude = coords.latitude;
@@ -22,6 +23,7 @@ function getLocationAwait() {
                     iframe.src = newURL;
                 },
                 error => {
+                    console.error("oops", error)
                     reject(error);
                     document.getElementById("mapIframe").innerHTML = error.message;
                 }
@@ -65,12 +67,15 @@ async function compareCoordinates(lat, lon) {
     for (let i = 0; i < 2; i++) {
         let lat2 = checkpoints[i].latitude;
         let lon2 = checkpoints[i].longitude;
-        const abstand = await haversine(lat, lon, lat2, lon2);
+        const distance = await haversine(lat, lon, lat2, lon2);
         let maxAbweichung = 50;
-        console.log(abstand + " abstand");
-        if (abstand <= maxAbweichung) {
-            console.log("checkpoint found: " + checkpoints[i].name)
-            return abstand <= maxAbweichung;
+        console.log(distance + " abstand");
+        if (distance <= maxAbweichung) {
+            console.log("checkpoint found: " + checkpoints[i].name);
+            let result = "Checkpoint Found: " + checkpoints[i].name + "<br> Abweichung: " + Math.round(distance * 100) / 100 + " Meter";
+            document.getElementById("resultMap").innerHTML = result;
+            document.getElementById("resultMap").style = "padding: 1vw";
+            return distance <= maxAbweichung;
         }
     }
 }
