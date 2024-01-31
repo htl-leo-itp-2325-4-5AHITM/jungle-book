@@ -3,7 +3,7 @@ let longitude;
 let accuracy;
 let coords;
 let iframe = "";
-
+let isInRange = false;
 
 function getLocationAwait() {
     return new Promise((resolve, reject) => {
@@ -56,10 +56,11 @@ async function checkLocation() {
     latitude = coords.latitude; 
     longitude = coords.longitude;
     console.log(latitude, longitude, accuracy);
-    await compareCoordinates(latitude, longitude);
+    await compareCoordinates(latitude, longitude, accuracy);
+    return isInRange;
 }
 
-async function compareCoordinates(lat, lon) {
+async function compareCoordinates(lat, lon, acc) {
     let checkpoints = await fetch(jsonDateiPfad)
         .catch(console.error)
         .then(res => res.json())
@@ -68,13 +69,17 @@ async function compareCoordinates(lat, lon) {
         let lat2 = checkpoints[i].latitude;
         let lon2 = checkpoints[i].longitude;
         const distance = await haversine(lat, lon, lat2, lon2);
-        let maxAbweichung = 50;
+        let maxAbweichung = 10 + acc;
         console.log(distance + " abstand");
         if (distance <= maxAbweichung) {
             console.log("checkpoint found: " + checkpoints[i].name);
             let result = "Checkpoint Found: " + checkpoints[i].name + "<br> Abweichung: " + Math.round(distance * 100) / 100 + " Meter";
             document.getElementById("resultMap").innerHTML = result;
+            isInRange = true;
             return distance <= maxAbweichung;
+        } else {
+            isInRange = false;
+            console.log("no checkpoint found");
         }
     }
 }
