@@ -86,19 +86,25 @@
     }
     // other changes before drawing it.
 
-    function takepicture() {
+    async function takepicture() {
       const context = canvas.getContext("2d");
       // camera.innerHTML = "<img id='photo' alt='The screen capture will appear in this box.' />"
       // photo = document.getElementById("photo");
+
+      
       if (width && height) {
         canvas.width = width;
         canvas.height = height;
         context.drawImage(video, 0, 0, width, height);
-
-        camera.innerHTML = ""
+  
+        camera.innerHTML = "";
 
         const data = canvas.toDataURL("image/png");
-        sendImageToServer(data);
+        if (await checkLocation() === true) {
+          sendImageToServer(data);
+        } else {
+          clearphoto();
+        }
         // photo.setAttribute("src", data);
       } else {
         clearphoto();
