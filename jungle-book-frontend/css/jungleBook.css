@@ -100,6 +100,9 @@ a:link:visited {
 }
 
 #resultMap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     padding: 1vw;
     margin-left: 0 !important;
 }
@@ -144,4 +147,48 @@ a:link:visited {
 
 #map {
     height: 100%;
+}
+
+
+/*smartphone design: 414 x 896*/
+
+
+@media screen and (max-width: 900px) {
+    #header {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        height: 10vh;
+
+    }
+    
+    #headerMid {
+        font-size: 1.5em;
+    }
+    
+    #footer {
+        width: 90%;
+        padding: 1vw;
+    }
+    
+    #gridMap {
+        grid-template-columns: 100%;
+        grid-template-rows: 0, auto, auto;
+    }
+
+    #resultMap {
+        width: 100%;
+        height: 5vh;
+        padding-left: 5%;   
+    }
+
+    #resultMapRight {
+        width: 50%;
+        justify-content: center !important;
+        margin: auto;
+    }
+    
+    #startbutton {
+        min-width: 40%;
+        min-height: 4vh;
+    }
 }
