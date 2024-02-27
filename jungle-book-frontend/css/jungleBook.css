@@ -33,10 +33,10 @@ body {
     grid-template-columns: 20% auto 20%;
     height: 25vh;
     width: 96%;
-    background-color: #1BA31E;
+    background-color: #249726;
     margin: 2%;
     opacity: 0.7;
-    border: 2px solid gray;
+    border: 2px solid rgb(68, 65, 65);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 }
 
