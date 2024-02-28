@@ -33,10 +33,10 @@ body {
     grid-template-columns: 20% auto 20%;
     height: 25vh;
     width: 96%;
-    background-color: #1BA31E;
+    background-color: #249726;
     margin: 2%;
     opacity: 0.7;
-    border: 2px solid gray;
+    border: 2px solid rgb(68, 65, 65);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 }
 
@@ -83,10 +83,112 @@ a:link:visited {
 #footer {
     text-align: center;
     width: 20%;
+    padding: 1vw;
+}
+
+#gridMap {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+}
+
+#resultMapRight {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2%;
+    margin-left: 0;
+}
+
+#resultMap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1vw;
+    margin-left: 0 !important;
+}
+
+#googleMap {
+    text-align: center;
+    padding: 2%;
+}
+
+#footer, #resultMap {
     background-color: #1BA31E;
     margin: auto;
-    padding: 1vw;
     border-radius: 1em;
     opacity: .9;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+}
+
+#startbutton {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 7.5%;
+    text-transform: uppercase;
+    white-space: normal;
+    text-align: center;
+    padding: 1% 1% 1%;
+    color: #fff;
+    background-color: #15883e;
+    height: 5%;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+}
+
+#startbutton:hover{
+    background-color: #1BA31E;
+}
+
+#map {
+    height: 100%;
+}
+
+
+/*smartphone design: 414 x 896*/
+
+
+@media screen and (max-width: 900px) {
+    #header {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        height: 10vh;
+
+    }
+    
+    #headerMid {
+        font-size: 1.5em;
+    }
+    
+    #footer {
+        width: 90%;
+        padding: 1vw;
+    }
+    
+    #gridMap {
+        grid-template-columns: 100%;
+        grid-template-rows: 0, auto, auto;
+    }
+
+    #resultMap {
+        width: 100%;
+        height: 5vh;
+        padding-left: 5%;   
+    }
+
+    #resultMapRight {
+        width: 50%;
+        justify-content: center !important;
+        margin: auto;
+    }
+    
+    #startbutton {
+        min-width: 40%;
+        min-height: 4vh;
+    }
 }
