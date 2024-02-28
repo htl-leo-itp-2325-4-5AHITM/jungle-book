@@ -25,6 +25,7 @@ function getLocationAwait() {
             latitude +
             "!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477396fb96f68367%3A0xf2b265395a736637!2sHTL%20Leonding!5e0!3m2!1sde!2sat!4v1700938059421!5m2!1sde!2sat";
           iframe.src = newURL;
+          //Link?? eventuell Fehler bei anderen koordinate (...HTL%20Leonding!5e...)
         },
         (error) => {
           console.error("oops", error);

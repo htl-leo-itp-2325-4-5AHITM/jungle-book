@@ -2,82 +2,109 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/comment.css">
-    <link rel="stylesheet" href="../css/jungleBook.css">
-    <script src="../js/jungleBook.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/comment.css" />
+    <link rel="stylesheet" href="../css/jungleBook.css" />
     <title>Comment</title>
-</head>
-
-<body>
+  </head>
+  <body>
     <header class="backgroundGradiend">
-        <div class="headerBox">
-            <img style="width: 15rem; margin-left: 4rem; padding: 0.5rem; border-radius: 50%; border: 4px solid white; margin-bottom: -80px; margin-top: 90px; background: rgb(118,157,149);"
-                src="../pics/logo.svg" alt="Logo">
-                <h1 class="headerHome">Urwaldroute</h1>
+      <div class="headerBox">
+        <img
+          style="
+            width: 15rem;
+            margin-left: 4rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: -80px;
+            margin-top: 90px;
+            background: rgb(118, 157, 149);
+          "
+          src="../pics/logo.svg"
+          alt="Logo"
+        />
+        <h1 class="headerHome">Urwaldroute</h1>
 
-            <div id="mySidebar" class="sidebar">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                <a href="comment.html">Help/Comments</a>
-                <a href="maps.html">Maps</a>
-                <a href="jungelBook.html">Home</a>
-                <a href="#">Contact</a>
-            </div>
-            <div id="sidebar-wrapper">
-                <button class="openbtn" onclick="openNav()">☰</button>
-            </div>
+        <div id="mySidebar" class="sidebar">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >×</a
+          >
+          <a href="comment.html">Help/Comments</a>
+          <a href="maps.html">Maps</a>
+          <a href="jungelBook.html">Home</a>
+          <a href="#">Contact</a>
         </div>
+        <div id="sidebar-wrapper">
+          <button class="openbtn" onclick="openNav()">☰</button>
+        </div>
+      </div>
     </header>
 
     <!--Kommentarfunktion-->
-    <div style="margin-top: 10rem;">
-        <div class="comments-container">
-            <h2>Kommentare</h2>
-            <div class="comment">
-                <p class="comment-author">Benutzer123:</p>
-                <p class="comment-text">Tolle Fotos! Ich liebe diese Seite.</p>
-            </div>
-            <!-- Weitere Kommentare hier einfügen -->
-
-            <div class="comment-form">
-                <h3>Kommentar hinterlassen</h3>
-                <form>
-                    <label for="author">Name:</label>
-                    <input type="text" id="author" name="author" required>
-
-                    <label for="comment">Kommentar:</label>
-                    <textarea id="comment" name="comment" required></textarea>
-
-                    <button type="submit">Kommentar abschicken</button>
-                </form>
-            </div>
+    <div style="margin-top: 10rem">
+      <div class="comments-container">
+        <h2>Kommentare</h2>
+        <div class="comment">
+          <p class="comment-author">Benutzer123:</p>
+          <p class="comment-text">Tolle Fotos! Ich liebe diese Seite.</p>
         </div>
+        <!-- Weitere Kommentare hier einfügen -->
 
-        <footer style="background-color: #151c19;">
-            <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
+        <div class="comment-form">
+          <h3>Kommentar hinterlassen</h3>
+          <form>
+            <label for="author">Name:</label>
+            <input type="text" id="author" name="author" required />
 
-            <address>
-                <p>UrwälderEU<br>
-                    meine.imaginaere@adresse.com<br>
-                    Limesstraße 12/14, 4060 Leonding</p>
-            </address>
+            <label for="comment">Kommentar:</label>
+            <textarea id="comment" name="comment" required></textarea>
 
-            <p>Telefon: +43 6509403950<br>
-                E-Mail: <a href="mailto:meine.imaginaere@adresse.com">meine.imaginaere@adresse.com</a></p>
+            <button type="submit">Kommentar abschicken</button>
+          </form>
+        </div>
+      </div>
 
-            <p>Folge uns auf <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a> | Besuche unseren <a
-                    href="[Link zu deinem Blog]">Blog</a></p>
+      <footer style="background-color: #151c19">
+        <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
 
-            <p><a href="[Link zu deiner Datenschutzerklärung]">Datenschutzerklärung</a> | <a
-                    href="[Link zu deinen Nutzungsbedingungen]">Nutzungsbedingungen</a></p>
+        <address>
+          <p>
+            UrwälderEU<br />
+            meine.imaginaere@adresse.com<br />
+            Limesstraße 12/14, 4060 Leonding
+          </p>
+        </address>
 
+        <p>
+          Telefon: +43 6509403950<br />
+          E-Mail:
+          <a href="mailto:meine.imaginaere@adresse.com"
+            >meine.imaginaere@adresse.com</a
+          >
+        </p>
 
-            <!--Donate Button-->
-            <div class="donate-container">
-                <button class="donate-button">Jetzt spenden</button>
-            </div>
-        </footer>
-    </body>
+        <p>
+          Folge uns auf
+          <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a> |
+          Besuche unseren <a href="[Link zu deinem Blog]">Blog</a>
+        </p>
+
+        <p>
+          <a href="[Link zu deiner Datenschutzerklärung]"
+            >Datenschutzerklärung</a
+          >
+          |
+          <a href="[Link zu deinen Nutzungsbedingungen]">Nutzungsbedingungen</a>
+        </p>
+
+        <!--Donate Button-->
+        <div class="donate-container">
+          <button class="donate-button">Jetzt spenden</button>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
