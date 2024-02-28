@@ -44,6 +44,4 @@ public class JournalRepository {
 
         return baos.toByteArray();
     }
-
-
 }
