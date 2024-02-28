@@ -4,6 +4,7 @@ let accuracy;
 let coords;
 let iframe = "";
 let isInRange = false;
+const konstanteAbweichung = 50;
 
 function getLocationAwait() {
     return new Promise((resolve, reject) => {
@@ -47,7 +48,6 @@ async function getLocation() {
 
 const jsonDateiPfad = '/data/checkpoints.json';
 
-
 async function checkLocation() {
     let coords = "";    
     coords = await getLocation();
@@ -63,13 +63,13 @@ async function checkLocation() {
 async function compareCoordinates(lat, lon, acc) {
     let checkpoints = await fetch(jsonDateiPfad)
         .catch(console.error)
-        .then(res => res.json())
+        .then(res => res.json());
 
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < checkpoints.length; i++) {
         let lat2 = checkpoints[i].latitude;
         let lon2 = checkpoints[i].longitude;
         const distance = await haversine(lat, lon, lat2, lon2);
-        let maxAbweichung = 10 + acc;
+        let maxAbweichung = konstanteAbweichung + acc;
         console.log(distance + " abstand");
         if (distance <= maxAbweichung) {
             console.log("checkpoint found: " + checkpoints[i].name);
@@ -107,4 +107,3 @@ async function haversine(lat1, lon1, lat2, lon2) {
 
     return distance * 1000; // Entfernung in Metern
 }
-
