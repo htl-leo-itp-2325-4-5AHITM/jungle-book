@@ -1,0 +1,10 @@
+#logo {
+        width: 15rem;
+        margin-left: 4rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        border: 4px solid white;
+        margin-bottom: -80px;
+        margin-top: 90px;
+        background: rgb(118, 157, 149);       
+}

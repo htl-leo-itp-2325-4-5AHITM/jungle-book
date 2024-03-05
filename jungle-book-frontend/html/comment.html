@@ -9,27 +9,18 @@
     <link rel="stylesheet" href="../css/jungleBook.css" />
     <title>Comment</title>
   </head>
+
   <body>
-    <header class="backgroundGradiend">
-      <div class="headerBox">
-        <img
-          style="
-            width: 15rem;
-            margin-left: 4rem;
-            padding: 0.5rem;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin-bottom: -80px;
-            margin-top: 90px;
-            background: rgb(118, 157, 149);
-          "
+    <header>
+      <div>
+        <img id="logo"
           src="../pics/logo.svg"
           alt="Logo"
         />
-        <h1 class="headerHome">Urwaldroute</h1>
+        <h1>Urwaldroute</h1>
 
-        <div id="mySidebar" class="sidebar">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        <div>
+          <a href="javascript:void(0)" onclick="closeNav()"
             >×</a
           >
           <a href="comment.html">Help/Comments</a>
@@ -37,7 +28,7 @@
           <a href="jungelBook.html">Home</a>
           <a href="#">Contact</a>
         </div>
-        <div id="sidebar-wrapper">
+        <div>
           <button class="openbtn" onclick="openNav()">☰</button>
         </div>
       </div>
@@ -45,29 +36,30 @@
 
     <!--Kommentarfunktion-->
     <div style="margin-top: 10rem">
-      <div class="comments-container">
+      <div>
         <h2>Kommentare</h2>
-        <div class="comment">
-          <p class="comment-author">Benutzer123:</p>
-          <p class="comment-text">Tolle Fotos! Ich liebe diese Seite.</p>
+        <div>
+          <p>Benutzer123:</p>
+          <p>Tolle Fotos! Ich liebe diese Seite.</p>
         </div>
         <!-- Weitere Kommentare hier einfügen -->
 
-        <div class="comment-form">
+        <div>
           <h3>Kommentar hinterlassen</h3>
           <form>
             <label for="author">Name:</label>
-            <input type="text" id="author" name="author" required />
+            <input type="text" name="author" required />
 
             <label for="comment">Kommentar:</label>
-            <textarea id="comment" name="comment" required></textarea>
+            <textarea name="comment" required></textarea>
 
             <button type="submit">Kommentar abschicken</button>
           </form>
         </div>
       </div>
 
-      <footer style="background-color: #151c19">
+      
+      <footer id="footer">
         <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
 
         <address>
