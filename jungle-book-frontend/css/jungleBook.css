@@ -28,6 +28,29 @@ body {
     color: white;
 }
 
+nav {
+    background-color: #249726;
+    opacity: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.navBox {
+    padding: 2%;
+}
+#active {
+    background-color: #175118;
+    text-decoration:underline;
+}
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+}
+.navBox:hover {
+    background-color: #175118;
+}
+
 #header {
     display: grid;
     grid-template-columns: 20% auto 20%;
