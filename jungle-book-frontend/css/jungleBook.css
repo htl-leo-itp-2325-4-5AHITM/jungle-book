@@ -53,17 +53,19 @@ nav {
     background-color: #175118;
 }
 
-#header {
+header {
     display: grid;
     grid-template-columns: 20% auto 20%;
     height: 25vh;
-    width: 96%;
+    width: 100%; /* Änderung der Breite auf 100% */
     background-color: #249726;
-    margin: 2%;
+    margin: 0; /* Vermeiden Sie zusätzliche Ränder */
     opacity: 0.7;
     border: 2px solid rgb(68, 65, 65);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    grid-column: 1 / -1; /* Füllt die gesamte Breite des Elternelements aus */
 }
+
 
 #headerLeft, #headerMid, #headerRight {
     display: flex;
@@ -186,7 +188,7 @@ hr {
 
 
 @media screen and (max-width: 900px) {
-    #header {
+    header {
         display: grid;
         grid-template-columns: auto auto auto;
         height: 10vh;
