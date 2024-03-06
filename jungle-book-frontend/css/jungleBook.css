@@ -91,7 +91,7 @@ nav {
     text-align: center;
 }
 
-#footer {
+footer {
     text-align: center;
 }
 
@@ -103,7 +103,7 @@ a:link:visited {
     color: white;
 }
 
-#footer {
+footer {
     text-align: center;
     width: 20%;
     padding: 1vw;
@@ -135,7 +135,7 @@ a:link:visited {
     padding: 2%;
 }
 
-#footer, #resultMap {
+footer, #resultMap {
     background-color: #1BA31E;
     margin: auto;
     border-radius: 1em;
@@ -188,7 +188,7 @@ a:link:visited {
         font-size: 1.5em;
     }
     
-    #footer {
+    footer {
         width: 90%;
         padding: 1vw;
     }
