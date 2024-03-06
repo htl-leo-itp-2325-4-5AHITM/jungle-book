@@ -4,7 +4,7 @@ let accuracy;
 let coords;
 let iframe = "";
 let isInRange = false;
-const constantDeviation = 50;
+const constantDeviation = 150;
 
 function getLocationAwait() {
   return new Promise((resolve, reject) => {

@@ -35,3 +35,9 @@ h1 {
     background-color: #f5f5f5;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    #headerMidComment {
+        font-size: 1em;
+    }
+}
