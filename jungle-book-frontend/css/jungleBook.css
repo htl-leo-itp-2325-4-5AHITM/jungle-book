@@ -138,7 +138,7 @@ footer {
 }
 
 footer, #resultMap {
-    background-color: #1BA31E;
+    background-color: #15883e;
     margin: auto;
     border-radius: 1em;
     opacity: .9;
@@ -176,6 +176,10 @@ footer, #resultMap {
 
 a {
     text-decoration: none;
+}
+
+hr {
+    margin: 4% 0%;
 }
 
 /*smartphone design: 414 x 896*/

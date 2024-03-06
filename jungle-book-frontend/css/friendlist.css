@@ -4,6 +4,14 @@
     padding: 20px;
 }
 
+#headerMidComment {
+    display: flex;
+    font-size: 2.2em;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
 h1 {
     text-align: center;
     color: #ffffff;
