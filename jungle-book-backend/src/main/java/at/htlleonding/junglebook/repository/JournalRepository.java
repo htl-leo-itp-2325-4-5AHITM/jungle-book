@@ -37,7 +37,7 @@ public class JournalRepository {
         PDImageXObject pdImage = PDImageXObject.createFromByteArray(document, image, "image");
 
         try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true)) {
-            contentStream.drawImage(pdImage, 50, 1000);
+            contentStream.drawImage(pdImage, 150, 400);
             LOG.info("image drawn");
         } catch (Exception e) {
             LOG.error("image draw failed");
