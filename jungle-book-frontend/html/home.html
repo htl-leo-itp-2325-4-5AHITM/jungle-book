@@ -1,75 +1,97 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Europas Urwälder</title>
-        <link rel="stylesheet" href="../css/home.css">
-        <link rel="stylesheet" href="../css/jungleBook.css">
-        <script src="../js/photoProcessor.js" defer></script>
-        <script src="../js/jungleBook.js" defer></script>
-        <script src="../js/maps.js" defer></script>
-        <title>Home</title>
-    </head>
-    <body>
-        <script>getLocation()</script>
-        <div id="header">
-            <div id="headerLeft">
-                <img src="../pics/logo.svg" alt="Logo">
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Europas Urwälder</title>
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/jungleBook.css" />
+    <script src="../js/photoProcessor.js" defer></script>
+    <script src="../js/maps.js" defer></script>
+    <title>Home</title>
+  </head>
+  <body>
+    <script>
+      getLocation();
+    </script>
+    <header>
+      <div id="headerLeft">
+        <img src="../pics/logo.svg" alt="Logo" />
+      </div>
 
-            <div id="headerMid">
-                <h1 id="headerHome">Urwaldroute</h1>
-            </div>
-                
-            <div id="headerRight"></div>
-        </div>
-        
-        <div id="gridMap">
-            <div></div>
-            <div id="googleMap">
-                <iframe
-                    id="mapIframe"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13524.156812879364!2d133.7751366022174!3d-25.274398741981396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2cc0bf3b780966a3%3A0xf5dd4fc65b05e9f2!2sSydney%2C%20New%20South%20Wales!5e0!3m2!1sde!2sau!4v1709403819195!5m2!1sde!2sau"
-                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-                <script src="../js/maps.js"></script>
-                <script>
-                    getLocation();
-                </script>
-            </div>
-            <div id="resultMapRight"><div id="resultMap">Checkpoint Found: / <br>Abweichung: /</div></div>
-        </div>
+      <div id="headerMid">
+        <h1 id="headerHome">Urwaldroute</h1>
+      </div>
 
-        <div id="main">
-            <div class="contentarea">
-                <div class="camera">
-                    <div><video id="video" style="padding: -10px;">Video stream not available.</video></div>
-                    <div><button id="startbutton">Take photo</button></div>
-                </div>
-            </div>
-            <canvas id="canvas"></canvas>
-        </div>
-                
-        <hr>
+      <div id="headerRight"></div>
+    </header>
 
-        <div id="footer">
-            <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
-            <address>
-                <div>  
-                    UrwälderEU<br>
-                    meine.imaginaere@adresse.com<br>
-                    Limesstraße 12/14, 4060 Leonding
-                </div>
-            </address>
-            <div>
-                Telefon: +43 6602664130<br>
-                Scrum Master: <a href="mailto:laurin.poelderl@gmail.com">laurin.poelderl@gmail.com</a><br>
-                Folge uns auf <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a><br> 
-                Besuche unseren <a href="[Link zu deinem Blog]">Blog</a><br>
-                <a href="./dsgvo.html" target="_blank" >Datenschutzerklärung</a>
-            </div>
+    <div id="nav">
+      <a class="navBox" id="active" href="home.html"><div class="navItem">Home</div></a>
+      <a class="navBox" href="comment.html"><div class="navItem">Kommentare</div></a>
+      <a class="navBox" href="friendlist.html"><div class="navItem">Freundesliste</div></a>
+    </div>
+
+    <div id="gridMap">
+      <div></div>
+      <div id="googleMap">
+        <iframe
+          id="mapIframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13524.156812879364!2d133.7751366022174!3d-25.274398741981396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2cc0bf3b780966a3%3A0xf5dd4fc65b05e9f2!2sSydney%2C%20New%20South%20Wales!5e0!3m2!1sde!2sau!4v1709403819195!5m2!1sde!2sau"
+          width="400"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        >
+        </iframe>
+        <script src="../js/maps.js"></script>
+        <script>
+          getLocation();
+        </script>
+      </div>
+      <div id="resultMapRight">
+        <div id="resultMap">Checkpoint Found: / <br />Abweichung: /</div>
+      </div>
+    </div>
+
+    <div id="main">
+      <div class="contentarea">
+        <div class="camera">
+          <div>
+            <video id="video" style="padding: -10px">
+              Video stream not available.
+            </video>
+          </div>
+          <div><button id="startbutton">Take photo</button></div>
         </div>
-    </body>
+      </div>
+      <canvas id="canvas"></canvas>
+    </div>
+
+    <hr />
+
+    <footer>
+      <p>© 2023 HTL Leonding. Alle Rechte vorbehalten.</p>
+      <address>
+        <div>
+          UrwälderEU<br />
+          meine.imaginaere@adresse.com<br />
+          Limesstraße 12/14, 4060 Leonding
+        </div>
+      </address>
+      <div>
+        Telefon: +43 6602664130<br />
+        Scrum Master:
+        <a href="mailto:laurin.poelderl@gmail.com">laurin.poelderl@gmail.com</a
+        ><br />
+        Folge uns auf
+        <a href="[Link zu deinen sozialen Netzwerken]">Soziale Netzwerke</a
+        ><br />
+        Besuche unseren <a href="[Link zu deinem Blog]">Blog</a><br />
+        <a href="./dsgvo.html" target="_blank">Datenschutzerklärung</a>
+      </div>
+    </footer>
+  </body>
 </html>

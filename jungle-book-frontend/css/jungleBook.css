@@ -28,15 +28,42 @@ body {
     color: white;
 }
 
-#header {
-    display: grid;
-    grid-template-columns: 20% auto 20%;
-    height: 25vh;
-    width: 96%;
+#nav {
     background-color: #249726;
-    margin: 2%;
+    opacity: 80%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    height: 5vh;
+}
+
+.navBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#active {
+    background-color: #175118;
+    text-decoration-color: #caddcb;
+}
+
+.navItem {
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+.navBox:hover {
+    background-color: #175118;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    height: 25vh;
+    width: 100%; 
+    background-color: #249726;
     opacity: 0.7;
-    border: 2px solid rgb(68, 65, 65);
     box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
 }
 
@@ -68,7 +95,7 @@ body {
     text-align: center;
 }
 
-#footer {
+footer {
     text-align: center;
 }
 
@@ -80,7 +107,7 @@ a:link:visited {
     color: white;
 }
 
-#footer {
+footer {
     text-align: center;
     width: 20%;
     padding: 1vw;
@@ -112,8 +139,8 @@ a:link:visited {
     padding: 2%;
 }
 
-#footer, #resultMap {
-    background-color: #1BA31E;
+footer, #resultMap {
+    background-color: #15883e;
     margin: auto;
     border-radius: 1em;
     opacity: .9;
@@ -149,23 +176,34 @@ a:link:visited {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
+hr {
+    margin: 4% 0%;
+}
 
 /*smartphone design: 414 x 896*/
 
 
 @media screen and (max-width: 900px) {
-    #header {
+    header {
         display: grid;
         grid-template-columns: auto auto auto;
         height: 10vh;
 
     }
     
+    .navItem {
+        font-size: 1.5em;
+    }
+
     #headerMid {
         font-size: 1.5em;
     }
     
-    #footer {
+    footer {
         width: 90%;
         padding: 1vw;
     }

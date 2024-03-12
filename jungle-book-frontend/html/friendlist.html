@@ -5,9 +5,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/comment.css" />
+    <link rel="stylesheet" href="../css/friendlist.css" />
     <link rel="stylesheet" href="../css/jungleBook.css" />
-    <title>Comment</title>
+    <title>Friendlist</title>
   </head>
 
   <body>
@@ -17,48 +17,26 @@
       </div>
 
       <div id="headerMidComment">
-        <h1>Kommentare</h1>
+        <h1>Freudesliste</h1>
       </div>
     </header>
 
     <div id="nav">
       <a class="navBox" href="home.html"><div class="navItem">Home</div></a>
-      <a class="navBox" id="active" href="comment.html"><div class="navItem">Kommentare</div></a>
-      <a class="navBox" href="friendlist.html"><div class="navItem">Freundesliste</div></a>
+      <a class="navBox" href="comment.html"><div class="navItem">Kommentare</div></a>
+      <a class="navBox" id="active" href="friendlist.html"><div class="navItem">Freundesliste</div></a>
     </div>
 
-    <div class="comments-field">
-      <div>
-        <h2 class="commentsection-headline">Kommentare</h2>
-        <div class="writtenComments">
-          <p class="userName">Benutzer123:</p>
-          <p>Tolle Fotos! Ich liebe diese Seite.</p>
-        </div>
-
-        <!-- Kommentare mit der function loadComments aus der Datennbank laden und eifügen -> NICHT HARDCODEN!!! -->
-
-        <div>
-          <h2 class="commentsection-headline" id="makeComment">Kommentar hinterlassen</h2>
-          <div class="makingComment">
-            <form>
-              <div class="form-design">
-                <label for="author">Name:</label>
-                <input type="text" name="author" required />
-              </div>
-              
-              <div class="form-design">
-                <label for="comment">Kommentar:</label>
-                <textarea name="comment" required></textarea>
-              </div>
-              <div id="buttonDesign">
-                <button type="submit">Kommentar abschicken</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+    <div class="container">
+        <h1>Meine Freundesliste</h1>
+        <ul class="friend-list">
+            <li class="friend">John Doe</li>
+            <li class="friend">Jane Smith</li>
+            <li class="friend">Michael Johnson</li>
+            <li class="friend">Emily Brown</li>
+            <li class="friend">David Lee</li>
+        </ul>
     </div>
-
 
     <hr />
 
