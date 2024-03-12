@@ -45,4 +45,4 @@ nb-configuration.xml
 
 
 # Log file
-*.log
+*.log.*

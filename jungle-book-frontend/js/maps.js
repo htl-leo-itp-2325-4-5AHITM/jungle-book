@@ -117,5 +117,6 @@ async function haversine(lat1, lon1, lat2, lon2) {
 
   const distance = R * c; // Entfernung in Kilometern
 
+
   return distance * 1000; // Entfernung in Metern
 }
