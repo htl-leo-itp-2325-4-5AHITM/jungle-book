@@ -6,7 +6,6 @@ let iframe = "";
 let isInRange = false;
 const konstanteAbweichung = 50;
 
-
 function getLocationAwait() {
     return new Promise((resolve, reject) => {
         let iframe = document.getElementById('mapIframe');
