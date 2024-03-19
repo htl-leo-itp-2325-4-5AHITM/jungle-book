@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - 43-static-website-hugo
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
