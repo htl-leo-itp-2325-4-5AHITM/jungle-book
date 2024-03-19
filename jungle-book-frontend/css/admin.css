@@ -1,0 +1,63 @@
+#burgerMenu {
+    width: 2.5%;
+    margin: 2%;
+}
+.checkpoint-box {
+    display: flex;
+    flex-direction: row;
+    background-color: #1b711c;
+    width: 45%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    margin-bottom: 2%;
+}
+
+.admin-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2%;
+    height: 45%;
+}
+
+.name {
+    margin-right: auto;
+    margin-left: 4%;
+}
+
+.edit {
+    padding: 2%;
+    width: 30%;
+}
+
+.delete {
+    padding: 2%;
+    width: 30%;
+}
+
+.actions {
+    display: inline;
+}
+
+#button {
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    background-color: #1b711c;
+    width: 16%;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 1% 2%;
+    margin-left: 25%;
+}
+
+
+@media screen and (max-width: 900px) {
+    #headerMidComment {
+        font-size: 1em;
+    }
+}
+
