@@ -36,11 +36,13 @@
             <a><img class="delete" src="../pics/delete.svg"></a>
         </div>
     </div>
-    <div onclick="toggleSubItems()" id="button">Neuer Checkpoint</div>
-    <ul id="subItems" class="sub-items">
-        <li>Unterpunkt 1</li>
-        <li>Unterpunkt 2</li>
-    </ul>
+    <div onclick="toggleSubItems()" id="button">
+        <p>Neuer Checkpoint</p>
+        <a id="plusa"><img class="plus" src="../pics/plus.svg" /></a>
+        <p>|</p>
+        <a id="downloada"><img class="download" src="../pics/download.svg"></a>
+    </div>
+
 </div>
 
 
@@ -78,15 +80,6 @@
     function closeNav() {
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
-    }
-
-    function toggleSubItems() {
-        var subItems = document.getElementById("subItems");
-        if (subItems.style.display === "none") {
-            subItems.style.display = "block"; 
-        } else {
-            subItems.style.display = "none";
-        }
     }
 </script>
 

@@ -120,8 +120,13 @@
         margin-right: auto;
     }
 
-    .sub-items {
-        display: none;
+    .plus {
+        width: 2rem;
+        right: -10px;
+    }
+
+    .download {
+        width: 2rem;
     }
 
 @media screen and (max-width: 900px) {
