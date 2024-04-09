@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/details.css" />
     <link rel="stylesheet" href="../css/jungleBook.css" />
-    <title>Admin</title>
+    <title>Details</title>
 </head>
 
 <body>
@@ -28,39 +28,27 @@
     
 <div class="admin-body">
 
-    <!--Todo: for(all checkpoints)-->
+    <!--Todo: for(the one klicked checkpoint)-->
     <div class="checkpoint-box">
-        <p class="name">Name 1</p>
-        <div class="actions">
-            <a><img class="edit" src="../pics/edit.svg" onclick="showContent('content1')"></a>
-            <a><img class="delete" src="../pics/delete.svg"></a>
-        </div>
+        <p class="fields">Name</p>
     </div>
-    
     <div class="checkpoint-box">
-        <p class="name">Name 2</p>
-        <div class="actions">
-            <a><img class="edit" src="../pics/edit.svg" onclick="showContent('content2')"></a>
-            <a><img class="delete" src="../pics/delete.svg"></a>
-        </div>
+        <p class="fields">Längengrad</p>
     </div>
-
+    <div class="checkpoint-box">
+        <p class="fields">Breitengrad</p>
+    </div>
+    <div class="checkpoint-box">
+        <p class="fields">Kommentar</p>
+    </div>
+    <div class="checkpoint-box">
+        <p class="fields">Notiz</p>
+    </div>
     <div onclick="toggleSubItems()" id="button">
-        <p>Neuer Checkpoint</p>
-        <a id="plusa"><img class="plus" src="../pics/plus.svg" /></a>
-        <p>|</p>
-        <a id="downloada"><img class="download" src="../pics/download.svg"></a>
+        <p>Senden</p>
     </div>
-
 </div>
 
-<!--Todo: Show get content by id-->
-<script>
-    function showContent(contentId) {
-        let content = document.getElementById(contentId);
-        console.log(content.textContent);
-    }
-</script>
 
 
 <hr />
