@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import java.io.File;
 
 @Entity
+@NamedQuery(name=Journal.QUERY_GET_ALL, query = "SELECT j from Journal j")
 public class Journal {
+    public static final String QUERY_GET_ALL = "Journal.getAll";
     @GeneratedValue
     @Id
     private Long id;

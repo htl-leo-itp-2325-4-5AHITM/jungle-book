@@ -1,5 +1,6 @@
 package at.htlleonding.junglebook.boundary;
 
+import at.htlleonding.junglebook.model.Journal;
 import at.htlleonding.junglebook.repository.JournalRepository;
 import io.quarkus.runtime.Quarkus;
 import jakarta.inject.Inject;
@@ -11,6 +12,7 @@ import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 import jakarta.ws.rs.core.Response;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import java.io.IOException;
+import java.util.List;
 
 @Path("/api/journal")
 public class JournalResource {
@@ -28,5 +30,11 @@ public class JournalResource {
                 .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
                 .header("content-disposition", "attachment; filename = new.pdf")
                 .build();
+    }
+    @GET
+    @Path("/list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Journal> getAllJournals() {
+        return journalRepository.getAllJournals();
     }
 }

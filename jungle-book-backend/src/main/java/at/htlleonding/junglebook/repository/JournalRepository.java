@@ -1,5 +1,6 @@
 package at.htlleonding.junglebook.repository;
 
+import at.htlleonding.junglebook.model.Journal;
 import io.quarkus.runtime.Quarkus;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
@@ -17,6 +18,7 @@ import org.jboss.logging.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 @ApplicationScoped
 public class JournalRepository {
@@ -50,5 +52,9 @@ public class JournalRepository {
         LOG.info("page saved and closed");
 
         return baos.toByteArray();
+    }
+
+    public List<Journal> getAllJournals() {
+        return entityManager.createNamedQuery(Journal.QUERY_GET_ALL, Journal.class).getResultList();
     }
 }
