@@ -24,7 +24,7 @@ public class Journal {
     @JoinColumn(name="checkpoint_id", referencedColumnName = "id")
     private Checkpoint checkpoint;
 
-    private File image;
+    private String image;
 
     //<editor-fold desc="//getter and setter">
     public Long getId() {
