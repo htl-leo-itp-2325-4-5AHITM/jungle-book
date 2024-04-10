@@ -44,9 +44,14 @@
     <div class="checkpoint-box">
         <p class="fields">Notiz</p>
     </div>
-    <div onclick="toggleSubItems()" id="button">
-        <p>Senden</p>
-    </div>
+    <a href="#" id="button" onclick="startLoadingAndRedirect()">
+        <div>
+            <p>Speichern</p>
+        </div>
+    </a>
+    <div id="loading-bar" style="display: none;"></div>
+
+
 </div>
 
 
@@ -85,6 +90,20 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
     }
+
+    function startLoadingAndRedirect() {
+        var button = document.getElementById('button');
+        var loadingBar = document.getElementById('loading-bar');
+
+        loadingBar.style.display = 'block';
+        button.style.display = 'none';
+
+        setTimeout(function() {
+            window.location.href = 'admin.html';
+
+        }, 400);
+    }
+
 </script>
 
 </body>

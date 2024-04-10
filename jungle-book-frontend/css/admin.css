@@ -52,6 +52,8 @@
     border-radius: 15px;
     padding: 1% 2%;
     margin-left: 25%;
+    font-weight: bold;
+    border: solid 2px black;
 }
 
 #sidebar {

@@ -32,7 +32,7 @@
     <div class="checkpoint-box">
         <p class="name">Name 1</p>
         <div class="actions">
-            <a><img class="edit" src="../pics/edit.svg" onclick="showContent('content1')"></a>
+            <a href="details.html"><img class="edit" src="../pics/edit.svg" onclick="editCheckpoint('content1')"></a>
             <a><img class="delete" src="../pics/delete.svg"></a>
         </div>
     </div>
@@ -40,29 +40,30 @@
     <div class="checkpoint-box">
         <p class="name">Name 2</p>
         <div class="actions">
-            <a><img class="edit" src="../pics/edit.svg" onclick="showContent('content2')"></a>
+            <a href="details.html"><img class="edit" src="../pics/edit.svg" onclick="editCheckpoint('content2')"></a>
             <a><img class="delete" src="../pics/delete.svg"></a>
         </div>
     </div>
 
     <div onclick="toggleSubItems()" id="button">
         <p>Neuer Checkpoint</p>
-        <a id="plusa"><img class="plus" src="../pics/plus.svg" /></a>
+        <a href="details.html" id="plusa"><img class="plus" src="../pics/plus.svg" /></a>
         <p>|</p>
+        <!-- TODO: Upload of a csv file-->
         <a id="downloada"><img class="download" src="../pics/download.svg"></a>
+        <input type="file" id="fileInput" style="display: none">
     </div>
 
 </div>
 
 <!--Todo: Show get content by id-->
 <script>
-    function showContent(contentId) {
+    function editCheckpoint(contentId) {
         let content = document.getElementById(contentId);
         console.log(content.textContent);
     }
 </script>
-
-
+    
 <hr />
 
 <footer>
@@ -97,6 +98,22 @@
         document.getElementById("sidebar").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
     }
+
+    document.getElementById('downloada').addEventListener('click', function() {
+        document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+
+        if (file.name.endsWith('.csv')) {
+            alert('Die ausgewählte Datei ist: ' + file.name);
+        } else {
+            alert('Bitte wählen Sie eine CSV-Datei aus.');
+        }
+    });
+
 </script>
 
 </body>

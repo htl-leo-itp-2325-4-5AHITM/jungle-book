@@ -37,8 +37,40 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 15px;
-    padding: 1% 2%;
-    margin-left: 25%;
+    padding: 0.2% 1.2%;
+    margin-left: 26%;
+    font-weight: bold;
+    border: solid 2px black;
+}
+
+#button:hover {
+    background-color: #1c9b1d;
+    border: solid 2px white;
+    cursor: pointer;
+}
+
+#loading-bar {
+    border-radius: 15px;
+    padding: 0.2% 1.2%;
+    margin-left: 53%;
+    margin-top: 25%;
+    display: flex;
+    height: 10px;
+    background-color: #07c41f;
+    position: absolute;
+    z-index: 9999;
+    animation: loadingAnimation 1900ms linear;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        left: 0;
+        width: 0;
+    }
+    16% {
+        left: 0;
+        width: 16%;
+    }
 }
 
 #sidebar {
