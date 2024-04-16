@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/admin.css" />
     <link rel="stylesheet" href="../css/jungleBook.css" />
+    <script src="../js/admin.js" defer></script>
     <title>Admin</title>
 </head>
 
@@ -87,34 +88,5 @@
         <a href="./dsgvo.html" target="_blank">Datenschutzerklärung</a>
     </div>
 </footer>
-
-<script>
-    function openNav() {
-        document.getElementById("sidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("sidebar").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
-    }
-
-    document.getElementById('downloada').addEventListener('click', function() {
-        document.getElementById('fileInput').click();
-    });
-
-    document.getElementById('fileInput').addEventListener('change', function(e) {
-        var file = e.target.files[0];
-        if (!file) return;
-
-        if (file.name.endsWith('.csv')) {
-            alert('Die ausgewählte Datei ist: ' + file.name);
-        } else {
-            alert('Bitte wählen Sie eine CSV-Datei aus.');
-        }
-    });
-
-</script>
-
 </body>
 </html>
