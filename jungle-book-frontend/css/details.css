@@ -73,6 +73,21 @@
     }
 }
 
+input {
+    background-color: #1b711c;
+    border: white solid 1px;
+    border-radius: 10px;
+    color: white;
+    padding: 0.9%;
+    margin-right: 5%;
+    width: 60%;
+}
+
+input:hover {
+    background-color: #67ab69;
+    border: black solid 1px;
+}
+
 #sidebar {
         height: 100%;
         width: 0;
