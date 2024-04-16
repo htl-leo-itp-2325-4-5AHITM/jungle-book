@@ -1,0 +1,623 @@
+[33mcommit 1042dc66ab961dfd8cfde3a516700be1f76dc7ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32madminPage[m[33m)[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Apr 16 14:15:54 2024 +0200
+
+    test
+
+[33mcommit 98de01cb2fa0b9857bc3fe60af4c21e113aa0580[m[33m ([m[1;31morigin/adminPage[m[33m)[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Apr 10 12:32:54 2024 +0200
+
+    plus and download with animations
+
+[33mcommit ac60d39160c2ed1b5cd942351683317fa0ccd5c9[m
+Merge: b8a3616 ae3d6fa
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Apr 9 09:11:52 2024 +0200
+
+    Merge branch 'main' into adminPage
+
+[33mcommit b8a3616c8a5761793beb3c6637252fb29ecd0680[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Apr 9 08:55:40 2024 +0200
+
+    details page and links
+
+[33mcommit ae3d6fa7dc7479fd9f8d7b846d1b560805c8640b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: be0114f 0db8123
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Thu Apr 4 14:59:32 2024 +0200
+
+    Merge pull request #46 from htl-leo-itp-2325-4-5AHITM/42-checkpoint-management
+    
+    42 checkpoint management
+
+[33mcommit 0db81231aa2d8408e84c48e4c3fd4ab32599b73c[m[33m ([m[1;32m42-checkpoint-management[m[33m)[m
+Merge: 57d511d be0114f
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Thu Apr 4 14:56:11 2024 +0200
+
+    Merged main branch
+
+[33mcommit 57d511d7d4f16e1fb6879f69ac3c8ddafc104ea8[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Thu Apr 4 14:53:25 2024 +0200
+
+    Added endpoints for jounals and changed database to remote/production
+
+[33mcommit 53df805b4861a7dd3a187a976f63345214c29de7[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Mar 19 09:24:00 2024 +0100
+
+    ready without details
+
+[33mcommit da2ced667b72a350323456560a47120c16e3ab92[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Mar 19 08:49:54 2024 +0100
+
+    nav bar
+
+[33mcommit 808b9af9b5412c1329a10987f2b1c87d819dc7fd[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Mar 19 08:14:31 2024 +0100
+
+    starter Design
+
+[33mcommit be0114f7063f6564cb8e8728eb6f224c879e5809[m
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Fri Mar 15 09:14:47 2024 +0100
+
+    Update README.adoc
+
+[33mcommit 6a30288aabb8e38c92b6bb64a505f8aa8c37160f[m
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Fri Mar 15 09:14:32 2024 +0100
+
+    Update README.adoc
+
+[33mcommit df36a0511ccd98b4fe0dae22b92af5db95915868[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Fri Mar 15 08:53:03 2024 +0100
+
+    Update README.adoc
+
+[33mcommit edee892e86de3812325c118dfa4c1cf6d302cba2[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Fri Mar 15 08:50:59 2024 +0100
+
+    Update README.adoc
+
+[33mcommit da805cd50efe08cb37bc99803e1be1398d4ac655[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Fri Mar 15 08:50:48 2024 +0100
+
+    Update README.adoc
+
+[33mcommit 638d66d8c146d0ae8c7b74c649748191f87c6602[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Wed Mar 13 12:34:20 2024 +0100
+
+    Implemented backend endpoints for the checkpoint management and adjusted some backend configs
+
+[33mcommit 9a9d93a0e8bdb5b643038d0c3d6650c0c7fabf74[m
+Merge: e9d76bd f590532
+Author: Alibauer <90773103+Alibauer@users.noreply.github.com>
+Date:   Tue Mar 12 08:58:07 2024 +0100
+
+    Merge pull request #45 from htl-leo-itp-2325-4-5AHITM/26-stemp-photobook
+    
+    26 stemp photobook
+
+[33mcommit f59053279d1bd65cf2396c8d9ac9c82f888da909[m[33m ([m[1;31morigin/26-stemp-photobook[m[33m)[m
+Merge: 2eab1d4 e9d76bd
+Author: Alibauer <90773103+Alibauer@users.noreply.github.com>
+Date:   Tue Mar 12 08:57:50 2024 +0100
+
+    Merge branch 'main' into 26-stemp-photobook
+
+[33mcommit 2eab1d4eb28c8d794d0c4299b2bad0d32db8b23c[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Tue Mar 12 08:55:34 2024 +0100
+
+    Update maps.js
+
+[33mcommit defe20447e0082c8f6846cf52f884bfe03c1ad8a[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Tue Mar 12 08:54:49 2024 +0100
+
+    Update maps.js
+
+[33mcommit e1ec8ee94758ba3a69905a79db2ca95192e0adf7[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Tue Mar 12 08:53:29 2024 +0100
+
+    Update maps.js
+
+[33mcommit 8190900f365746b9283339a07e95e87f06dbca7b[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Mon Mar 11 20:43:39 2024 +0100
+
+    picture position on pdf
+
+[33mcommit 7c6817ac7f886ec2fdd7380f9b36ff1062ed6202[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Wed Mar 6 12:17:08 2024 +0100
+
+    Changed backend to add the image hard coded to a specific position in the first page of the template. TODO: fix the coordinates
+
+[33mcommit e9d76bd7a16a866d4b21afde22546c15d48ebf1f[m
+Merge: fb45ba6 05c47de
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Wed Mar 6 11:38:09 2024 +0100
+
+    Merge pull request #41 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    fixed frontend
+
+[33mcommit 05c47de0a9163053805bb773260beab664ddd509[m[33m ([m[1;31morigin/checkPhotoLocation[m[33m)[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Mar 6 11:35:28 2024 +0100
+
+    fixed frontend
+
+[33mcommit fb45ba68df8bb9feb6d6e548c1fb3aeb358682f9[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 10:38:00 2024 +0100
+
+    hr add
+
+[33mcommit 4ca19a0c04ffca319cee9a525173c64c12e52fe8[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 10:34:15 2024 +0100
+
+    change nav margin
+
+[33mcommit 360106bfd932856a4e36bc3761a5632e5d775fae[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 10:31:10 2024 +0100
+
+    cover header
+
+[33mcommit 6f30b9e1ab73478d3ef3c72b5b37da783e0bb743[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 09:33:01 2024 +0100
+
+    clean up design
+
+[33mcommit f3d08c769b8c8e5eaf6bf93b79c6c60f5b44b1f2[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 09:25:22 2024 +0100
+
+    clean up
+
+[33mcommit a5be58cc72ea0d8a44668dc1fe62ddff76dc982c[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 09:17:30 2024 +0100
+
+    fix navbar and color
+
+[33mcommit 374ca3517a86aa24ac66ac728ecfc3ad83aeb1fc[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 09:09:55 2024 +0100
+
+    fix navbar
+
+[33mcommit 2f08f6e2f9cefa7e385e7b8ac23454cfdccfff96[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 09:02:42 2024 +0100
+
+    Add static friends
+
+[33mcommit 30e7d1d76111fb191b3a4b8b26e3d2fc84ac3447[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 08:56:03 2024 +0100
+
+    fix footer
+
+[33mcommit b0656a171f301d0ee869bfeb0f4ac6631c70ef23[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Mar 6 08:53:59 2024 +0100
+
+    add Friendlist
+
+[33mcommit cff186fb2dd4c94d2cfe0e40aa043963046e0c2d[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Tue Mar 5 11:45:46 2024 +0100
+
+    footer and navigation fixed
+
+[33mcommit 9ccabae13f22b67d29daf5c77f66f539e6453095[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Tue Mar 5 11:40:49 2024 +0100
+
+    navbar done
+
+[33mcommit c27f9dbde0d69578849b7929807bb5582ff7ca52[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Tue Mar 5 09:44:43 2024 +0100
+
+    designed comment website
+
+[33mcommit 26b1a53abcd1def2ad37e132cf12543a140c4e80[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Tue Mar 5 08:29:32 2024 +0100
+
+    tidied up comment site
+
+[33mcommit 7344042df126cf4c59d6ffaad9990e9e4f0e804a[m
+Merge: 73d09d4 27e5a40
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Wed Feb 28 12:15:53 2024 +0100
+
+    Merge pull request #39 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    minor html changes
+
+[33mcommit 27e5a40640f9dff687b2850ff7a406371b59ce58[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Feb 28 12:15:12 2024 +0100
+
+    minor html changes
+
+[33mcommit a02ed03cf80501a107351ef3530582ca7e5330ef[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Wed Feb 28 11:39:49 2024 +0100
+
+    Removed logs and adjusted gitignore
+
+[33mcommit 73d09d43865113b3f45c1350fc4f84b8101e7e8d[m
+Merge: 7af1ea5 a848760
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Wed Feb 28 11:39:06 2024 +0100
+
+    Merge pull request #38 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    Minor Changes
+
+[33mcommit a84876085f89c95f2e7c0210f653e12ab8ebcc50[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Feb 28 11:37:24 2024 +0100
+
+    English variables
+
+[33mcommit c263da5abcebe9e5499634a4c0b5603475f72db0[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Wed Feb 28 11:33:39 2024 +0100
+
+    Not working stamper
+
+[33mcommit 1b8aa26c12b7a910b924004e2da0693f4d8942d3[m
+Merge: bef612f 7af1ea5
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Wed Feb 28 11:33:35 2024 +0100
+
+    Not working stamper
+
+[33mcommit 77f1ef9dc3cd9ac2064261e13f0efd6178aefb47[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Feb 28 11:33:07 2024 +0100
+
+    code formatierungen
+
+[33mcommit 7af1ea56d39f3cb1fe4bbe894a4ae998835340f3[m
+Merge: 5558d7a 9059152
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Wed Feb 28 11:27:04 2024 +0100
+
+    Merge pull request #37 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    minor changes
+
+[33mcommit 5558d7ad29553e3732426a27924527a35c979926[m
+Merge: a0b28cd 746ead5
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Wed Feb 28 11:26:29 2024 +0100
+
+    Merge pull request #36 from htl-leo-itp-2325-4-5AHITM/24-photobook-design
+    
+    24 photobook design
+
+[33mcommit 9059152ae53fdbef2511d94133b255629afa9248[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Feb 28 11:26:25 2024 +0100
+
+    minor changes
+
+[33mcommit 746ead5a74207b3ad2fddf3392762f2975cde55c[m[33m ([m[1;31morigin/24-photobook-design[m[33m)[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Wed Feb 28 11:25:51 2024 +0100
+
+    Update JournalRepository.java
+
+[33mcommit fcc14ade115bb17fa954ffd5950e4ee1f1ac29bf[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Wed Feb 28 11:25:06 2024 +0100
+
+    Delete jungle-book-backend/src/main/resources/config.properties
+
+[33mcommit bff5dee23aee00b6110f174e1f1b3ce7cf60d22b[m
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Wed Feb 28 11:24:45 2024 +0100
+
+    Delete Namensnennung.txt
+
+[33mcommit 45ba3e6f01ef8afd999f8ed664374ad9549dd05e[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Feb 28 10:23:42 2024 +0100
+
+    clean structure
+
+[33mcommit d2100f8bcf96802210ccafc2827c19efab80ac39[m
+Merge: 6771ce8 a0b28cd
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Feb 28 10:09:22 2024 +0100
+
+    Merge branch 'main' into 24-photobook-design
+
+[33mcommit 6771ce85ad17b74c5a82936b614f998dc555f52a[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Feb 27 08:42:06 2024 +0100
+
+    change text color to white
+
+[33mcommit a0b28cd36a6d2d3327313e9ef95a7afa56b68513[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Feb 27 08:25:35 2024 +0100
+
+    fix frontend
+
+[33mcommit 91de43204e06c5996214c68e1f9539d25f89a33a[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Sun Feb 25 15:01:55 2024 +0100
+
+    final
+
+[33mcommit 5c247b45edb415265826a33383a6f1a859034bfe[m
+Author: Leonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Feb 6 09:38:33 2024 +0100
+
+    Some designed pdf stuff
+
+[33mcommit fc37b7efb3bfb241d7348581faa81d938d23e61d[m
+Merge: e95febb 38e5c43
+Author: LaurinPoelderl <90772983+LaurinPoelderl@users.noreply.github.com>
+Date:   Tue Feb 6 09:04:45 2024 +0100
+
+    Merge pull request #32 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    responsive design for smartphone
+
+[33mcommit 38e5c43052ce537205d8c371d38680ec5ae9abde[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Feb 6 09:03:59 2024 +0100
+
+    responsive design for smartphone
+
+[33mcommit e95febb4ac19e622ccc1df0358069a542c083c91[m
+Merge: caaab71 cf275ee
+Author: Alibauer <90773103+Alibauer@users.noreply.github.com>
+Date:   Wed Jan 31 12:46:34 2024 +0100
+
+    Merge pull request #31 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    photo is only taken if in range
+
+[33mcommit cf275ee6a2a86ffa3e876610f559789ffe3fa56d[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Jan 31 12:42:35 2024 +0100
+
+    photo is only taken if in range
+
+[33mcommit bef612f6a8310be511f59f307c1ba1ed0735693f[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Tue Jan 30 10:52:55 2024 +0100
+
+    Adjusted JPA Persistance
+
+[33mcommit caaab7129f7784d91408a4a876513c9770c4b186[m
+Merge: 48e3e25 5952ee3
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Tue Jan 30 09:41:47 2024 +0100
+
+    Merge pull request #29 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    minor changes
+
+[33mcommit 5952ee3c74ea030eb8fd3de831e56d3c3c69451d[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Jan 30 09:35:02 2024 +0100
+
+    minor changes
+
+[33mcommit 48e3e257685db4fff46fb3808eddfc172728583d[m
+Merge: 2f08bd5 87241da
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Tue Jan 30 09:05:39 2024 +0100
+
+    Merge pull request #28 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    koordinatenvergleich im frontend
+
+[33mcommit 87241da63528e00573f83dc75dde36e3883cbb6a[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Jan 30 08:54:11 2024 +0100
+
+    koordinatenvergleich im frontend
+
+[33mcommit 2f08bd5e3b975a8006bded0050e49ae447bf6a95[m
+Merge: 19c3604 a251efd
+Author: Mathias Schablinger <90772995+MSchablinger@users.noreply.github.com>
+Date:   Wed Jan 24 11:42:51 2024 +0100
+
+    Merge pull request #22 from htl-leo-itp-2325-4-5AHITM/checkPhotoLocation
+    
+    Check photo location
+
+[33mcommit a251efd918222b66f8a4f42cc6e47ec2d91d3fb1[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Jan 24 11:10:10 2024 +0100
+
+    logs aktualisiert
+
+[33mcommit fe4e59ba12362f5fe7450cbee5d63a17af564b40[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Jan 23 08:45:04 2024 +0100
+
+    compare coordinates works
+
+[33mcommit 09055a0f7cc049172897e241bc04d253a3e7209d[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Wed Jan 10 12:26:32 2024 +0100
+
+    location tracking
+
+[33mcommit 19c3604f8c9fd0da072e4f04defda19774562a70[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Dec 19 08:08:55 2023 +0100
+
+    Correct presentation
+
+[33mcommit 1c006596abbbb4ec1bd1d189062f22820d8be3d5[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Mon Dec 18 18:32:19 2023 +0100
+
+    finished presentation
+
+[33mcommit 851eb3e685942c6be0092b8efba33f728ba37b05[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Mon Dec 18 17:30:27 2023 +0100
+
+    presentation edited
+
+[33mcommit 7d30e6e75e3a3c2e74f840a6725fb729938819f4[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Mon Dec 18 11:20:35 2023 +0100
+
+    location abfrage
+
+[33mcommit e3c20b76a6532d566a0fddf522d3f4897d381b2f[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Mon Dec 18 10:29:57 2023 +0100
+
+    css, dsgvo
+
+[33mcommit 4d3a24fa662dc1d2272aaa95fc99e25af2c42882[m
+Merge: 68e301f 906167f
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Mon Dec 18 09:51:07 2023 +0100
+
+    Merge branch 'main' of https://github.com/htl-leo-itp-2325-4-5AHITM/jungle-book
+
+[33mcommit 68e301f37b05ea69fb0e736590b997b96d4934bd[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Mon Dec 18 09:50:43 2023 +0100
+
+    css
+
+[33mcommit 906167f2864bcc2f683cb2ba5f23ede4f99429ac[m
+Author: Alibauer <alini.baui@gmail.com>
+Date:   Fri Dec 15 10:29:12 2023 +0100
+
+    start reveal js
+
+[33mcommit 9de16a834236051682c73c37fed913296158ff11[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Fri Dec 15 09:37:45 2023 +0100
+
+    fixed html & css, new style
+
+[33mcommit a8f6b6ac2c7fd9c0abac08b962be50662cecd21f[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Fri Dec 15 08:30:08 2023 +0100
+
+    changed folder name for presentation in github
+
+[33mcommit 0555385cb2024ba5f236c30a676c4bd76e64754b[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Fri Dec 15 08:28:20 2023 +0100
+
+    Added demo/template presentation in revealjs
+
+[33mcommit 66bd612644ce81c69afbfd82a7613349b6e8c8ca[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Dec 6 11:01:04 2023 +0100
+
+    chenge the presentation design
+
+[33mcommit eaddeea8c63fd8434d219bbf5532b2e0a11c924c[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Dec 5 09:31:31 2023 +0100
+
+    getter, setter, code cleanup, logs
+
+[33mcommit 91d72e7bb1038bd15e42a41efb25781d5965cf88[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Tue Dec 5 09:31:16 2023 +0100
+
+    getter, setter, code cleanup, logs
+
+[33mcommit 0c9cbe4118b67f0160a78ca68e6d08cff652e0de[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Fri Dec 1 11:30:42 2023 +0100
+
+    Adding image to pdf works; todo: formating image position
+
+[33mcommit 92f263fe8c7e8263f6784da0ce5122a7180e2e13[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Fri Dec 1 11:18:31 2023 +0100
+
+    Fixed corrupt pdf; bug: pdf is empty
+
+[33mcommit aee9d602a547cd47ad806fd2e91ecb12202e0eda[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Fri Dec 1 10:12:54 2023 +0100
+
+    Fixed backend; bug: processing response in frontend
+
+[33mcommit 36c12500ab664d5a8ca8dc0e8723c329d2c99a06[m
+Author: LaurinPoelderl <laurin.poelderl@gmail.com>
+Date:   Fri Dec 1 09:43:42 2023 +0100
+
+    Implemented Logger
+
+[33mcommit 8449f294327c6bd232cba3448f6f3bf3687efa66[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Nov 29 12:09:26 2023 +0100
+
+    navbar and design details
+
+[33mcommit 02160c00e3db800f386def85827799abbb0db2fe[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Wed Nov 29 11:50:35 2023 +0100
+
+    extract menu points
+
+[33mcommit 1702f55f438d3423e89ce56bbe6fbfc87662301e[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Tue Nov 28 13:35:51 2023 +0100
+
+    Prototype for taking image and downloading pdf Bug: pdf is corrupt
+
+[33mcommit ab0f28b2fe401a04a4872a79ca64f950c38c01aa[m
+Author: AdelwoehrerLeonie <90773078+AdelwoehrerLeonie@users.noreply.github.com>
+Date:   Tue Nov 28 09:47:10 2023 +0100
+
+    Update README.adoc
+
+[33mcommit bd4139252273a2426138b53af09129915e6f6ce8[m
+Author: mschablinger <m.schablinger@students.htl-leonding.ac.at>
+Date:   Tue Nov 28 09:45:51 2023 +0100
+
+    Setup project enviroment
+
+[33mcommit 26b68136a720cd44f1f28d0a41c4d13e1d5b6d39[m
+Author: AdelwoehrerLeonie <leonie.adelwoehrer@gmail.com>
+Date:   Tue Nov 28 09:41:40 2023 +0100
+
+    implement basic project
+
+[33mcommit 37131fa21d8cfa1ce2038b52edba761dfb9a5e56[m
+Author: OStR. Dipl.-Ing. Christian Aberger <aberger.christian@gmail.com>
+Date:   Tue Nov 28 09:18:51 2023 +0100
+
+    Initial commit

@@ -34,7 +34,7 @@
         <p class="name">Name 1</p>
         <div class="actions">
             <a href="details.html"><img class="edit" src="../pics/edit.svg" onclick="editCheckpoint('content1')"></a>
-            <a><img class="delete" src="../pics/delete.svg"></a>
+            <a><img class="delete" src="../pics/delete.svg" onclick="removeCheckpoint('content1')"></a>
         </div>
     </div>
     
@@ -48,7 +48,7 @@
 
     <div onclick="toggleSubItems()" id="button">
         <p>Neuer Checkpoint</p>
-        <a href="details.html" id="plusa"><img class="plus" src="../pics/plus.svg" /></a>
+        <a href="details.html" id="plusa" onclick="addCheckpoint('contet1')"><img class="plus" src="../pics/plus.svg" /></a>
         <p>|</p>
         <!-- TODO: Upload of a csv file-->
         <a id="downloada"><img class="download" src="../pics/download.svg"></a>
@@ -57,14 +57,6 @@
 
 </div>
 
-<!--Todo: Show get content by id-->
-<script>
-    function editCheckpoint(contentId) {
-        let content = document.getElementById(contentId);
-        console.log(content.textContent);
-    }
-</script>
-    
 <hr />
 
 <footer>
