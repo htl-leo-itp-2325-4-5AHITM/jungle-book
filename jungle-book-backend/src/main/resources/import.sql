@@ -23,6 +23,7 @@ create table journal (
     name varchar(255),
     account_id int,
     checkpoint_id int,
+    image varchar(39),
     foreign key (account_id) references account(id),
     foreign key (checkpoint_id) references checkpoint(id)
 );
