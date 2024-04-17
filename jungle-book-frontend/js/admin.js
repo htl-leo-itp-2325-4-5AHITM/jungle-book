@@ -1,28 +1,14 @@
-function openNav() {
-    document.getElementById("sidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+async function getAllCheckpoints() {
+    try {
+        const response = await fetch('/get-checkpoints', {
+            method: 'GET'
+        });
 
-function closeNav() {
-    document.getElementById("sidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
-}
-
-document.getElementById('downloada').addEventListener('click', function () {
-    document.getElementById('fileInput').click();
-});
-
-document.getElementById('fileInput').addEventListener('change', function (e) {
-    var file = e.target.files[0];
-    if (!file) return;
-
-    if (file.name.endsWith('.csv')) {
-        alert('Die ausgewählte Datei ist: ' + file.name);
-    } else {
-        alert('Bitte wählen Sie eine CSV-Datei aus.');
+        return response.json();
+    } catch (error) {
+        console.error('There was a problem fetching the checkpoints:', error);
     }
-});
-
+}
 
 async function removeCheckpoint(id) {
     const response = await fetch(`/remove-checkpoint?id=${id}`, {
