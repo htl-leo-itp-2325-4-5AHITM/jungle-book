@@ -1,24 +1,22 @@
 package at.htlleonding.junglebook.boundary;
 
-import at.htlleonding.junglebook.repository.ImageRepository;
+import io.quarkus.runtime.Quarkus;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.jboss.logging.Logger;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Path("/api/image")
 public class ImageResource {
-    @Inject
-    ImageRepository imageRepository;
 
     @Path("/{imageName}")
-    public File getImage(@PathParam("imageName") String imageName) {
-        try {
-            return new File(getClass().getResource("img/" + imageName).getFile());
-        } catch (Exception e) {
-            throw new NotFoundException();
-        }
+    @Produces("image/png")
+    public File getImage(String imageName) {
+        return new File("/media/" + imageName);
     }
 }
