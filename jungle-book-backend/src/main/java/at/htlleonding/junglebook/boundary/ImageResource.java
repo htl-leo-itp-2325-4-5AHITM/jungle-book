@@ -14,9 +14,10 @@ import java.nio.file.Paths;
 @Path("/api/image")
 public class ImageResource {
 
+    @GET
     @Path("/{imageName}")
     @Produces("image/png")
-    public File getImage(String imageName) {
+    public File getImage(@PathParam("imageName") String imageName) {
         return new File("/media/" + imageName);
     }
 }
