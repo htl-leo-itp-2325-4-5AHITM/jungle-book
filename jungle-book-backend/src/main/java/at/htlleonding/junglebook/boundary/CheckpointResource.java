@@ -19,8 +19,9 @@ public class CheckpointResource {
     public void addCheckpoints(String checkpoints) {
         checkpointRepository.addCheckpoints(checkpoints);
     }
+
     @GET
-    @Path("/remove-checkpoint?id={id}")
+    @Path("/remove-checkpoint/{id}")
     public void removeCheckpoints(@PathParam("id") long id) {
         checkpointRepository.removeCheckpoint(id);
     }
@@ -30,8 +31,6 @@ public class CheckpointResource {
     public void editCheckpoint(String checkpoint) {
         checkpointRepository.editCheckpoint(checkpoint);
     }
-
-
     @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)
