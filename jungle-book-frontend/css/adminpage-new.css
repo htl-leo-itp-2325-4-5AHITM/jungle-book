@@ -24,7 +24,7 @@ input[type="checkbox"] {
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 20px;
-    background: rgb(155, 176, 199);
+    background: #008000;
     box-shadow: 0 5px 15px rgb(204, 204, 204);
     border-radius: 8px;
 }
@@ -36,7 +36,7 @@ input[type="checkbox"] {
 }
 
 .navbar button:hover {
-    background-color: rgb(147, 168, 189);
+    background-color: #109010;
 }
 
 .switchPage {
