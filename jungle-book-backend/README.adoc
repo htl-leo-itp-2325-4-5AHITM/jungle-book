@@ -1,0 +1,45 @@
+= Jungle Book Backend API Guide
+
+This guide provides detailed instructions on how to use the Jungle Book Backend API.
+
+== Database Connection
+
+First you need to set up the database connection. To do this, create s config file in you .ssh folder with the following content:
+
+== Checkpoint API
+
+=== Add Checkpoints
+
+To add checkpoints, make a POST request to `/api/checkpoint/add-checkpoints` with the checkpoints data in the request body.
+
+=== Remove Checkpoint
+
+To remove a checkpoint, make a GET request to `/api/checkpoint/remove-checkpoint?id={id}` where `{id}` is the ID of the checkpoint you want to remove.
+
+=== Edit Checkpoint
+
+To edit a checkpoint, make a POST request to `/api/checkpoint/edit-checkpoint` with the updated checkpoint data in the request body.
+
+=== List All Checkpoints
+
+To get a list of all checkpoints, make a GET request to `/api/checkpoint/list`.
+
+=== Get Checkpoint by ID
+
+To get a specific checkpoint by its ID, make a GET request to `/api/checkpoint/{id}` where `{id}` is the ID of the checkpoint.
+
+== Image API
+
+=== Get Image
+
+To get an image, make a GET request to `/api/image/{imageName}` where `{imageName}` is the name of the image file.
+
+== Journal API
+
+=== Upload Photo
+
+To upload a photo, make a POST request to `/api/journal/upload-photo` with the image data in the request body.
+
+=== List All Journals
+
+To get a list of all journals, make a GET request to `/api/journal/list`.
