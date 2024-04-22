@@ -31,7 +31,7 @@ public class CheckpointResource {
      * @param id the id of the checkpoint to remove
      */
     @GET
-    @Path("/remove-checkpoint?id={id}")
+    @Path("/remove-checkpoint/{id}")
     public void removeCheckpoints(@PathParam("id") long id) {
         checkpointRepository.removeCheckpoint(id);
     }
