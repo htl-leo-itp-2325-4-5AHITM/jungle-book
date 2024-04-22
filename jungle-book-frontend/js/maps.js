@@ -78,11 +78,7 @@ async function compareCoordinates(lat, lon, acc) {
     if (distance <= maxDeviation) {
       console.log("checkpoint found: " + checkpoints[i].name);
       let result =
-        "Checkpoint Found: " +
-        checkpoints[i].name +
-        "<br> Abweichung: " +
-        Math.round(distance * 100) / 100 +
-        " Meter";
+      "<p>Checkpoint Found: " + checkpoints[i].name + " </p><p>Abweichung: " + Math.round(distance * 100) / 100 + " Meter</p>";
       document.getElementById("resultMap").innerHTML = result;
       isInRange = true;
       return distance <= maxDeviation;

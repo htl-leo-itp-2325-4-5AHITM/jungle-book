@@ -7,24 +7,27 @@
 drop table journal;
 drop table account;
 drop table checkpoint;
-create table account (
-                         id int primary key
+create table account
+(
+    id int primary key
 );
-create table checkpoint(
-                           id int primary key,
-                           name varchar(255),
-                           longitude varchar(255),
-                           latitude varchar(255),
-                           comment varchar(255),
-                           note varchar(255)
+create table checkpoint
+(
+    id        int primary key,
+    name      varchar(255),
+    longitude varchar(255),
+    latitude  varchar(255),
+    comment   varchar(255),
+    note      varchar(255)
 );
-create table journal (
-    id int primary key,
-    name varchar(255),
-    account_id int,
+create table journal
+(
+    id            int primary key,
+    name          varchar(255),
+    account_id    int,
     checkpoint_id int,
-    image varchar(39),
-    foreign key (account_id) references account(id),
-    foreign key (checkpoint_id) references checkpoint(id)
+    image         varchar(39),
+    foreign key (account_id) references account (id),
+    foreign key (checkpoint_id) references checkpoint (id)
 );
 

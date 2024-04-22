@@ -4,13 +4,13 @@
         "longitude": "14.254482416559613",
         "latitude": "48.26610582714547",
         "comment": "test",
-        "remark": "test"
+        "note": "test"
     },
     {
         "name": "HTL",
         "longitude": "14.251741594509078",
         "latitude": "48.26843208385805",
         "comment": "test",
-        "remark": "test"
+        "note": "test"
     }
 ]

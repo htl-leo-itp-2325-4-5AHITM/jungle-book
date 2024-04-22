@@ -35,4 +35,24 @@ public class Checkpoint {
     public long getId() {
         return id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public String getNote() {
+        return note;
+    }
 }
