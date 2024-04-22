@@ -21,7 +21,7 @@ async function getAllCheckpoints() {
 async function deleteCheckpoint(id) {
     console.log(id);
     const response = await fetch(`http://localhost:8000/api/checkpoint/remove-checkpoint/${id}`, {
-        method: 'GET'
+        method: 'DELETE'
     });
 
     if (response.ok) {
