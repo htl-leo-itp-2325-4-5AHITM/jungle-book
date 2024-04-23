@@ -47,7 +47,20 @@ async function editCheckpoint(checkpoint) {
         console.error('Failed to edit checkpoint.');
     }
 }
-
+async function addMultipleCheckpoints() {
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) {
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const contents = e.target.result;
+            addCheckpoint(contents);
+        };
+        reader.readAsText(file);
+    }, false);
+}
 async function addCheckpoint(checkpoints) {
     const response = await fetch('/add-checkpoints', {
         method: 'POST',
