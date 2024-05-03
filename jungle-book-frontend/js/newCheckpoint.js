@@ -47,7 +47,6 @@ async function addCheckpoint() {
         return;
     }
 
-
     if (confirm('Checkpoint hinzufügen?')) try {
         let string = nameCheckpoint.value + ';' + longitude.value + ';' + latitude.value + ';' + comment.value + ';' + note.value;
         const response = await fetch('http://localhost:8000/api/checkpoint/add-checkpoints', 

@@ -1,6 +1,14 @@
+window.addEventListener('load', () => {
+    reload();
+});
+
+function reload() {
+    getAllCheckpoints().then(r => displayCheckpoints(r));
+}
+
 async function getAllCheckpoints() {
     try {
-        const response = await fetch('/get-checkpoints', {
+        const response = await fetch('http://localhost:8000/api/checkpoint/list', {
             method: 'GET'
         });
 
@@ -10,8 +18,9 @@ async function getAllCheckpoints() {
     }
 }
 
-async function removeCheckpoint(id) {
-    const response = await fetch(`/remove-checkpoint?id=${id}`, {
+async function deleteCheckpoint(id) {
+    console.log(id);
+    const response = await fetch(`http://localhost:8000/api/checkpoint/remove-checkpoint/${id}`, {
         method: 'GET'
     });
 
@@ -20,6 +29,7 @@ async function removeCheckpoint(id) {
     } else {
         console.error('Failed to remove checkpoint.');
     }
+    reload();
 }
 
 async function editCheckpoint(checkpoint) {
@@ -51,5 +61,33 @@ async function addCheckpoint(checkpoints) {
         console.log('Checkpoints successfully added.');
     } else {
         console.error('Failed to add checkpoints.');
+    }
+}
+
+let currentPage = 0;
+const CheckpointsPerPage = 5;
+let totalCheckpoints = 0;
+
+function displayCheckpoints(checkpoints) {
+    totalCheckpoints = checkpoints.length;
+
+    const checkpointTable = document.getElementById('checkpointTable');
+    checkpointTable.innerHTML = '<tr><th>ID</th><th>Name</th><th>Längengrad</th><th>Breitengrad</th><th>Löschen</th></tr>';
+
+    const start = currentPage * CheckpointsPerPage;
+    const end = start + CheckpointsPerPage;
+
+    for (let i = start; i < end; i++) {
+        const checkpoint = checkpoints[i];
+        checkpointTable.innerHTML += `<tr><td>${checkpoint.id}</td><td>${checkpoint.name}</td><td>${checkpoint.longitude}</td><td>${checkpoint.latitude}</td><td><button onclick='deleteCheckpoint("${checkpoint.id}")'>Löschen</button></td></tr>`;
+    }
+}
+
+function changePage(direction) {
+    const nextPage = currentPage + direction;
+    let maxPage = Math.ceil(totalCheckpoints / CheckpointsPerPage) - 1;
+    if (nextPage >= 0 && nextPage <= maxPage) {
+        currentPage = nextPage;
+        reload();
     }
 }
