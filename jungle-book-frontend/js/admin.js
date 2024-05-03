@@ -21,7 +21,7 @@ async function getAllCheckpoints() {
 async function deleteCheckpoint(id) {
     console.log(id);
     const response = await fetch(`http://localhost:8000/api/checkpoint/remove-checkpoint/${id}`, {
-        method: 'GET'
+        method: 'DELETE'
     });
 
     if (response.ok) {
@@ -47,7 +47,20 @@ async function editCheckpoint(checkpoint) {
         console.error('Failed to edit checkpoint.');
     }
 }
-
+async function addMultipleCheckpoints() {
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) {
+            return;
+        }
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const contents = e.target.result;
+            addCheckpoint(contents);
+        };
+        reader.readAsText(file);
+    }, false);
+}
 async function addCheckpoint(checkpoints) {
     const response = await fetch('/add-checkpoints', {
         method: 'POST',

@@ -57,7 +57,7 @@ async function addCheckpoint() {
         } 
     )    
     clearForm();
-
+    window.location.href='adminpage-new.html'
     } catch (error) {
         console.error('Error during adding:', error.message);
     }

@@ -16,10 +16,14 @@ import java.util.List;
 
 @Path("/api/journal")
 public class JournalResource {
-    private static final Logger LOG = Logger.getLogger(Quarkus.class);
     @Inject
     JournalRepository journalRepository;
 
+    /**
+     * Uploads a image to the server
+     * @param image the image to upload
+     * @return a generated pdf
+     */
     @POST
     @Path("/upload-photo")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -31,6 +35,10 @@ public class JournalResource {
                 .header("content-disposition", "attachment; filename = new.pdf")
                 .build();
     }
+    /**
+     * Returns all journals
+     * @return a list of all journals
+     */
     @GET
     @Path("/list")
     @Produces(MediaType.APPLICATION_JSON)

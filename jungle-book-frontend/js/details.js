@@ -6,7 +6,7 @@ function startLoadingAndRedirect() {
     button.style.display = 'none';
 
     setTimeout(function() {
-        window.location.href = 'admin.html';
+        window.location.href = 'adminpage-new.html';
 
     }, 400);
 }
