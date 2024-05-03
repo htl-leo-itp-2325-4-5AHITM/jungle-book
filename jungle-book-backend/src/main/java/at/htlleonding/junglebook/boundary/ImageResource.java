@@ -1,19 +1,17 @@
 package at.htlleonding.junglebook.boundary;
 
-import io.quarkus.runtime.Quarkus;
-import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import org.jboss.logging.Logger;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Path("/api/image")
 public class ImageResource {
-
+    /**
+     * Returns the image with the given name.
+     *
+     * @param imageName The name of the image.
+     * @return The image file.
+     */
     @GET
     @Path("/{imageName}")
     @Produces("image/png")
