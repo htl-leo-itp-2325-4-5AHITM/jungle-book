@@ -14,8 +14,8 @@ public class ImageResource {
      */
     @GET
     @Path("/{imageName}")
-    @Produces("image/png")
+    @Produces("image/jpg")
     public File getImage(@PathParam("imageName") String imageName) {
-        return new File("/media/" + imageName);
+        return new File("/media/" + imageName + ".jpg");
     }
 }
