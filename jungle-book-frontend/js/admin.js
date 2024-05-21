@@ -61,6 +61,7 @@ async function addMultipleCheckpoints() {
         reader.readAsText(file);
     }, false);
 }
+
 async function addCheckpoint(checkpoints) {
     const response = await fetch('/add-checkpoints', {
         method: 'POST',
