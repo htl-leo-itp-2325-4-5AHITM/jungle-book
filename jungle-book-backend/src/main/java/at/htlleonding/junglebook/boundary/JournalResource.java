@@ -12,6 +12,7 @@ import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
 import jakarta.ws.rs.core.Response;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @Path("/api/journal")
@@ -30,6 +31,17 @@ public class JournalResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public Response uploadImage(@MultipartForm MultipartFormDataInput image) throws IOException {
         byte[] imageBytes = image.getFormDataPart("image", byte[].class, null);
+        return Response
+                .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
+                .header("content-disposition", "attachment; filename = new.pdf")
+                .build();
+    }
+    @POST
+    @Path("/upload-photo-json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response uploadImageJson(String imageData) throws IOException {
+        byte[] imageBytes = Base64.getDecoder().decode(imageData);
         return Response
                 .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
                 .header("content-disposition", "attachment; filename = new.pdf")
