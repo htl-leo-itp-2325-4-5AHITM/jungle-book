@@ -153,5 +153,5 @@
       // Clean up: remove the link after the download starts
       document.body.removeChild(link);
       canvas.style.display = "inline";
-    });;
+    });
   }
