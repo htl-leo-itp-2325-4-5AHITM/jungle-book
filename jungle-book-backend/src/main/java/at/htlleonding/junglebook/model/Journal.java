@@ -1,52 +1,58 @@
 package at.htlleonding.junglebook.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.File;
 
 @Entity
+@NamedQuery(name=Journal.QUERY_GET_ALL, query = "SELECT j from Journal j")
 public class Journal {
+    public static final String QUERY_GET_ALL = "Journal.getAll";
     @GeneratedValue
     @Id
     private Long id;
-    private Long userId;
-    private String coordinates;
-    private String journalName;
-    private File image;
+
+    //Many Journals Have One user how to map this in jpa hibernate orm
+
+    @ManyToOne
+    @JoinColumn(name="account_id", referencedColumnName = "id")
+    private Account account;
+
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name="checkpoint_id", referencedColumnName = "id")
+    private Checkpoint checkpoint;
+
+    private String image;
 
     //<editor-fold desc="//getter and setter">
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Checkpoint getCheckpoint() {
+        return checkpoint;
     }
 
-    public Long getUserId() {
-        return userId;
+    public void setCheckpoint(Checkpoint checkpoint) {
+        this.checkpoint = checkpoint;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public Account getAccount() {
+        return account;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public void setAccount(Account user) {
+        this.account = user;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public String getName() {
+        return name;
     }
 
-    public String getJournalName() {
-        return journalName;
-    }
-
-    public void setJournalName(String journalName) {
-        this.journalName = journalName;
+    public void setName(String journalName) {
+        this.name = journalName;
     }
     //</editor-fold>
 }

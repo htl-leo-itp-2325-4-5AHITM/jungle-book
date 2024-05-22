@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Termine - Alpenverein</title>
+    <link rel="stylesheet" href="../css/junglebook-new.css">
+    <script src="../js/photoProcessor.js" defer></script>
+    <script src="../js/maps.js" defer></script>
+    <title>Home</title>
+</head>
+<body>
+    <script>
+        getLocation();
+    </script>
+    <div class="wrapper">
+    <div class="container">
+    <div id="header">  
+      <p id="switchPage" onclick="window.location.href='adminpage-new.html'">Zu den Checkpoints</p>
+      <p class="logout" onclick="logout()">Abmelden</p>
+    </div>   
+        <div id="gridMap">
+            <div id="googleMap">
+              <iframe
+                id="mapIframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13524.156812879364!2d133.7751366022174!3d-25.274398741981396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2cc0bf3b780966a3%3A0xf5dd4fc65b05e9f2!2sSydney%2C%20New%20South%20Wales!5e0!3m2!1sde!2sau!4v1709403819195!5m2!1sde!2sau"
+                width="400"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+              <script src="../js/maps.js"></script>
+              <script>
+                getLocation();
+              </script>
+            </div>
+            <div id="resultMapRight">
+              <div id="resultMap">
+                <p>Checkpoint Found: / </p>
+                <p>Abweichung: /</p>
+              </div>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="contentarea">
+              <div class="camera">
+                <div id="videoBox">
+                  <video id="video" style="padding: -10px">
+                    Video stream not available.
+                  </video>
+                </div>
+                <div id="buttonBox"><div><button id="startbutton">Take photo</button></div></div></div>
+              </div>
+            </div>
+            <canvas id="canvas"></canvas>
+          </div>
+    </div>
+    </div>
+</body>
+
+<script src="scripts/login-register.js"></script>
+<script src="scripts/date.js"></script>
+<script src="scripts/check-admin-status.js"></script>
+</html>

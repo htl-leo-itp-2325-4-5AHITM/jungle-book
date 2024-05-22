@@ -6,16 +6,16 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 GITHUB_REPO_USER=htl-leo-itp-2325-4-5AHITM
-GITHUB_USER=$(git config user.name) | tr '[:upper:]' '[:lower:]')
-
+GITHUB_USER=$(git config user.name) | tr '[:upper:]' '[:lower:]'
+export GITHUB_USER=$GITHUB_USER
 BASE_HREF=${BASE_HREF:-"/m.schablinger/"}
 NAMESPACE=${NAMESPACE:-"student-m-schablinger"}
 
-if [[ -z ${GITHUB_USER} ]]
-then
-    echo "You must set the environment variable GITHUB_USER to your github user name"
-    exit 1
-fi
+#if [[ -z ${GITHUB_USER} ]]
+#then
+#    echo "You must set the environment variable GITHUB_USER to your github user name"
+#    exit 1
+#fi
 
 if [[ "$GITHUB_USER" == "$GITHUB_REPO_USER" ]]
 then
@@ -42,9 +42,9 @@ pushd jungle-book-frontend
     kubectl rollout restart deployment/nginx || echo "frontend no restart ... propably not deployed yet"
 popd
 
-#pushd k8s
-#    ./deploy.sh
-#popd
+pushd k8s
+    ./deploy.sh
+popd
 
 watch -t kubectl get pods
 

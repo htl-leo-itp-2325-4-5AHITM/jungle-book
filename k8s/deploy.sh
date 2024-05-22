@@ -2,9 +2,9 @@
 set -e
 
 # docker package names cannot contain uppercase letters:
-LC_GH_USER_NAME=htl-leo-itp-2325-4-5AHITM
+LC_GH_USER_NAME=htl-leo-itp-2325-4-5ahitm
 BACKEND_IMAGE_NAME=ghcr.io/$LC_GH_USER_NAME/jungle-book-backend:latest
-FRONTEND_IMAGE_NAME=ghcr.io/$LC_GH_USER_NAME/jungle-book-frontend:latest
+FRONTEND_IMAGE_NAME=ghcr.io/$LC_GH_USER_NAME/jungle-book-nginx:latest
 
 export BACKEND_IMAGE_NAME
 export FRONTEND_IMAGE_NAME
@@ -13,7 +13,7 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 
 build_yamlfiles() {
-    local YAMLS="postgres appsrv nginx"
+    local YAMLS="postgres appsrv nginx keycloak"
     local yamlfile
 
     mkdir -p target
@@ -43,7 +43,7 @@ docker push $FRONTEND_IMAGE_NAME
 docker image ls
 
 kubectl delete configmap nginx-config || echo "nginx-config does not yet exist"
-kubectl create configmap nginx-config --from-file ../frontend/docker/default.conf
+kubectl create configmap nginx-config --from-file ../jungle-book-frontend/docker/default.conf
 
 kubectl get pods
 
