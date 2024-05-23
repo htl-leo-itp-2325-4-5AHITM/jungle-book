@@ -4,7 +4,7 @@ import jakarta.ws.rs.*;
 
 import java.io.File;
 
-@Path("/api/image")
+@Path("/image")
 public class ImageResource {
     /**
      * Returns the image with the given name.
@@ -16,6 +16,6 @@ public class ImageResource {
     @Path("/{imageName}")
     @Produces("image/jpg")
     public File getImage(@PathParam("imageName") String imageName) {
-        return new File("/media/" + imageName + ".jpg");
+        return new File("/media/jungle-book/" + imageName + ".jpg");
     }
 }

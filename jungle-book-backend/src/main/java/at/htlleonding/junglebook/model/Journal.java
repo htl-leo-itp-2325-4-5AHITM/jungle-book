@@ -54,5 +54,13 @@ public class Journal {
     public void setName(String journalName) {
         this.name = journalName;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
     //</editor-fold>
 }

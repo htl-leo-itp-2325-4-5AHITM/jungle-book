@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
 
-@Path("/api/journal")
+@Path("/journal")
 public class JournalResource {
     @Inject
     JournalRepository journalRepository;
@@ -40,12 +40,9 @@ public class JournalResource {
     @Path("/upload-photo-json")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response uploadImageJson(String imageData) throws IOException {
+    public void uploadImageJson(String imageData) throws IOException {
         byte[] imageBytes = Base64.getDecoder().decode(imageData);
-        return Response
-                .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
-                .header("content-disposition", "attachment; filename = new.pdf")
-                .build();
+        journalRepository.addJournal(imageBytes);
     }
     /**
      * Returns all journals
