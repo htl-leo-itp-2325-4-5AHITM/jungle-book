@@ -14,11 +14,6 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Setup Maven
-        uses: actions/setup-maven@v2
-        with:
-          maven-version: '3.9.7'
-
       - name: Run build-and-deploy.sh
         run: |
           chmod +x ./build-and-deploy.sh
