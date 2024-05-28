@@ -1,0 +1,40 @@
+name: GitHub Actions Build and Deploy
+run-name: ${{ github.actor }} runs project 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Setup Maven
+        uses: actions/setup-maven@v2
+        with:
+          maven-version: '3.9.7'
+
+      - name: Run build-and-deploy.sh
+        run: |
+          chmod +x ./build-and-deploy.sh
+          ./build-and-deploy.sh
+
+      - name: Run jungle-book-backend/build.sh
+        run: |
+          chmod +x ./jungle-book-backend/build.sh
+          ./jungle-book-backend/build.sh
+
+      - name: Run jungle-book-frontend/build.sh
+        run: |
+          chmod +x ./jungle-book-frontend/build.sh
+          ./jungle-book-frontend/build.sh
+
+      - name: Run k8s/deploy.sh
+        run: |
+          chmod +x ./k8s/deploy.sh
+          ./k8s/deploy.sh
