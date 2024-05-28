@@ -16,7 +16,12 @@ spec:
       containers:
         - name: keycloak
           image: quay.io/keycloak/keycloak:21.0.0
-          command: ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy", "edge"]
+          env:
+            - name: KEYCLOAK_ADMIN
+              value: "admin"
+            - name: KEYCLOAK_ADMIN_PASSWORD
+              value: "admin"
+          command: ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy", "edge", "--hostname-admin-url=http://localhost:8080"]
           ports:
             - containerPort: 8080
               name: keycloak
