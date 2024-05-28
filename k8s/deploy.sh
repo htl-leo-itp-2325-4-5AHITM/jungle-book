@@ -9,8 +9,6 @@ FRONTEND_IMAGE_NAME=ghcr.io/$LC_GH_USER_NAME/jungle-book-nginx:latest
 export BACKEND_IMAGE_NAME
 export FRONTEND_IMAGE_NAME
 
-bold=$(tput bold)
-normal=$(tput sgr0)
 
 build_yamlfiles() {
     local YAMLS="postgres appsrv nginx keycloak"
