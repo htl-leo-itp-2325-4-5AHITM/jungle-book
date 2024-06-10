@@ -8,7 +8,7 @@ import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
 
-@Path("/api/checkpoint")
+@Path("/checkpoint")
 public class CheckpointResource {
     @Inject
     CheckpointRepository checkpointRepository;
