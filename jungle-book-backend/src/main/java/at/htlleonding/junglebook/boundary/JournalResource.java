@@ -31,6 +31,17 @@ public class JournalResource {
     public void uploadImage(@MultipartForm MultipartFormDataInput image) throws IOException {
         journalRepository.addJournal(image);
     }
+    @POST
+    @Path("/upload-photo-json")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response uploadImageJson(String imageData) throws IOException {
+        byte[] imageBytes = Base64.getDecoder().decode(imageData);
+        return Response
+                .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
+                .header("content-disposition", "attachment; filename = new.pdf")
+                .build();
+    }
     /**
      * Returns all journals
      * @return a list of all journals
