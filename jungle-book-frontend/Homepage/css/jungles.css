@@ -56,7 +56,6 @@ body {
 
 #contentWrapper {
     width: 75vw;
-    height: 100vh;
 }
 
 #contentBody {
@@ -80,27 +79,22 @@ body {
 }
 
 .imgCard {
-    height: 20vh;
+    height: 15vh;
 }
 
 .contentCard {
     color: white;
     height: 10vh;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-rows: auto auto auto;
 }
 
-.name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.info {
+.name, .info, .note {
     display: flex;
     justify-content: start;
     align-items: center;
     margin-left: 5%;
+    margin-right: 5%;
 }
 
 .img {
