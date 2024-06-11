@@ -23,7 +23,7 @@ body {
 #header {
     height: 5vh;
     width: 100%;
-    background-color: #0b860b;
+    background-color: #085a08;
     display: flex;
     flex-direction: row;
     position: fixed;
@@ -83,23 +83,77 @@ body {
 }
 
 .contentBody {
+    border-radius: 5px;
     width: 30vw;
     height: 30vh;
-    background-color: #043204;
+    background-color: #085a08;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     padding: 1%;
-    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.22), 1px 0px 0px 0px rgba(0,0,0,0.22), 1px 2px 0px 0px rgba(0,0,0,0.22), 2px 1px 0px 0px rgba(0,0,0,0.22), 2px 3px 0px 0px rgba(0,0,0,0.22), 3px 2px 0px 0px rgba(0,0,0,0.22), 3px 4px 0px 0px rgba(0,0,0,0.22), 4px 3px 0px 0px rgba(0,0,0,0.22), 4px 5px 0px 0px rgba(0,0,0,0.22), 5px 4px 0px 0px rgba(0,0,0,0.22), 5px 6px 0px 0px rgba(0,0,0,0.22), 6px 5px 0px 0px rgba(0,0,0,0.22), 6px 7px 0px 0px rgba(0,0,0,0.22), 7px 6px 0px 0px rgba(0,0,0,0.22), 7px 8px 0px 0px rgba(0,0,0,0.22), 8px 7px 0px 0px rgba(0,0,0,0.22);
+    box-shadow: 0px 1px 0px 0px rgba(4, 48, 4, 0.22), 
+                1px 0px 0px 0px rgba(4, 48, 4, 0.22), 
+                1px 2px 0px 0px rgba(4, 48, 4, 0.22),
+                2px 1px 0px 0px rgba(4, 48, 4, 0.22), 
+                2px 3px 0px 0px rgba(4, 48, 4, 0.22), 
+                3px 2px 0px 0px rgba(4, 48, 4, 0.22), 
+                3px 4px 0px 0px rgba(4, 48, 4, 0.22), 
+                4px 3px 0px 0px rgba(4, 48, 4, 0.22), 
+                4px 5px 0px 0px rgba(4, 48, 4, 0.22), 
+                5px 4px 0px 0px rgba(4, 48, 4, 0.22), 
+                5px 6px 0px 0px rgba(4, 48, 4, 0.22), 
+                6px 5px 0px 0px rgba(4, 48, 4, 0.22), 
+                6px 7px 0px 0px rgba(4, 48, 4, 0.22), 
+                7px 6px 0px 0px rgba(4, 48, 4, 0.22), 
+                7px 8px 0px 0px rgba(4, 48, 4, 0.22), 
+                8px 7px 0px 0px rgba(4, 48, 4, 0.22);
 }
 
 .contentBodyHeader {
     font-size: 3em;
-    color: #0d9f0d;
+    color: #10c710;
 }
 
 .contentBodyBody {
     font-size: 1.5em;
     color: white;
+}
+
+@media only screen and (max-width:500px) {
+    .link {
+        width: 20vw;
+        font-size: 1em;
+        font-size: 1.5em;
+    }
+    
+    .headerBody {
+        font-size: 2em;
+    }
+
+    .startWrapper {
+        display: grid;
+        grid-template-rows: 25% 75%;
+        height: 80vh;
+    }
+
+    .contentBody {
+        width: 90vw;
+        height: 40vh;
+    }
+    
+    .contentBodyHeader {
+        font-size: 2em;
+        color: #10c710;
+        margin: 3%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .contentBodyBody {
+        font-size: 1.5em;
+        color: white;
+        margin: 3%;
+    }
 }

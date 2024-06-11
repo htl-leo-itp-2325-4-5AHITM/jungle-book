@@ -23,13 +23,11 @@ function displayCheckpoints(checkpoints) {
     for (let i = 0; i < checkpoints.length; i++) {
         console.log(i);
         checkpointTable.innerHTML += 
-        '<a href="details.html?id=' + checkpoints[i].id + '">' +
+        '<a class="cardLink" href="details.html?id=' + checkpoints[i].id + '">' +
               '<div class="card">' +
-                '<div class="imgCard"><img src="../pics/background.jpg" class="img"></div>' +
+                '<div class="imgCard"><img src="../pics/wald' + i + '.jpg" class="img"></div>' +
                 '<div class="contentCard">' +
-                  '<div class="name">' + checkpoints[i].name + '/D</div>' +
-                  '<div class="info">' + checkpoints[i].comment + '</div>' +
-                  '<div class="note">' + checkpoints[i].note + '</div>' +
+                  '<div class="name">' + checkpoints[i].name + '</div>' +
                   '</div></div></a>';
     }
 }
