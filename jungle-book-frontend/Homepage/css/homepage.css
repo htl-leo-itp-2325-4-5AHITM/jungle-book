@@ -27,6 +27,7 @@ body {
     display: flex;
     flex-direction: row;
     position: fixed;
+    text-shadow: 2px 2px #0000;
 }
 
 .link:link {
@@ -60,6 +61,7 @@ body {
 .headerBody {
     font-size: 8em;
     color: white;
+    text-shadow: 2px 2px #0000;
 }
 
 #startWrapper-1 {
