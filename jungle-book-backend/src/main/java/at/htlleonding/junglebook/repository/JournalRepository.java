@@ -66,9 +66,10 @@ public class JournalRepository {
             try {
                 InputStream inputStream = inputPart.getBody(InputStream.class, null);
                 String fileName = getFileName(inputPart.getHeaders());
-                Path path = Path.of("/media/jungle-book", fileName);
+                Path path = Path.of("/media/jungle-book/", fileName.toLowerCase().replaceAll("\\s+", "-") + ".jpg");
                 Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
-                journal.setImage(path.toString());
+                journal.setImage(fileName.toLowerCase().replaceAll("\\s+", "-"));
+                journal.setName(fileName);
             } catch (Exception e) {
                 e.printStackTrace();
             }

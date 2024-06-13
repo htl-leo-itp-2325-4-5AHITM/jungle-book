@@ -27,6 +27,7 @@ body {
     display: flex;
     flex-direction: row;
     position: fixed;
+    text-shadow: 2px 2px #0000;
 }
 
 .link:link {
