@@ -6,6 +6,8 @@ let iframe = "";
 let isInRange = false;
 const constantDeviation = 150;
 
+//todo: positionsüberprüfung mit checkpoints aus der datenbank
+
 function getLocationAwait() {
   return new Promise((resolve, reject) => {
     let iframe = document.getElementById("mapIframe");
