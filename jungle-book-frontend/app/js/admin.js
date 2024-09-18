@@ -1,3 +1,5 @@
+export const ipAddress = "http://138.2.138.238:8000/";
+
 window.addEventListener('load', () => {
     reload();
 });
@@ -8,7 +10,7 @@ function reload() {
 
 async function getAllCheckpoints() {
     try {
-        const response = await fetch('http://localhost:8000/api/checkpoint/list', {
+        const response = await fetch(`${ipAddress}/api/checkpoint/list`, {
             method: 'GET'
         });
 
@@ -20,7 +22,7 @@ async function getAllCheckpoints() {
 
 async function deleteCheckpoint(id) {
     console.log(id);
-    const response = await fetch(`http://localhost:8000/api/checkpoint/remove-checkpoint/${id}`, {
+    const response = await fetch(`${ipAddress}/api/checkpoint/remove-checkpoint/${id}`, {
         method: 'DELETE'
     });
 

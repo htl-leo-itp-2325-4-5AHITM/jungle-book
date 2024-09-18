@@ -8,7 +8,7 @@ function reload() {
 
 async function getAllCheckpoints() {
     try {
-        const response = await fetch('https://student.cloud.htl-leonding.ac.at/m.schablinger/api/checkpoint/list', {
+        const response = await fetch(`${ipAddress}/api/checkpoint/list`, {
             method: 'GET'
         });
 

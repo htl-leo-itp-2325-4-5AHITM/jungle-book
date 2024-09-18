@@ -4,6 +4,8 @@ const latitude = document.getElementById('latitude');
 const comment = document.getElementById('comment');
 const note = document.getElementById('note');
 
+import { ipAddress } from "./admin";
+
 const ERROR_STYLE = { border: '2px solid darkred', boxShadow: '0px 0px 8px rgba(0,0,0,0.5)' };
 const NORMAL_STYLE = { border: '2px solid #ccc', boxShadow: '0px 0px 8px rgba(0,0,0,0.1)' };
 
@@ -49,7 +51,7 @@ async function addCheckpoint() {
 
     if (confirm('Checkpoint hinzufügen?')) try {
         let string = nameCheckpoint.value + ';' + longitude.value + ';' + latitude.value + ';' + comment.value + ';' + note.value;
-        const response = await fetch('http://localhost:8000/api/checkpoint/add-checkpoints', 
+        const response = await fetch(ipAddress + '/api/checkpoint/add-checkpoints', 
         {
             method: 'POST',
             headers: {'Content-Type': 'text/plain'},

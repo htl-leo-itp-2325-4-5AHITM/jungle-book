@@ -32,7 +32,15 @@ body {
     align-items: center;
 }
 
+#resultMapRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 #resultMap {
+    width: 400px;
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 1%;
@@ -182,4 +190,10 @@ input[type="text"]:focus, select:focus {
     text-align: left;
     padding: 5px;
     display: block;
+}
+
+#buttonBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

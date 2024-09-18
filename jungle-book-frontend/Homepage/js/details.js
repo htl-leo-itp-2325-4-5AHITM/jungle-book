@@ -9,7 +9,7 @@ function reload() {
 
 async function getOneCheckpoint(id) {
     try {
-        const response = await fetch('https://student.cloud.htl-leonding.ac.at/m.schablinger/api/checkpoint/' + id, {
+        const response = await fetch(`${ipAddress}/api/checkpoint/` + id, {
             method: 'GET'
         });
         return response.json();
