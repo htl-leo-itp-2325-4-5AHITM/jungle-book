@@ -2,16 +2,10 @@
     height: 25rem;
 }
 
-.textBackground {
-    background-color: black;
-    padding: 2%;
-    border-radius: 30px;
-}
 .flexen {
     display: flex;
     align-items: center;
   }
-
 
   .flexen > div {
     float: left; 
@@ -57,3 +51,24 @@
     font-size: 80%;
   }
 
+.text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: black;
+  font-size: 1rem;
+}
+
+.section-contr {
+  display: flex;
+  height: 100vh;
+}
+
+.backgroundTrees {
+  background-color: rgba(255, 255, 255, 0.5); /* Transparenter Hintergrund */
+  padding: 20px; /* Padding für mehr Platz innerhalb der Box */
+  border-radius: 30px; /* Abgerundete Ecken */
+  width: fit-content; /* Box passt sich der Breite des Inhalts an */
+  text-align: center; /* Text zentriert in der Box */
+  margin-left: -20%;
+}
