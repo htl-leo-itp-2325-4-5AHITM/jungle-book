@@ -1,4 +1,4 @@
-export const ipAddress = "http://138.2.138.238:8000/";
+export const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
 window.addEventListener('load', () => {
     reload();
