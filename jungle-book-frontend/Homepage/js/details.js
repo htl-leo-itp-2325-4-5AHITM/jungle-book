@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
     reload();
 });
 
+const ipAddress = "http://138.2.138.238:8000";
+
 function reload() {
     const id = new URLSearchParams(window.location.search).get("id");
     getOneCheckpoint(id).then(r => displayDetails(r));

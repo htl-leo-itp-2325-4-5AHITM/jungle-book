@@ -2,6 +2,8 @@ window.addEventListener('load', () => {
     reload();
 });
 
+const ipAddress = "http://138.2.138.238:8000";
+
 function reload() {
     getAllCheckpoints().then(r => displayCheckpoints(r));
 }
