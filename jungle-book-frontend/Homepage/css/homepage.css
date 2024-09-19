@@ -3,10 +3,6 @@ html, body {
     margin: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;    
-}
-
 /*firefox*/
 html {
     scrollbar-width: none;
@@ -18,11 +14,35 @@ body::-webkit-scrollbar{
 /*IE, Edge*/
 body {
     -ms-overflow-style: none;
+    font-family: Arial, sans-serif;  
+    scroll-behavior: smooth; 
+}
+
+#body {
+    scroll-snap-type: both mandatory;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+    height: 95vh;
+    margin-top: 5vh;
+
+}
+
+#body > div {
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.startWrapper > section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #header {
     height: 5vh;
     width: 100%;
+    margin-top: -5vh;
     background-color: #085a08;
     display: flex;
     flex-direction: row;
@@ -48,14 +68,26 @@ body {
 .startWrapper {
     display: grid;
     grid-template-rows: 50% 50%;
-    height: 100vh;
     background-color: #097609;
+    max-height: 100vh;
 }
 
 .headerBody, .contentBodyWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contentBodyWrapper {
+    transition: transform 0.5s ease; 
+}
+
+.contentBodyWrapper:hover {
+    transform: scale(1.05);
+}
+
+.contentBodyWrapper:active {
+    background-color: #0b740b;
 }
 
 .headerBody {
