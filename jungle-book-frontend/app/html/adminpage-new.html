@@ -12,19 +12,19 @@
     <div class="container">
         <h1>Checkpoints</h1>
 
-        <table id="checkpointTable">
+        <table id="checkpointTable"></table>
 
-        </table>
+        <div id="bottomBox">
+            <div class="switchPage">
+                <button id="prevBtn" onclick="changePage(-1)"><i class="fas fa-arrow-left"></i></button>
+                <button id="nextBtn" onclick="changePage(1)"><i class="fas fa-arrow-right"></i></button>
+            </div>
 
-        <div class="switchPage">
-            <button id="prevBtn" onclick="changePage(-1)"><i class="fas fa-arrow-left"></i></button>
-            <button id="nextBtn" onclick="changePage(1)"><i class="fas fa-arrow-right"></i></button>
-        </div>
-
-        <div class="bottomMenu">
-            <p onclick="window.location.href='home-new.html'">Zurück</p>
-            <p onclick="window.location.href='details-new.html'">Neuer Checkpoint</p>
-            <!--<span onclick="window.location.href='details-new.html'">+</span><span>▲ ▼</span><span  onclick="window.location.href='details-new.html'">Neuer Checkpoint</span> <input type="file" id="fileInput">Mehrere Checkpoints als Datei hochladen oder so</span>>-->
+            <div class="bottomMenu">
+                <p onclick="window.location.href='home-new.html'">Zurück</p>
+                <p onclick="window.location.href='details-new.html'">Neuer Checkpoint</p>
+                <!--<span onclick="window.location.href='details-new.html'">+</span><span>▲ ▼</span><span  onclick="window.location.href='details-new.html'">Neuer Checkpoint</span> <input type="file" id="fileInput">Mehrere Checkpoints als Datei hochladen oder so</span>>-->
+            </div>
         </div>
     </div>
 </div>

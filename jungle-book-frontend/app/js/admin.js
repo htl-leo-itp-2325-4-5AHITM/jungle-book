@@ -1,4 +1,4 @@
-export const ipAddress = "http://138.2.138.238:8000/";
+const ipAddress = "http://138.2.138.238:8000";
 
 window.addEventListener('load', () => {
     reload();

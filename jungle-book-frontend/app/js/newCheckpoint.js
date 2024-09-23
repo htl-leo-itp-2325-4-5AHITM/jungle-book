@@ -3,8 +3,7 @@ const longitude = document.getElementById('longitude');
 const latitude = document.getElementById('latitude');
 const comment = document.getElementById('comment');
 const note = document.getElementById('note');
-
-import { ipAddress } from "./admin";
+const ipAddress = "http://138.2.138.238:8000";
 
 const ERROR_STYLE = { border: '2px solid darkred', boxShadow: '0px 0px 8px rgba(0,0,0,0.5)' };
 const NORMAL_STYLE = { border: '2px solid #ccc', boxShadow: '0px 0px 8px rgba(0,0,0,0.1)' };
