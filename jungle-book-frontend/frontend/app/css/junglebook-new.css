@@ -202,12 +202,19 @@ input[type="text"]:focus, select:focus {
     width: 100%;
 }
 
-#switchPage {
+#switchPage, #switchPageRight {
     cursor: pointer;
     font-size: 12px;
-    text-align: left;
     padding: 5px;
     display: block;
+}
+
+#switchPage {
+    text-align: left;
+}
+
+#switchPageRight {
+    text-align: right; 
 }
 
 #buttonInnerBox {

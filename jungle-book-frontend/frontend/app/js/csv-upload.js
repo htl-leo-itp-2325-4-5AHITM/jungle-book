@@ -37,6 +37,7 @@ function loadCsvFile () {
                 .then(data => {
                     console.log('Erfolgreich hochgeladen:', data);
                     document.getElementById('message').innerText = 'Datei erfolgreich hochgeladen!';
+                    document.getElementById('file-upload').value = "";
                 })
             } catch(error) {
                 console.error('Fehler beim Hochladen:', error);
