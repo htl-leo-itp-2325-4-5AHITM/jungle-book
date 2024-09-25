@@ -72,7 +72,6 @@
         },
         false,
       );
-
       clearphoto();
     }
 
@@ -97,10 +96,11 @@
         canvas.height = height;
         context.drawImage(video, 0, 0, width, height);
   
-        camera.innerHTML = "";
+        /*hier wird die kamera entfernt*/
+        //camera.innerHTML = "";
 
         const data = canvas.toDataURL("image/png");
-        if (await checkLocation() === true) {
+        if (data) {
           sendImageToServer(data);
         } else {
           clearphoto();
@@ -112,6 +112,7 @@
     }
     window.addEventListener("load", startup, false);
   })();
+  
   function sendImageToServer(dataUrl) {
     // Remove the prefix from the dataUrl
     const base64Data = dataUrl.replace('data:image/png;base64,', '');
@@ -130,7 +131,7 @@
     let formData = new FormData();
     formData.append("image", blob);
     // Send the Blob to the server
-    fetch('http://localhost:8080/api/journal/upload-photo', {
+    fetch('http://138.2.138.238:8000/api/journal/upload-photo', {
       method: 'POST',
       body: formData
     }).then(response => response.arrayBuffer())
@@ -154,4 +155,12 @@
       document.body.removeChild(link);
       canvas.style.display = "inline";
     });
+  }
+
+  function clearCanvas() {
+    canvas.style.display = "none";
+  }
+
+  function usePhoto() {
+
   }

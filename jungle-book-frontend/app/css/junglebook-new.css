@@ -7,8 +7,13 @@
 #header {
     display: grid;
     grid-template-columns: 50% 50%;
-    height: auto;
 }   
+
+#main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 
 body {
     background-image: url('../pics/background.jpg');
@@ -40,7 +45,7 @@ body {
 }
 
 #resultMap {
-    width: 400px;
+    width: 320px;
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 1%;
@@ -50,12 +55,16 @@ body {
     width: 100%;
 }
 
-#buttoBox {
+#videoBox {
+    height: 240px;
+}
+
+.buttonBox {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 320px;
 }
-
 
 /* LOGIN - REGISTER  */
 
@@ -90,10 +99,14 @@ body {
     -webkit-backdrop-filter: blur(30px);
 }
 
-input, button {
-    margin: 10px 0;
+input, #buttonInnerBox {
+    width: 320px;
+}
+
+button {
+    height: 100%;
+    width: 100%;
     padding: 10px;
-    width: 300px;
     border-radius: 8px;
     border: 1px solid #ccc;
 }
@@ -130,7 +143,9 @@ a, p {
 
 .container {
     min-width: 28%;
-    padding: 25px;
+    height: 960px;
+    padding: 20px;
+    padding-top: 10px;
     background-color: rgb(255, 255, 255, 0.6);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     border-radius: 10px;
@@ -192,8 +207,41 @@ input[type="text"]:focus, select:focus {
     display: block;
 }
 
-#buttonBox {
+#buttonInnerBox {
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#startButton {
+    width: 320px;
+}
+
+#canvasBox {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    height: 240px;
+    flex-direction: column ;
+}
+
+.userPhotoCheckerButton {
+    width: 50%;
+    height: 20px;
+    background-color: #008000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.userPhotoCheckerButton > button {
+    padding: 0;
+}
+
+#dontUsePhoto, #dontUsePhoto > button {
+    background-color: red;
 }
