@@ -5,11 +5,14 @@ table {
     text-align: center;
 }
 
-#bottomBox {
-    height: 10%;
-
+#adminpageContainer {
+    height: 500px;
 }
 
+#bottomBox {
+    height: 10%;
+}
+  
 h1 {
     text-align: center;
     height: 10%;
@@ -28,6 +31,7 @@ th, td {
 
 button {
     max-width: 200px;
+    height: auto !important;
 }
 
 input[type="checkbox"] {

@@ -13,7 +13,7 @@
         getLocation();
     </script>
     <div class="wrapper">
-    <div class="container">
+    <div class="container" id="homeContainer">
     <div id="header">  
       <p id="switchPage" onclick="window.location.href='adminpage-new.html'">Zu den Checkpoints</p>
       <p class="logout" onclick="logout()">Abmelden</p>
@@ -58,7 +58,7 @@
               </div>
               <div class="buttonBox" id="userPhotoChecker">
                 <div id="dontUsePhoto" class="userPhotoCheckerButton"><button onclick="clearCanvas()">&#10006;</button></div>
-                <div id="usePhoto" class="userPhotoCheckerButton"><button>&#10004;</button></div>
+                <div id="usePhoto" class="userPhotoCheckerButton"><button onclick="usePhoto()">&#10004;</button></div>
               </div>
           </div>
           </div>
