@@ -11,7 +11,7 @@ export FRONTEND_IMAGE_NAME
 
 
 build_yamlfiles() {
-    local YAMLS="postgres appsrv nginx keycloak"
+    local YAMLS="appsrv nginx keycloak"
     local yamlfile
 
     mkdir -p target

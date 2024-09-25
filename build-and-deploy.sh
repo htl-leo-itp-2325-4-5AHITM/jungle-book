@@ -6,8 +6,8 @@ set -e
 GITHUB_REPO_USER=htl-leo-itp-2325-4-5AHITM
 GITHUB_USER=$(git config user.name) | tr '[:upper:]' '[:lower:]'
 export GITHUB_USER=$GITHUB_USER
-BASE_HREF=${BASE_HREF:-"/m.schablinger/"}
-NAMESPACE=${NAMESPACE:-"student-m-schablinger"}
+BASE_HREF=${BASE_HREF:-"/"}
+NAMESPACE=${NAMESPACE:-"student-it200247"}
 
 #if [[ -z ${GITHUB_USER} ]]
 #then
