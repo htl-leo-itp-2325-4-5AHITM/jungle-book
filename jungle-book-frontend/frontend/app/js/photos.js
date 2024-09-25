@@ -62,36 +62,37 @@ function dataURLtoBlob(dataURL) {
 }
 
 async function uploadImage() {
-    let canvas = document.getElementById('canvas');
-    let imageData = canvas.toDataURL("image/jpg");
+    let canvas = document.getElementById("canvas");
+    const dataURL = canvas.toDataURL("image/jpg");
+    let imageName = document.getElementById("nameInput").value;
+    // Remove the prefix from the dataUrl
+    const base64Data = dataURL.replace('data:image/png;base64,', '');
 
-    let imageName = document.getElementById('nameInput').value.trim().toLowerCase();
-
-    if (!imageName) {
-        alert('Please provide an image name.');
-        return;
+    // Convert base64 to raw binary data held in a string
+    const byteCharacters = atob(base64Data);
+    
+    // Convert raw binary to an array of 8-bit unsigned integers
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
     }
+    
+    console.log(imageName);
 
-    let imageBlob = dataURLtoBlob(imageData);
-
+    // Convert the array to a Blob
+    const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
     let formData = new FormData();
-    formData.append('name', imageName);  
-    formData.append('image', imageBlob, `${imageName}.jpg`);  
+    formData.append("file", blob);
+    formData.append("filename", imageName);
 
-    try {
-        let response = await fetch(ipAddress + `/journal/upload-photo`, {
-            method: 'POST',
-            headers: {'Content-Type': 'multipart/form-data'},
-            body: formData 
-        });
-        console.log(response)
-        if (response.ok) {
-            let jsonResponse = await response.json();
-            console.log(`Image uploaded successfully: ${jsonResponse.message}`);
-        } else {
-            console.log(`Failed to upload image: ${response.statusText}`);
-        }
-    } catch (error) {
-        console.log('Error uploading image:', error);
-    }
+    console.log(formData);
+    console.log(blob);
+
+
+    // Send the Blob to the server
+    fetch(ipAddress + '/api/journal/upload-photo', {
+      method: 'POST',
+      body: formData
+    });
 }
+    

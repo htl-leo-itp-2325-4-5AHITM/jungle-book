@@ -65,7 +65,8 @@ public class JournalRepository {
         for (InputPart inputPart : inputParts) {
             try {
                 InputStream inputStream = inputPart.getBody(InputStream.class, null);
-                String fileName = getFileName(inputPart.getHeaders());
+                //String fileName = getFileName(inputPart.getHeaders());
+                String filename = uploadForm.get(filename);
                 Path path = Path.of("/media/jungle-book/", fileName.toLowerCase().replaceAll("\\s+", "-") + ".jpg");
                 Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
                 journal.setImage(fileName.toLowerCase().replaceAll("\\s+", "-"));
