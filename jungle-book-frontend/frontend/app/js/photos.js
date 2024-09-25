@@ -1,4 +1,4 @@
-const ipAddress = "http://138.2.138.238:8000";
+const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
 function addEventListenerToButton() {
     document.getElementById('nameInput').addEventListener('keyup', function() {
