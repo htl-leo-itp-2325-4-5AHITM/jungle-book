@@ -1,4 +1,5 @@
 (() => {
+    const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
     const width = 320; // We will scale the photo width to this
     let height = 0; // This will be computed based on the input stream
 
@@ -133,7 +134,7 @@
     let formData = new FormData();
     formData.append("image", blob);
     // Send the Blob to the server
-    fetch('http://138.2.138.238:8000/api/journal/upload-photo', {
+    fetch(ipAddress + '/api/journal/upload-photo', {
       method: 'POST',
       body: formData
     }).then(response => response.arrayBuffer())
