@@ -3,7 +3,7 @@ document.getElementById('file-upload').addEventListener('change', function() {
     const allowedExtensions = /(\.csv)$/i;
 
     if (!allowedExtensions.exec(filePath)) {
-        document.getElementById('message').innerText = 'Please choose a valid CSV file.';
+        document.getElementById('message').innerText = 'Bitte wähle eine gültige CSV-Datei.';
         this.value = '';
         return false;
     } else {
@@ -13,29 +13,39 @@ document.getElementById('file-upload').addEventListener('change', function() {
 
 document.getElementById('upload-btn').addEventListener('click', function() {
     const fileInput = document.getElementById('file-upload');
-    
+
     if (fileInput.files.length === 0) {
-        document.getElementById('message').innerText = 'Please select a csv file.';
+        document.getElementById('message').innerText = 'Bitte wähle eine CSV-Datei aus.';
         return;
     }
 
     const file = fileInput.files[0];
-    console.log("UPLOAD PROZESS...");
+    const reader = new FileReader();
 
-    const formData = new FormData();
-    formData.append('file', file);
+    reader.onload = function(event) {
+        const csvData = event.target.result;
 
-    fetch('WHAT URL FOR BACKEND??', { 
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Successfully uploaded:', data);
-        document.getElementById('message').innerText = 'File successfully uploaded!';
-    })
-    .catch((error) => {
-        console.error('Error during upload:', error);
-        document.getElementById('message').innerText = 'Error uploading the file.';
-    }); 
+        console.log("CSV-Daten:", csvData); 
+
+        fetch('http://138.2.138.238:8000/api/checkpoint/add-checkpoints', {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain' },
+            body: csvData  
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Erfolgreich hochgeladen:', data);
+            document.getElementById('message').innerText = 'Datei erfolgreich hochgeladen!';
+        })
+        .catch((error) => {
+            console.error('Fehler beim Hochladen:', error);
+            document.getElementById('message').innerText = 'Fehler beim Hochladen der Datei.';
+        });
+    };
+
+    reader.onerror = function() {
+        document.getElementById('message').innerText = 'Fehler beim Lesen der Datei.';
+    };
+
+    reader.readAsText(file);
 });
