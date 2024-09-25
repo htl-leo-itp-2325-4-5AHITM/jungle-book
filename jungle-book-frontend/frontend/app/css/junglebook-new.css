@@ -245,6 +245,15 @@ input[type="text"]:focus, select:focus {
     padding: 0;
 }
 
-#dontUsePhoto, #dontUsePhoto > button {
+#dontUsePhoto, #dontUsePhotoButton {
     background-color: red;
 }
+
+#dontUsePhotoButton:disabled {
+    background-color: #dd5035;
+}
+
+#usePhotoButton:disabled {
+    background-color: #6eaa5e;
+}
+
