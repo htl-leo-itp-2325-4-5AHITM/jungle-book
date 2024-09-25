@@ -1,4 +1,4 @@
-export const ipAddress = "http://138.2.138.238:8000";
+const ipAddress = "http://138.2.138.238:8000";
 
 window.addEventListener('load', () => {
     reload();
@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 function reload() {
     getAllCheckpoints().then(r => displayCheckpoints(r));
 }
-s
+
 async function getAllCheckpoints() {
     try {
         const response = await fetch(`${ipAddress}/api/checkpoint/list`, {
