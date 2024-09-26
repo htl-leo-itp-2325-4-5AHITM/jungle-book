@@ -39,10 +39,6 @@ function addEventListenerToButtonsAndInputField() {
     console.log("added event listener2");
 }
 
-async function getAllPhotos() {
-
-}
-
 async function uploadImage() {
     let canvas = document.getElementById("canvas");
     const dataURL = canvas.toDataURL("image/jpg");
@@ -76,6 +72,9 @@ async function uploadImage() {
       method: 'POST',
       body: formData
     });
+
+    canvas.style.display = "none";
+    document.getElementById("nameInput").value = "";
 }
     
 async function getAllImageNames() {
