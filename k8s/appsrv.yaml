@@ -20,6 +20,13 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
+          volumeMounts:
+            - name: jungle-book-data
+              mountPath: /media/jungle-book
+      volumes:
+        - name: jungle-book-data
+          persistentVolumeClaim:
+            claimName: jungle-book-data
 
 ---
 apiVersion: v1

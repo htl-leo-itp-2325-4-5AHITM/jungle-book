@@ -100,11 +100,12 @@
         /*hier wird die kamera entfernt*/
         //camera.innerHTML = "";
 
-        const data = canvas.toDataURL("image/png");
+        const data = canvas.toDataURL("image/jpg");
         if (data) {
           localStorage.clear();
           localStorage.setItem("data", data);
-          sendImageToServer(data);
+          //sendImageToServer(data);
+          canvas.style.display = "inline";
         } else {
           clearphoto();
         }
@@ -118,7 +119,7 @@
   
   function sendImageToServer(dataUrl) {
     // Remove the prefix from the dataUrl
-    const base64Data = dataUrl.replace('data:image/png;base64,', '');
+    const base64Data = dataUrl.replace('data:image/jpg;base64,', '');
     
     // Convert base64 to raw binary data held in a string
     const byteCharacters = atob(base64Data);
@@ -130,7 +131,7 @@
     }
     
     // Convert the array to a Blob
-    const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/png'});
+    const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
     let formData = new FormData();
     formData.append("image", blob);
     // Send the Blob to the server
