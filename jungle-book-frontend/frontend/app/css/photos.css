@@ -1,0 +1,58 @@
+#galleryBox {
+    width: 50vw;
+    height: 60vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+    overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
+    padding: 20px;
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+        position: relative; /* Positionieren innerhalb des übergeordneten Elements */
+    margin: auto; /* Zentrieren des Containers */
+}
+
+#imageGallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Zwei Spalten mit gleicher Breite */
+    grid-gap: 10px; /* Abstand zwischen den Bildern */
+
+}
+
+/* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
+#galleryBox::-webkit-scrollbar {
+    display: none;
+}
+
+/* Scrollbar ausblenden für Firefox */
+#galleryBox {
+    scrollbar-width: none; /* Firefox */
+}
+
+body {
+    background-image: url('../pics/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Volle Höhe des Bildschirms */
+    font-family: Arial, sans-serif;
+    background-attachment: fixed; /* Hintergrund bleibt fixiert */
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Horizontales Zentrieren */
+    align-items: center; /* Vertikales Zentrieren */
+}
+
+/* Styling für die Bilder innerhalb der Galerie */
+#imageGallery img {
+    width: 100%; /* Bilder füllen die Spaltenbreite */
+    height: auto; /* Höhe passt sich proportional an */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

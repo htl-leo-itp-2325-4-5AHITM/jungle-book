@@ -39,28 +39,6 @@ function addEventListenerToButtonsAndInputField() {
     console.log("added event listener2");
 }
 
-async function getAllPhotos() {
-    try {
-        const response = await fetch(`${ipAddress}/api/image`, {
-            method: 'GET'
-        });
-        return response.json();
-    } catch (error) {
-        console.error('There was a problem fetching the photos:', error);
-    }
-}
-
-function dataURLtoBlob(dataURL) {
-    const byteString = atob(dataURL.split(',')[1]); // Decode the base64 string
-    const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0]; // Get the MIME type
-    const ab = new ArrayBuffer(byteString.length);
-    const ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i++) {
-        ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: mimeString });
-}
-
 async function uploadImage() {
     let canvas = document.getElementById("canvas");
     const dataURL = canvas.toDataURL("image/jpg");
@@ -94,5 +72,65 @@ async function uploadImage() {
       method: 'POST',
       body: formData
     });
+
+    canvas.style.display = "none";
+    document.getElementById("nameInput").value = "";
 }
     
+async function getAllImageNames() {
+    try {
+        let response = await fetch('https://it200247.cloud.htl-leonding.ac.at/api/journal/list');
+        if (!response.ok) {
+            throw new Error('Failed to fetch image names');
+        }
+        let imageList = await response.json(); // Hier wird die Liste von Journals erwartet
+        console.log(imageList);
+        return imageList; // Liste aller Journals, inklusive der Bildnamen
+    } catch (error) {
+        console.error('Error fetching image names:', error);
+    }
+}
+
+// Funktion um ein Bild anhand seines Namens zu holen
+async function getImageByName(imageName) {
+    try {
+        let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${imageName}`);
+        if (!response.ok) {
+            throw new Error('Failed to fetch image');
+        }
+        
+        // Bild als Blob erhalten und URL erstellen
+        let imageBlob = await response.blob();
+        let imageURL = URL.createObjectURL(imageBlob);
+
+        return imageURL;  // Gebe die Bild-URL zurück
+    } catch (error) {
+        console.error('Error fetching image:', error);
+    }
+}
+
+// Funktion um alle Bilder anzuzeigen
+async function displayAllImages() {
+    console.log("get images");
+    let imageList = await getAllImageNames();  // Hole die Bildnamen
+    const gallery = document.getElementById('imageGallery');
+
+    if (imageList && imageList.length > 0) {
+        for (let journal of imageList) {
+            let imageName = journal.name; // Verwende jetzt 'imageName' anstelle von 'imageId'
+            console.log(imageName);
+            let imageURL = await getImageByName(imageName); // Hole das Bild mit dem Namen
+
+            // Erstelle ein <img> Element für jedes Bild und füge es zur Galerie hinzu
+            if (imageURL) {
+                let imgElement = document.createElement('img');
+                imgElement.src = imageURL;
+                imgElement.alt = imageName;  // Alt-Text ist jetzt der Bildname
+                gallery.appendChild(imgElement); // Füge das Bild in die Galerie ein
+            }
+        }
+    } else {
+        // Wenn keine Bilder vorhanden sind, zeige eine Nachricht an
+        gallery.innerHTML = '<p>No images found.</p>';
+    }
+}
