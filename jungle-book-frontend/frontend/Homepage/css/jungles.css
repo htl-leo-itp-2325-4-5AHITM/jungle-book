@@ -36,7 +36,7 @@ body {
 }
 
 .link {
-    width: 5vw;
+    width: 6vw;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -134,8 +134,34 @@ body {
     text-decoration: none;
 }
 
+.info {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5%;
+}
+
 .button {
-    background-color: #085a08;
+    background-color: #10c710;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.button:link {
+    text-decoration: none;
+}
+
+.buttonBox {
+    text-decoration: none;
+    width: 30%;
 }
 
 @media only screen and (max-width:500px) {

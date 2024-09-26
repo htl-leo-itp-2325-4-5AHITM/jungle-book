@@ -6,7 +6,7 @@
 
 #header {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 33% 33% 33%;
 }   
 
 #main {
@@ -211,6 +211,10 @@ input[type="text"]:focus, select:focus {
 
 #switchPage {
     text-align: left;
+}
+
+#switchPageMiddle {
+    text-align: center;
 }
 
 #switchPageRight {

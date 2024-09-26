@@ -93,6 +93,7 @@ async function getAllImageNames() {
 
 // Funktion um ein Bild anhand seines Namens zu holen
 async function getImageByName(imageName) {
+    imageName = imageName.toLowerCase();
     try {
         let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${imageName}`);
         if (!response.ok) {
