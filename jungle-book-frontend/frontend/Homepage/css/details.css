@@ -1,0 +1,157 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;    
+}
+
+/*firefox*/
+html {
+    scrollbar-width: none;
+}
+/*Chrome, Safari, Opera, and other WebKit-based browsers*/
+body::-webkit-scrollbar{
+    display: none;
+}
+/*IE, Edge*/
+body {
+    -ms-overflow-style: none;
+}
+
+#header {
+    height: 5vh;
+    width: 100%;
+    background-color: #085a08;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+}
+
+.link:link {
+    color: white;
+    text-decoration: none;
+}
+
+.link {
+    width: 5vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+}
+
+#body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../pics/3418816.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#contentWrapper {
+    border-radius: 5px;
+    height: 50vh;
+    width: 60vw;
+    color: white;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    background-color: #085a08;
+    box-shadow: 0px 1px 0px 0px rgba(4, 48, 4, 0.22), 
+                1px 0px 0px 0px rgba(4, 48, 4, 0.22), 
+                1px 2px 0px 0px rgba(4, 48, 4, 0.22),
+                2px 1px 0px 0px rgba(4, 48, 4, 0.22), 
+                2px 3px 0px 0px rgba(4, 48, 4, 0.22), 
+                3px 2px 0px 0px rgba(4, 48, 4, 0.22), 
+                3px 4px 0px 0px rgba(4, 48, 4, 0.22), 
+                4px 3px 0px 0px rgba(4, 48, 4, 0.22), 
+                4px 5px 0px 0px rgba(4, 48, 4, 0.22), 
+                5px 4px 0px 0px rgba(4, 48, 4, 0.22), 
+                5px 6px 0px 0px rgba(4, 48, 4, 0.22), 
+                6px 5px 0px 0px rgba(4, 48, 4, 0.22), 
+                6px 7px 0px 0px rgba(4, 48, 4, 0.22), 
+                7px 6px 0px 0px rgba(4, 48, 4, 0.22), 
+                7px 8px 0px 0px rgba(4, 48, 4, 0.22), 
+                8px 7px 0px 0px rgba(4, 48, 4, 0.22);   
+}
+
+#content {
+    display: grid;
+    grid-template-rows: 19% 19% 19% 19% 19% 5%;
+    margin: 5%;
+}
+
+.info {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#name {
+    font-size: 3em;
+}
+
+#latitude, #longitude, #comment, #remark {
+    font-size: 1.8em;
+}
+
+#map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background-color: #10c710;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.button:link {
+    text-decoration: none;
+}
+
+.buttonBox {
+    text-decoration: none;
+    width: 30%;
+}
+
+@media only screen and (max-width:500px) {
+    .link {
+        width: 20vw;
+        font-size: 1em;
+        font-size: 1.5em;
+    }
+
+    #contentWrapper {
+        margin-top: 5vh;
+        height: 90vh;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #content {
+        height: 50%;
+        width: auto;
+        font-size: .75em;
+    }
+
+    #map {
+        height: 50%;
+        width: 100%;
+    }
+}
