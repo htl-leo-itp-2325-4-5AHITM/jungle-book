@@ -40,41 +40,46 @@ function addEventListenerToButtonsAndInputField() {
 }
 
 async function uploadImage() {
-    let canvas = document.getElementById("canvas");
-    const dataURL = canvas.toDataURL("image/jpg");
-    let imageName = document.getElementById("nameInput").value;
-    // Remove the prefix from the dataUrl
-    const base64Data = dataURL.replace('data:image/png;base64,', '');
+    if(await window.checkLocation() == true) {
+        console.log("drinnen")
+        let canvas = document.getElementById("canvas");
+        const dataURL = canvas.toDataURL("image/jpg");
+        let imageName = document.getElementById("nameInput").value;
+        // Remove the prefix from the dataUrl
+        const base64Data = dataURL.replace('data:image/png;base64,', '');
 
-    // Convert base64 to raw binary data held in a string
-    const byteCharacters = atob(base64Data);
-    
-    // Convert raw binary to an array of 8-bit unsigned integers
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
+        // Convert base64 to raw binary data held in a string
+        const byteCharacters = atob(base64Data);
+        
+        // Convert raw binary to an array of 8-bit unsigned integers
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        
+        console.log(imageName);
+
+        // Convert the array to a Blob
+        const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
+        let formData = new FormData();
+        formData.append("file", blob);
+        formData.append("filename", imageName);
+
+        console.log(formData);
+        console.log(blob);
+
+
+        // Send the Blob to the server
+        fetch(ipAddress + '/api/journal/upload-photo', {
+        method: 'POST',
+        body: formData
+        });
+
+        canvas.style.display = "none";
+        document.getElementById("nameInput").value = "";
+    } else {
+        return;
     }
-    
-    console.log(imageName);
-
-    // Convert the array to a Blob
-    const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
-    let formData = new FormData();
-    formData.append("file", blob);
-    formData.append("filename", imageName);
-
-    console.log(formData);
-    console.log(blob);
-
-
-    // Send the Blob to the server
-    fetch(ipAddress + '/api/journal/upload-photo', {
-      method: 'POST',
-      body: formData
-    });
-
-    canvas.style.display = "none";
-    document.getElementById("nameInput").value = "";
 }
     
 async function getAllImageNames() {
@@ -93,6 +98,7 @@ async function getAllImageNames() {
 
 // Funktion um ein Bild anhand seines Namens zu holen
 async function getImageByName(imageName) {
+    imageName = imageName.toLowerCase();
     try {
         let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${imageName}`);
         if (!response.ok) {
