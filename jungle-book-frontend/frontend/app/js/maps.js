@@ -38,6 +38,7 @@ function getLocationAwait() {
   });
 }
 
+
 async function getLocation() {
   let coords = "";
   try {
@@ -58,6 +59,8 @@ async function checkLocation() {
   longitude = coords.longitude;
   console.log("coordinates checkLocation: ", latitude, longitude, accuracy);
   await compareCoordinates(latitude, longitude, accuracy);
+  console.log("isInRange", isInRange);
+  console.log("isinrange")
   return isInRange;
 }
 
@@ -79,9 +82,8 @@ async function getAllCheckpoints() {
   }
 }
 
-
 async function compareCoordinates(lat, lon, acc) {
-  getAllCheckpoints().then(async checkpoints => {
+  const checkpoints = await getAllCheckpoints()
     console.log(checkpoints);  
     for (let i = 0; i < checkpoints.length; i++) {
       let lat2 = checkpoints[i].latitude;
@@ -101,7 +103,6 @@ async function compareCoordinates(lat, lon, acc) {
         console.log("no checkpoint found");
       }
     }
-  });
 }
 
 async function haversine(lat1, lon1, lat2, lon2) {
@@ -130,4 +131,22 @@ async function haversine(lat1, lon1, lat2, lon2) {
 
 
   return distance * 1000; // Entfernung in Metern
+}
+
+async function getAllCheckpoints() {
+  try {
+      const response = await fetch(ipAddress + '/api/checkpoint/list', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+      });
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+      }
+
+      const checkpoints = await response.json();  // Wandelt die JSON-Antwort in ein Array um
+      return checkpoints;  // Das Array mit den Checkpoints wird zurückgegeben
+  } catch (error) {
+      console.error('Error fetching checkpoints:', error);
+  }
 }
