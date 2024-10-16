@@ -66,7 +66,8 @@ async function checkLocation() {
 
 async function getAllCheckpoints() {
   try {
-      const response = await fetch(ipAddress + '/api/checkpoint/list', {
+      const response = await fetch(
+        dress + '/api/checkpoint/list', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
       });
