@@ -40,7 +40,9 @@ function addEventListenerToButtonsAndInputField() {
 }
 
 async function uploadImage() {
-    if(await window.checkLocation() == true) {
+    console.log("upload Image");
+    console.log(window.checkLocation)
+    if(await window.checkLocation() == true) {  
         console.log("drinnen")
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");

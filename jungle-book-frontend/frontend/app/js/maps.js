@@ -6,7 +6,6 @@ let iframe = "";
 let isInRange = false;
 const constantDeviation = 150;
 const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
-window.checkLocation = checkLocation;
 
 //todo: positionsüberprüfung mit checkpoints aus der datenbank
 
@@ -50,7 +49,7 @@ async function getLocation() {
   return coords;
 }
 
-async function checkLocation() {
+window.checkLocation = async function checkLocation() {
   let coords = "";
   coords = await getLocation();
 
