@@ -8,16 +8,16 @@
     <a href="home.html">Take Photo</a>
     <a href="admin.html">Manage Checkpoints &#x1F512;</a>
 </div>
-<div id="main">
+<div id="main-content">
     <span class="open-btn" onclick="openNav()">&#9776;</span>
 </div>
 
 function openNav() {
     document.getElementById("sidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("main-content").style.marginLeft = "250px";
 }
 
 function closeNav() {
     document.getElementById("sidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("main-content").style.marginLeft = "0";
 }
