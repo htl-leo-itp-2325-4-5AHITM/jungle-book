@@ -1,4 +1,4 @@
-const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
+const ipAddress4 = "https://it200247.cloud.htl-leonding.ac.at";
 
 window.addEventListener('load', () => {
     reload();
@@ -10,7 +10,7 @@ function reload() {
 
 async function getAllCheckpoints() {
     try {
-        const response = await fetch(`${ipAddress}/api/checkpoint/list`, {
+        const response = await fetch(`${ipAddress4}/api/checkpoint/list`, {
             method: 'GET'
         });
 
@@ -22,7 +22,7 @@ async function getAllCheckpoints() {
 
 async function deleteCheckpoint(id) {
     console.log(id);
-    const response = await fetch(`${ipAddress}/api/checkpoint/remove-checkpoint/${id}`, {
+    const response = await fetch(`${ipAddress4}/api/checkpoint/remove-checkpoint/${id}`, {
         method: 'DELETE'
     });
 

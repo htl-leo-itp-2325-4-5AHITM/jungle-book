@@ -1,6 +1,8 @@
 #homeContainer {
     height: 100vh;
     width: 100vw;
+    position: fixed;
+    overflow: scroll;
     border-radius: 0;
 }
 
@@ -159,11 +161,6 @@ a, p {
     -webkit-backdrop-filter: blur(30px);
 }
 
-#homeContainer {
-    height: 100vh;
-    width: 100vw;
-}
-
 .logout {
     text-align: right;
     cursor: pointer;
@@ -280,5 +277,8 @@ input[type="text"]:focus, select:focus {
     #homeContainer {
         height: 960px;
         width: 25%;
+        position: unset;
+        border-radius: 10px;
+        overflow: hidden;
     }
 }

@@ -1,5 +1,10 @@
 const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
+console.log("uploadImage loaded")
+
+addEventListenerToButton();
+addEventListenerToButtonsAndInputField();
+
 function addEventListenerToButton() {
     document.getElementById('nameInput').addEventListener('keyup', function() {
         let inputValue = this.value;

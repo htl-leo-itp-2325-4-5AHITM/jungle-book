@@ -5,7 +5,9 @@ let coords;
 let iframe = "";
 let isInRange = false;
 const constantDeviation = 150;
-const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
+const ipAddress3 = "https://it200247.cloud.htl-leonding.ac.at";
+
+getLocation();
 
 //todo: positionsüberprüfung mit checkpoints aus der datenbank
 
@@ -135,7 +137,7 @@ async function haversine(lat1, lon1, lat2, lon2) {
 
 async function getAllCheckpoints() {
   try {
-      const response = await fetch(ipAddress + '/api/checkpoint/list', {
+      const response = await fetch(ipAddress3 + '/api/checkpoint/list', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
       });
