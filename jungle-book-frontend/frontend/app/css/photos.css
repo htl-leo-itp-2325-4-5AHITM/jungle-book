@@ -1,12 +1,12 @@
 #galleryBox {
-    width: 50vw;
-    height: 60vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+    width: 100vw;
+    height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
     overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
     padding: 20px;
     padding-top: 10px;
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 0;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
         position: relative; /* Positionieren innerhalb des übergeordneten Elements */
@@ -17,7 +17,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr; /* Zwei Spalten mit gleicher Breite */
     grid-gap: 10px; /* Abstand zwischen den Bildern */
-
 }
 
 /* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
@@ -55,4 +54,14 @@ body {
     height: auto; /* Höhe passt sich proportional an */
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+@media screen and (min-width: 500px) {
+    #galleryBox {
+        width: 50vw;
+        height: 75vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+        overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
+        border-radius: 10px;
+    }
 }

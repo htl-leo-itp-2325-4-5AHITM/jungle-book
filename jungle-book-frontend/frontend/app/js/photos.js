@@ -1,5 +1,10 @@
 const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
+console.log("uploadImage loaded")
+
+addEventListenerToButton();
+addEventListenerToButtonsAndInputField();
+
 function addEventListenerToButton() {
     document.getElementById('nameInput').addEventListener('keyup', function() {
         let inputValue = this.value;
@@ -40,7 +45,9 @@ function addEventListenerToButtonsAndInputField() {
 }
 
 async function uploadImage() {
-    if(await window.checkLocation() == true) {
+    console.log("upload Image");
+    console.log(window.checkLocation)
+    if(await window.checkLocation() == true) {  
         console.log("drinnen")
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");

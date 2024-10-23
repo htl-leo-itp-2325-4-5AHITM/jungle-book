@@ -1,5 +1,5 @@
 (() => {
-    const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
+    const ipAddress1 = "https://it200247.cloud.htl-leonding.ac.at";
     const width = 320; // We will scale the photo width to this
     let height = 0; // This will be computed based on the input stream
 
@@ -10,6 +10,8 @@
     let photo = null;
     let startbutton = null;
     let camera = null;
+
+    startup();
 
     function showViewLiveResultButton() {
       if (window.self !== window.top) {
@@ -27,6 +29,7 @@
       if (showViewLiveResultButton()) {
         return;
       }
+    
       video = document.getElementById("video");
       canvas = document.getElementById("canvas");
       startbutton = document.getElementById("startbutton");
@@ -41,7 +44,6 @@
         .catch((err) => {
           console.error(`An error occurred: ${err}`);
         });
-
       video.addEventListener(
         "canplay",
         (ev) => {
@@ -64,7 +66,6 @@
         },
         false,
       );
-
       startbutton.addEventListener(
         "click",
         (ev) => {
@@ -118,7 +119,9 @@
   })();
   
   function sendImageToServer(dataUrl) {
-    if (checkLocation()) {
+    console.log("test test test")
+    if (window.checkLocation()) {
+      console.log("test test test")
       // Remove the prefix from the dataUrl
       const base64Data = dataUrl.replace('data:image/jpg;base64,', '');
       
@@ -136,7 +139,7 @@
       let formData = new FormData();
       formData.append("image", blob);
       // Send the Blob to the server
-      fetch(ipAddress + '/api/journal/upload-photo', {
+      fetch(ipAddress1 + '/api/journal/upload-photo', {
         method: 'POST',
         body: formData
       }).then(response => response.arrayBuffer())
