@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./Homepage/css/homepage.css" />
+    <script src="./Homepage/js/scolling-indicator.js"></script>
     <title>Jungle-Book</title>
   </head>
   <body>
@@ -103,30 +104,4 @@
       <span>&#x25BC;</span>
     </div>
   </body>
-
-  <script>
-    const sections = document.querySelectorAll('.startWrapper');
-    let currentSection = 0;
-  
-    // Funktion, um zur nächsten Sektion zu scrollen
-    function scrollToNextSection() {
-      currentSection = Math.min(currentSection + 1, sections.length - 1);  // Abschnittsindex erhöhen
-      sections[currentSection].scrollIntoView({ behavior: 'smooth' });  // Scrollen zur nächsten Sektion
-    }
-  
-    // Event-Listener für Klick auf den Scroll-Indikator
-    document.getElementById('scroll-indicator').addEventListener('click', scrollToNextSection);
-  
-    // Event-Listener für das Scrollen (um den Pfeil ein- oder auszublenden)
-    window.addEventListener('scroll', function() {
-      const scrollIndicator = document.getElementById('scroll-indicator');
-      if (window.scrollY > 50) {
-        scrollIndicator.classList.add('hidden');
-      } else {
-        scrollIndicator.classList.remove('hidden');
-      }
-    });
-  </script>
-  
-  
 </html>
