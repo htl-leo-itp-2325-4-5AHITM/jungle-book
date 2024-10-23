@@ -50,13 +50,15 @@ body {
     text-shadow: 2px 2px #0000;
 }
 
-.link:link {
+.link:link, .link-image:link {
     color: white;
     text-decoration: none;
 }
 
-.link {
-    width: 6vw;
+.link, .link-image {
+    width: 30vw;
+    font-size: 1em;
+    font-size: 1.5em;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -65,11 +67,16 @@ body {
     color: white;
 }
 
+.link-image {
+    width: 10vw;
+}
+
 .startWrapper {
     display: grid;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 25% 75%;
+    height: 80vh;
     background-color: #097609;
-    max-height: 100vh;
+
 }
 
 .headerBody, .contentBodyWrapper {
@@ -91,7 +98,7 @@ body {
 }
 
 .headerBody {
-    font-size: 8em;
+    font-size: 2em;
     color: white;
     text-shadow: 2px 2px #0000;
     margin: 4%;
@@ -118,15 +125,19 @@ body {
 }
 
 .contentBody {
+    width: 90vw;
+    height: 60vh;
+    background-image: url(../pics/leaf_background.jpg);
+    background-size: cover;
     border-radius: 5px;
-    width: 40vw;
-    height: 25vh;
     background-color: #085a08;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
     padding: 4%;
+    opacity: .9;
+    filter: brightness(.85);
     box-shadow: 0px 1px 0px 0px rgba(4, 48, 4, 0.22), 
                 1px 0px 0px 0px rgba(4, 48, 4, 0.22), 
                 1px 2px 0px 0px rgba(4, 48, 4, 0.22),
@@ -146,51 +157,44 @@ body {
 }
 
 .contentBodyHeader {
-    font-size: 2.5em;
-    margin-bottom: 4%;
-    color: #10c710;
+    font-size: 2em;
+    color: black;;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contentBodyBody {
+    margin: 3%;
     font-size: 1.5em;
+    letter-spacing: .1em;
     color: white;
+    font-weight: bold;
 }
 
-@media only screen and (max-width:500px) {
-    .link {
-        width: 20vw;
-        font-size: 1em;
-        font-size: 1.5em;
+@media screen and (min-width: 500px) {
+    .link, .link-image {
+        width: 6vw;
     }
-    
+
     .headerBody {
-        font-size: 2em;
+        font-size: 8em;
     }
 
     .startWrapper {
-        display: grid;
-        grid-template-rows: 25% 75%;
-        height: 80vh;
+        max-height: 100vh;
+        grid-template-rows: 50% 50%;
     }
 
     .contentBody {
-        width: 90vw;
-        height: 40vh;
+        width: 45vw;
+        height: 25vh;
     }
-    
+
     .contentBodyHeader {
-        font-size: 2em;
-        color: #10c710;
-        margin: 4%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .contentBodyBody {
-        font-size: 1.5em;
-        color: white;
-        margin: 3%;
+        font-size: 2.5em;
+        color: Black;
     }
 }
 
