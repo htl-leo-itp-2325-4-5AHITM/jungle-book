@@ -1,4 +1,4 @@
-#homeContainer {
+#homeContainer, #newCheckpoint-container {
     height: 100vh;
     width: 100vw;
     position: fixed;
@@ -280,5 +280,11 @@ input[type="text"]:focus, select:focus {
         position: unset;
         border-radius: 10px;
         overflow: hidden;
+    }
+    
+    #newCheckpoint-container {
+        min-width: 28%;
+        width: auto;
+        height: auto;
     }
 }

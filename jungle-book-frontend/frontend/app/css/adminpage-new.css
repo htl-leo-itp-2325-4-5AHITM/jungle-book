@@ -111,11 +111,15 @@ input[type="checkbox"] {
     }
 
     #header {
-        height: 50px;
+        height: 25px;
     }
 
     table {
         max-width: auto;
         width: auto;
+    }
+
+    .col3, .col4 {
+        display: table-cell;
     }
 }
