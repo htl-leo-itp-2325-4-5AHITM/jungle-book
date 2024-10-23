@@ -34,7 +34,7 @@ body {
     text-decoration: none;
 }
 
-.link:link, .link-image:link {
+.link, .link-image {
     width: 6vw;
     height: 100%;
     display: flex;
@@ -44,7 +44,7 @@ body {
     color: white;
 }
 
-.link-image:link {
+.link-image {
     width: 6vw;
 }
 
@@ -139,13 +139,14 @@ body {
 }
 
 @media only screen and (max-width:500px) {
-    .link:link, .link-image:link {
+    .link {
         width: 30vw;
     }
     
-    .link:link, .link-image:link {
+    .link-image {
         width: 10vw;
     }
+    
     #contentWrapper {
         margin-top: 5vh;
         height: 90vh;

@@ -36,7 +36,7 @@ body {
     text-decoration: none;
 }
 
-.link:link, .link-image:link {
+.link, .link-image {
     width: 30vw;
     font-size: 1em;
     font-size: 1.5em;
@@ -47,7 +47,7 @@ body {
     color: white;
 }
 
-.link:link, .link-image:link {
+.link-image {
     width: 10vw;
 }
 
