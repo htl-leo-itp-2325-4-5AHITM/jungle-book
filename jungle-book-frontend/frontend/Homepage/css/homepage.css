@@ -94,6 +94,7 @@ body {
     font-size: 8em;
     color: white;
     text-shadow: 2px 2px #0000;
+    margin: 4%;
 }
 
 #startWrapper-1 {
@@ -146,6 +147,7 @@ body {
 
 .contentBodyHeader {
     font-size: 2.5em;
+    margin-bottom: 4%;
     color: #10c710;
 }
 
@@ -179,7 +181,7 @@ body {
     .contentBodyHeader {
         font-size: 2em;
         color: #10c710;
-        margin: 3%;
+        margin: 4%;
         display: flex;
         justify-content: center;
         align-items: center;
