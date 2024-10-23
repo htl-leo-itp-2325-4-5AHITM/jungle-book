@@ -52,5 +52,8 @@ button {
 }
 
 @media screen and (min-width: 500px) {
-
+    .upload-container {
+        width: auto;
+        height: auto;
+    }
 }
