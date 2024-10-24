@@ -29,12 +29,12 @@ body {
     position: fixed;
 }
 
-.link:link {
+.link:link, .link-image:link {
     color: white;
     text-decoration: none;
 }
 
-.link {
+.link, .link-image {
     width: 6vw;
     height: 100%;
     display: flex;
@@ -42,6 +42,10 @@ body {
     align-items: center;
     font-size: 1.5em;
     color: white;
+}
+
+.link-image {
+    width: 6vw;
 }
 
 #body {
@@ -136,11 +140,13 @@ body {
 
 @media only screen and (max-width:500px) {
     .link {
-        width: 20vw;
-        font-size: 1em;
-        font-size: 1.5em;
+        width: 30vw;
     }
-
+    
+    .link-image {
+        width: 10vw;
+    }
+    
     #contentWrapper {
         margin-top: 5vh;
         height: 90vh;
