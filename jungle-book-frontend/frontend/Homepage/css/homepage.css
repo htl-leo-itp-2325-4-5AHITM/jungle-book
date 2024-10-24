@@ -117,8 +117,10 @@ body {
 }
 
 .contentBody {
+    background-image: url(../pics/leaf_background.jpg);
+    background-size: cover;
     border-radius: 5px;
-    width: 40vw;
+    width: 45vw;
     height: 25vh;
     background-color: #085a08;
     display: flex;
@@ -126,6 +128,8 @@ body {
     justify-content: center;
     align-items: start;
     padding: 4%;
+    opacity: .9;
+    filter: brightness(.85);
     box-shadow: 0px 1px 0px 0px rgba(4, 48, 4, 0.22), 
                 1px 0px 0px 0px rgba(4, 48, 4, 0.22), 
                 1px 2px 0px 0px rgba(4, 48, 4, 0.22),
@@ -146,12 +150,14 @@ body {
 
 .contentBodyHeader {
     font-size: 2.5em;
-    color: #10c710;
+    color: Black;
 }
 
 .contentBodyBody {
     font-size: 1.5em;
+    letter-spacing: .1em;
     color: white;
+    font-weight: bold;
 }
 
 @media only screen and (max-width:500px) {

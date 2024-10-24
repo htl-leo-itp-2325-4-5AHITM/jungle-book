@@ -129,6 +129,11 @@ body {
     width: 30%;
 }
 
+#mapIframe {
+    width: 100%;
+    height: 100%;
+}
+
 @media only screen and (max-width:500px) {
     .link {
         width: 20vw;

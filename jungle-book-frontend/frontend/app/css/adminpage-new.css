@@ -1,12 +1,27 @@
 table {
     border-collapse: collapse;
+    max-width: 100%;
     width: 100%;
     height: 70%;
     text-align: center;
+    table-layout: auto; 
+    word-wrap: break-word; 
+}
+
+.col3, .col4 {
+    display: none;
+}
+
+#header {
+    height: auto;
 }
 
 #adminpageContainer {
-    height: 500px;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow: scroll;
+    border-radius: 0;
 }
 
 #bottomBox {
@@ -84,4 +99,27 @@ input[type="checkbox"] {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 10px;
+}
+
+@media screen and (min-width: 500px) {
+    #adminpageContainer {
+        height: 600px;
+        width: auto;
+        position: unset;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    #header {
+        height: 25px;
+    }
+
+    table {
+        max-width: auto;
+        width: auto;
+    }
+
+    .col3, .col4 {
+        display: table-cell;
+    }
 }
