@@ -124,7 +124,7 @@ async function getImageById(id) {
 // Funktion um alle Bilder anzuzeigen
 async function displayAllImages() {
     console.log("get images");
-    let imageList = await getAllImageNames();  // Hole die Bildnamen
+    let imageList = await getAllImageNames();  // Hole  die Bildnamen
     const gallery = document.getElementById('imageGallery');
 
     if (imageList && imageList.length > 0) {
