@@ -21,6 +21,7 @@ body {
 }
 
 #header {
+    z-index: 1000;
     height: 5vh;
     width: 100%;
     background-color: #085a08;
@@ -30,19 +31,24 @@ body {
     text-shadow: 2px 2px #0000;
 }
 
-.link:link {
+.link:link, .link-image:link {
     color: white;
     text-decoration: none;
 }
 
-.link {
-    width: 5vw;
+.link, .link-image {
+    width: 30vw;
+    font-size: 1em;
+    font-size: 1.5em;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5em;
     color: white;
+}
+
+.link-image {
+    width: 10vw;
 }
 
 #body {
@@ -61,8 +67,8 @@ body {
 
 #contentBody {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    justify-content: space-between;
+    grid-template-columns: 100%;
+    justify-content: center;
     margin-bottom: 5vh;
 }
 
@@ -134,30 +140,57 @@ body {
     text-decoration: none;
 }
 
+.info {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5%;
+}
+
 .button {
-    background-color: #085a08;
+    background-color: #10c710;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: large;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
 }
 
-@media only screen and (max-width:500px) {
-    .link {
-        width: 20vw;
-        font-size: 1em;
-        font-size: 1.5em;
-    }
-
-    #contentBody {
-        display: grid;
-        grid-template-columns: 100%;
-        justify-content: center;
-        margin-bottom: 5vh;
-    }
+.button:link {
+    text-decoration: none;
 }
 
-@media only screen and (max-width:1100px) {
+.buttonBox {
+    text-decoration: none;
+    width: 30%;
+}
+
+@media screen and (min-width: 500px) and (max-width: 1099px) {
     #contentBody {
-        display: grid;
         grid-template-columns: 50% 50%;
-        justify-content: center;
-        margin-bottom: 5vh;
+        grid-gap: 1%;  
+    }    
+    .link, .link-image {
+        font-size: 1.5em;
+        width: 6vw;
     }
 }
+
+@media screen and (min-width: 1100px) {
+    #contentBody {
+        grid-template-columns: 30% 30% 30%; 
+        grid-gap: 1%;  
+    }
+    .link, .link-image {
+        font-size: 1.5em;
+        width: 6vw;
+    }
+}
+
+
+

@@ -32,4 +32,5 @@ function displayCheckpoints(checkpoints) {
                   '<div class="name">' + checkpoints[i].name + '</div>' +
                   '</div></div></a>';
     }
+    checkpointTable.innerHTML += '<div class="info" id="button"><a class="buttonBox" href="../../app/html/adminpage-new.html"><button class="button">Checkpoint hinzufügen</button></a></div></div>';
 }
