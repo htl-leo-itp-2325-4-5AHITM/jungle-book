@@ -104,7 +104,7 @@ async function getAllImageNames() {
 }
 
 // Funktion um ein Bild anhand seines Namens zu holen
-async function getImageByID(id) {
+async function getImageById(id) {
     try {
         let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${id}`);
         if (!response.ok) {
@@ -129,15 +129,16 @@ async function displayAllImages() {
 
     if (imageList && imageList.length > 0) {
         for (let journal of imageList) {
-            let id = journal.id; // Verwende jetzt 'imageName' anstelle von 'imageId'
-            console.log(id);
-            let imageURL = await getImageByID(id); // Hole das Bild mit dem Namen
+	    console.log(journal)
+            let imageId = journal.id; // Verwende jetzt 'imageName' anstelle von 'imageId'
+
+            let imageURL = await getImageById(imageId); // Hole das Bild mit dem Namen
 
             // Erstelle ein <img> Element für jedes Bild und füge es zur Galerie hinzu
             if (imageURL) {
                 let imgElement = document.createElement('img');
                 imgElement.src = imageURL;
-                imgElement.alt = imageName;  // Alt-Text ist jetzt der Bildname
+                imgElement.alt = journal.name;  // Alt-Text ist jetzt der Bildname
                 gallery.appendChild(imgElement); // Füge das Bild in die Galerie ein
             }
         }
