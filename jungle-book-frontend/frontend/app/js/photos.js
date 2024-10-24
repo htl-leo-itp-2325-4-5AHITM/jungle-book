@@ -1,5 +1,10 @@
 const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
+console.log("uploadImage loaded")
+
+addEventListenerToButton();
+addEventListenerToButtonsAndInputField();
+
 function addEventListenerToButton() {
     document.getElementById('nameInput').addEventListener('keyup', function() {
         let inputValue = this.value;
@@ -40,7 +45,9 @@ function addEventListenerToButtonsAndInputField() {
 }
 
 async function uploadImage() {
-    if(await window.checkLocation() == true) {
+    console.log("upload Image");
+    console.log(window.checkLocation)
+    if(await window.checkLocation() == true) {  
         console.log("drinnen")
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");
@@ -97,10 +104,9 @@ async function getAllImageNames() {
 }
 
 // Funktion um ein Bild anhand seines Namens zu holen
-async function getImageByName(imageName) {
-    imageName = imageName.toLowerCase();
+async function getImageById(id) {
     try {
-        let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${imageName}`);
+        let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${id}`);
         if (!response.ok) {
             throw new Error('Failed to fetch image');
         }
@@ -118,20 +124,21 @@ async function getImageByName(imageName) {
 // Funktion um alle Bilder anzuzeigen
 async function displayAllImages() {
     console.log("get images");
-    let imageList = await getAllImageNames();  // Hole die Bildnamen
+    let imageList = await getAllImageNames();  // Hole  die Bildnamen
     const gallery = document.getElementById('imageGallery');
 
     if (imageList && imageList.length > 0) {
         for (let journal of imageList) {
-            let imageName = journal.name; // Verwende jetzt 'imageName' anstelle von 'imageId'
-            console.log(imageName);
-            let imageURL = await getImageByName(imageName); // Hole das Bild mit dem Namen
+	    console.log(journal)
+            let imageId = journal.id; // Verwende jetzt 'imageName' anstelle von 'imageId'
+
+            let imageURL = await getImageById(imageId); // Hole das Bild mit dem Namen
 
             // Erstelle ein <img> Element für jedes Bild und füge es zur Galerie hinzu
             if (imageURL) {
                 let imgElement = document.createElement('img');
                 imgElement.src = imageURL;
-                imgElement.alt = imageName;  // Alt-Text ist jetzt der Bildname
+                imgElement.alt = journal.name;  // Alt-Text ist jetzt der Bildname
                 gallery.appendChild(imgElement); // Füge das Bild in die Galerie ein
             }
         }

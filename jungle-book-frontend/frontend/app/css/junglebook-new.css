@@ -1,3 +1,11 @@
+#homeContainer, #newCheckpoint-container {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    overflow: scroll;
+    border-radius: 0;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +15,10 @@
 #header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    height: 50px;
 }   
 
-#main {
+#main-content {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,7 +29,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
     height: 100vh;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -73,6 +81,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
 }
 
 .register-container {
@@ -152,10 +161,6 @@ a, p {
     -webkit-backdrop-filter: blur(30px);
 }
 
-#homeContainer {
-    height: 960px;
-}
-
 .logout {
     text-align: right;
     cursor: pointer;
@@ -202,7 +207,7 @@ input[type="text"]:focus, select:focus {
     width: 100%;
 }
 
-#switchPage, #switchPageRight {
+#switchPage, #switchPageRight, #switchPageMiddle {
     cursor: pointer;
     font-size: 12px;
     padding: 5px;
@@ -268,3 +273,18 @@ input[type="text"]:focus, select:focus {
     background-color: #6eaa5e;
 }
 
+@media screen and (min-width: 500px) {
+    #homeContainer {
+        height: 960px;
+        width: 25%;
+        position: unset;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    #newCheckpoint-container {
+        min-width: 28%;
+        width: auto;
+        height: auto;
+    }
+}
