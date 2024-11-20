@@ -51,6 +51,13 @@ async function uploadImage() {
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");
         let imageName = document.getElementById("nameInput").value;
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const checkpointId = urlParams.get('id'); 
+
+        imageName += "::" + checkpointId;
+        console.log("imageName:" + imageName);
+
         // Remove the prefix from the dataUrl
         const base64Data = dataURL.replace('data:image/png;base64,', '');
 
@@ -118,9 +125,74 @@ async function getImageByID(id) {
     }
 }
 
+async function displayImagesByRoute() {
+    console.log("Fetching and displaying images grouped by routes...");
+    let imageList = await getAllImageNames(); // Fetch all images
+    const gallery = document.getElementById('imageGallery');
+
+    if (imageList && imageList.length > 0) {
+        // Create a map to group images by route
+        const routeImagesMap = {};
+
+        // Extract IDs from image names and match them to routes
+        for (let journal of imageList) {
+            const imageName = journal.name; // Assuming `journal.name` contains the name of the image
+            const idMatch = imageName.match(/::(\d+)$/); // Match "::id" at the end of the image name
+            if (!idMatch) continue; // Skip if no ID is found
+
+            const checkpointId = parseInt(idMatch[1]); // Extract the checkpoint ID as a number
+
+            // Find the route name that contains this checkpoint ID
+            for (const route in routes) {
+                if (routes[route].includes(checkpointId)) {
+                    const routeName = routes[route][0]; // The first item is the route name
+                    if (!routeImagesMap[routeName]) {
+                        routeImagesMap[routeName] = [];
+                    }
+                    routeImagesMap[routeName].push({
+                        checkpointId, 
+                        imageId: journal.id, // Use the image's ID from the server
+                        imageName: journal.name
+                    });
+                    break;
+                }
+            }
+        }
+
+        // Display images grouped by route
+        for (const routeName in routeImagesMap) {
+            // Add a header for the route name
+            const routeHeader = document.createElement('h2');
+            routeHeader.textContent = routeName;
+        
+            // Style the header to span the full grid width
+            routeHeader.style.gridColumn = 'span 2';
+            gallery.appendChild(routeHeader);
+        
+            // Add images for the route
+            for (const image of routeImagesMap[routeName]) {
+                console.log("Image ID:", image.imageId); // Log the image ID for debugging
+                const imageURL = await getImageByID(image.imageId); // Fetch image using the server ID
+                if (imageURL) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageURL;
+                    imgElement.alt = image.imageName; // Optional: Set the alt attribute
+                    gallery.appendChild(imgElement);
+                }
+            }
+        }
+        
+    } else {
+        gallery.innerHTML = '<p>No images found.</p>';
+    }
+}
+
+
+
+
 async function displayAllImages() {
     console.log("get images");
-    let imageList = await getAllImageNames();  // Hole  die Bildnamen
+    let imageList = await getAllImageNames();  
     const gallery = document.getElementById('imageGallery');
 
     if (imageList && imageList.length > 0) {
