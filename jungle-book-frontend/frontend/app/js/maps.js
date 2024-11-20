@@ -65,25 +65,6 @@ window.checkLocation = async function checkLocation() {
   return isInRange;
 }
 
-async function getAllCheckpoints() {
-  try {
-      const response = await fetch(
-        dress + '/api/checkpoint/list', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
-      });
-
-      if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-      }
-
-      const checkpoints = await response.json();  // Wandelt die JSON-Antwort in ein Array um
-      return checkpoints;  // Das Array mit den Checkpoints wird zurückgegeben
-  } catch (error) {
-      console.error('Error fetching checkpoints:', error);
-  }
-}
-
 async function compareCoordinates(lat, lon, acc) {
   const checkpoints = await getAllCheckpoints()
     console.log(checkpoints);  
