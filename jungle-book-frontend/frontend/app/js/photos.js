@@ -48,7 +48,6 @@ async function uploadImage() {
     console.log("upload Image");
     console.log(window.checkLocation)
     if(await window.checkLocation() == true) {  
-        console.log("drinnen")
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");
         let imageName = document.getElementById("nameInput").value;
@@ -63,8 +62,6 @@ async function uploadImage() {
         for (let i = 0; i < byteCharacters.length; i++) {
         byteNumbers[i] = byteCharacters.charCodeAt(i);
         }
-        
-        console.log(imageName);
 
         // Convert the array to a Blob
         const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
@@ -121,7 +118,6 @@ async function getImageByID(id) {
     }
 }
 
-// Funktion um alle Bilder anzuzeigen
 async function displayAllImages() {
     console.log("get images");
     let imageList = await getAllImageNames();  // Hole  die Bildnamen
@@ -129,20 +125,18 @@ async function displayAllImages() {
 
     if (imageList && imageList.length > 0) {
         for (let journal of imageList) {
-            let id = journal.id; // Verwende jetzt 'imageName' anstelle von 'imageId'
+            let id = journal.id; 
             console.log(id);
-            let imageURL = await getImageByID(id); // Hole das Bild mit dem Namen
+            let imageURL = await getImageByID(id);
 
-            // Erstelle ein <img> Element für jedes Bild und füge es zur Galerie hinzu
             if (imageURL) {
                 let imgElement = document.createElement('img');
                 imgElement.src = imageURL;
-                imgElement.alt = imageName;  // Alt-Text ist jetzt der Bildname
-                gallery.appendChild(imgElement); // Füge das Bild in die Galerie ein
+                //imgElement.alt = imageName;  
+                gallery.appendChild(imgElement); 
             }
         }
     } else {
-        // Wenn keine Bilder vorhanden sind, zeige eine Nachricht an
         gallery.innerHTML = '<p>No images found.</p>';
     }
 }
