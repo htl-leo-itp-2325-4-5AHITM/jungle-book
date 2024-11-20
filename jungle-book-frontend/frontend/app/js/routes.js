@@ -1,6 +1,7 @@
 const routes = {
     1: ["Leonding", 101, 151],
-    2: ["Europa", 110, 111]
+    2: ["Europa", 110, 111],
+    3: ["Bodendorf", 152]
 };
 
 async function loadRoutes() {
@@ -20,24 +21,36 @@ async function loadRoutes() {
 
         // Build the routes list with checkpoint names
         // Build the routes with checkpoint names and unique classes
-        for (const route in routes) {
-            const routeInfo = routes[route];
-            const checkpointNames = routeInfo.slice(1).map((id, index) => {
-                const checkpointName = checkpointMap[id] || `Unknown ID: ${id}`;
-                // Use route and checkpoint index to form a unique ID for each checkpoint
-                const checkpointId = `route${route}_checkpoint${index + 1}`;
-                return `<div onclick="redirectToRoute('${checkpointId}')" class="details" id="${checkpointId}"><p>${checkpointName}</p></div>`;
-            });
+        let routesHTML = "";
+    
+    // Loop through each route
+    for (const route in routes) {
+        const routeInfo = routes[route];
+        const routeName = routeInfo[0];
+        
+        // Generate checkpoints HTML
+        const checkpointNames = routeInfo.slice(1).map((id, index) => {
+            const checkpointName = checkpointMap[id] || `Unknown ID: ${id}`;
+            
+            // Generate unique checkpointId
+            const checkpointId = `route${route}_checkpoint${id}`; // Using `id` directly as it is the actual checkpoint ID
+            
+            // Return HTML for the checkpoint
+            return `<div onclick="redirectToRoute(${route}, ${id})" class="details" id="${checkpointId}">
+                        <p>${checkpointName}</p>
+                    </div>`;
+        });
 
-            routesHTML += `
-                <div class="routes" id="route${route}" onclick="toggleDetails(${route})">
-                    <div class="routeName"><span>${routeInfo[0]}</span></div>
-                    <div class="detailBox" id="details${route}" style="display: none;">
-                        ${checkpointNames.join("")}
-                    </div>
+        // Add the route and its checkpoints to the HTML
+        routesHTML += `
+            <div class="routes" id="route${route}" onclick="toggleDetails(${route})">
+                <div class="routeName"><span>${routeName}</span></div>
+                <div class="detailBox" id="details${route}" style="display: none;">
+                    ${checkpointNames.join("")}
                 </div>
-            `;
-        }
+            </div>
+        `;
+    }
 
         routesContainer.innerHTML = routesHTML;
     } catch (error) {
@@ -54,9 +67,8 @@ function toggleDetails(route) {
     }
 }
 
-function redirectToRoute(checkpointId) {
-    const [routeId, checkpoint] = checkpointId.split('_').map(item => item.replace(/\D/g, ''));
-    window.location.href = `home-new.html?route=${routeId}&checkpoint=${checkpoint}`;
+function redirectToRoute(routeId, checkpointId) {
+    window.location.href = `home-new.html?route=${routeId}&id=${checkpointId}`;
 }
 
 

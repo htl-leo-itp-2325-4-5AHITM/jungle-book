@@ -64,7 +64,7 @@ window.checkLocation = async function checkLocation() {
   console.log("isinrange")
   return isInRange;
 }
-
+/*
 async function compareCoordinates(lat, lon, acc) {
   const checkpoints = await getAllCheckpoints()
     console.log(checkpoints);  
@@ -86,7 +86,43 @@ async function compareCoordinates(lat, lon, acc) {
         console.log("no checkpoint found");
       }
     }
+}*/
+
+async function compareCoordinates(lat, lon, acc) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const checkpointId = urlParams.get('checkpoint'); 
+  const checkpoints = await getAllCheckpoints();
+  console.log(checkpoints);
+
+  const checkpoint = checkpoints.find(cp => cp.id === checkpointId);
+  
+  if (!checkpoint) {
+      console.log("Checkpoint not found.");
+      return false;
+  }
+
+  const lat2 = checkpoint.latitude;
+  const lon2 = checkpoint.longitude;
+  
+  const distance = await haversine(lat, lon, lat2, lon2);
+  let maxDeviation = constantDeviation + acc;
+  
+  console.log(distance + " abstand");
+
+  if (distance <= maxDeviation) {
+      console.log("Checkpoint found: " + checkpoint.name);
+      let result = 
+          "<p>Checkpoint Found: " + checkpoint.name + " </p><p>Abweichung: " + Math.round(distance * 100) / 100 + " Meter</p>";
+      document.getElementById("resultMap").innerHTML = result;
+      isInRange = true;
+      return true;
+  } else {
+      isInRange = false;
+      console.log("No checkpoint found");
+      return false;
+  }
 }
+
 
 async function haversine(lat1, lon1, lat2, lon2) {
   // Konvertiere Grad in Radian
