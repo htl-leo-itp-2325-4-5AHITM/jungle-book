@@ -13,10 +13,26 @@
     margin: auto; /* Zentrieren des Containers */
 }
 
+.image-container, img {
+    page-break-inside: avoid; /* Verhindere, dass Bilder aufgeteilt werden */
+    break-inside: avoid;
+}
+
+.image-container {
+    width: 50%; /* Bilder füllen die Spaltenbreite */
+    height: auto; /* Höhe passt sich proportional an */
+    padding: 1%;
+}
+
+h2 {
+    width: 100%;
+    padding: 1%;
+}
+
 #imageGallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Zwei Spalten mit gleicher Breite */
-    grid-gap: 10px; /* Abstand zwischen den Bildern */
+    display: flex;
+    flex-direction: row;  /* oder row je nach Anordnung */
+    flex-wrap: wrap;
 }
 
 /* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
@@ -27,6 +43,17 @@
 /* Scrollbar ausblenden für Firefox */
 #galleryBox {
     scrollbar-width: none; /* Firefox */
+}
+
+#columnButtons {
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    grid-gap: 5%;
+    padding: 5%;
+}
+
+#exportBox {
+    padding: 5%;
 }
 
 body {
@@ -46,14 +73,6 @@ body {
     display: flex;
     justify-content: center; /* Horizontales Zentrieren */
     align-items: center; /* Vertikales Zentrieren */
-}
-
-/* Styling für die Bilder innerhalb der Galerie */
-#imageGallery img {
-    width: 100%; /* Bilder füllen die Spaltenbreite */
-    height: auto; /* Höhe passt sich proportional an */
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #settingsBox {

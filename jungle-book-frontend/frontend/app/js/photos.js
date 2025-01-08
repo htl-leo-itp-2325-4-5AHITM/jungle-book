@@ -164,9 +164,6 @@ async function displayImagesByRoute() {
             // Add a header for the route name
             const routeHeader = document.createElement('h2');
             routeHeader.textContent = routeName;
-        
-            // Style the header to span the full grid width
-            routeHeader.style.gridColumn = 'span 2';
             gallery.appendChild(routeHeader);
         
             // Add images for the route
@@ -177,6 +174,7 @@ async function displayImagesByRoute() {
                     const imgElement = document.createElement('img');
                     imgElement.src = imageURL;
                     imgElement.alt = image.imageName; // Optional: Set the alt attribute
+                    imgElement.classList.add('image-container');
                     gallery.appendChild(imgElement);
                 }
             }
@@ -201,7 +199,7 @@ async function displayAllImages() {
             if (imageURL) {
                 let imgElement = document.createElement('img');
                 imgElement.src = imageURL;
-                //imgElement.alt = imageName;  
+                imgElement.classList.add('image-container');
                 gallery.appendChild(imgElement); 
             }
         }
@@ -209,3 +207,33 @@ async function displayAllImages() {
         gallery.innerHTML = '<p>No images found.</p>';
     }
 }
+
+
+function exportToPDF() {
+    let pdfBox = document.getElementById("imageGallery");
+    let options = {
+        margin: [0, 5, 0, 5],
+        filename: "Fotobuch.pdf",
+        image: { type: "jpg", quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+    };
+    html2pdf().set(options).from(pdfBox).save();
+}
+
+
+function set3Columns () {
+    const allImageContainers = document.getElementsByClassName("image-container");
+    for (let i = 0; i < allImageContainers.length; i++) {
+        allImageContainers[i].style.flexBasis = "33.3%";  
+    }
+}
+  
+
+function set2Columns () {
+    const allImageContainers = document.getElementsByClassName("image-container");
+    for (let i = 0; i < allImageContainers.length; i++) {
+        allImageContainers[i].style.flexBasis = "50%";  
+    }
+}
+  
