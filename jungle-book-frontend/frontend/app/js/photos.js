@@ -187,9 +187,6 @@ async function displayImagesByRoute() {
     }
 }
 
-
-
-
 async function displayAllImages() {
     console.log("get images");
     let imageList = await getAllImageNames();  
