@@ -1,104 +1,106 @@
-table {
-    border-collapse: collapse;
-    max-width: 100%;
-    width: 100%;
-    height: 70%;
-    text-align: center;
-    table-layout: auto; 
-    word-wrap: break-word; 
-}
+@media (hover: none) and (pointer: coarse) {   
+    table {
+        border-collapse: collapse;
+        max-width: 100%;
+        width: 100%;
+        height: 70%;
+        text-align: center;
+        table-layout: auto; 
+        word-wrap: break-word; 
+    }
 
-.col3, .col4 {
-    display: none;
-}
+    .col3, .col4 {
+        display: none;
+    }
 
-#header {
-    height: auto;
-}
+    #header {
+        height: auto;
+    }
 
-#adminpageContainer {
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    overflow: scroll;
-    border-radius: 0;
-}
+    #adminpageContainer {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        overflow: scroll;
+        border-radius: 0;
+    }
 
-#bottomBox {
-    height: 10%;
-}
-  
-h1 {
-    text-align: center;
-    height: 10%;
-}
+    #bottomBox {
+        height: 10%;
+    }
+    
+    h1 {
+        text-align: center;
+        height: 10%;
+    }
 
-.container {
-    height: 60vh;
-    width: 50vw;
-}
+    .container {
+        height: 60vh;
+        width: 50vw;
+    }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
 
-button {
-    max-width: 200px;
-    height: auto !important;
-}
+    button {
+        max-width: 200px;
+        height: auto !important;
+    }
 
-input[type="checkbox"] {
-    width: 30%;
-    padding: 12px 20px;
-}
+    input[type="checkbox"] {
+        width: 30%;
+        padding: 12px 20px;
+    }
 
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    background: #008000;
-    box-shadow: 0 5px 15px rgb(204, 204, 204);
-    border-radius: 8px;
-}
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 20px;
+        background: #008000;
+        box-shadow: 0 5px 15px rgb(204, 204, 204);
+        border-radius: 8px;
+    }
 
-.navbar button {
-    box-shadow: none;
-    border: none;
-    margin: 0;
-}
+    .navbar button {
+        box-shadow: none;
+        border: none;
+        margin: 0;
+    }
 
-.navbar button:hover {
-    background-color: #109010;
-}
+    .navbar button:hover {
+        background-color: #109010;
+    }
 
-.switchPage {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 20px;
-}
-.switchPage button {
-    color: black;
-    border: none;
-    box-shadow: none;
-    background: none;
-    margin: 0;
-}
-.switchPage button:hover {
-    background-color: rgba(125, 141, 159, 0.08);
-}
+    .switchPage {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 20px;
+    }
+    .switchPage button {
+        color: black;
+        border: none;
+        box-shadow: none;
+        background: none;
+        margin: 0;
+    }
+    .switchPage button:hover {
+        background-color: rgba(125, 141, 159, 0.08);
+    }
 
-.bottomMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10px;
+    .bottomMenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
 }
 
 @media screen and (min-width: 500px) {

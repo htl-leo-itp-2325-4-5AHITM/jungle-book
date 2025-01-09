@@ -1,90 +1,91 @@
-#galleryBox {
-    width: 100vw;
-    height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
-    overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
-    padding: 20px;
-    padding-top: 10px;
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 0;
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    position: relative; /* Positionieren innerhalb des übergeordneten Elements */
-    margin: auto; /* Zentrieren des Containers */
-}
+@media (hover: none) and (pointer: coarse) {
+    #galleryBox {
+        width: 100vw;
+        height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+        overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
+        padding: 20px;
+        padding-top: 10px;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        position: relative; /* Positionieren innerhalb des übergeordneten Elements */
+        margin: auto; /* Zentrieren des Containers */
+    }
 
-.image-container {
-    width: 50%; /* Bilder füllen die Spaltenbreite */
-    height: auto; /* Höhe passt sich proportional an */
-    padding: 1%;
-}
+    .image-container {
+        width: 50%; /* Bilder füllen die Spaltenbreite */
+        height: auto; /* Höhe passt sich proportional an */
+        padding: 1%;
+    }
 
-h2 {
-    width: 100%;
-    padding: 1%;
-}
+    h2 {
+        width: 100%;
+        padding: 1%;
+    }
 
-#imageGallery {
-    display: flex;
-    flex-direction: row;  /* oder column je nach Anordnung */
-    flex-wrap: wrap;
-    padding: 1%;
-}
+    #imageGallery {
+        display: flex;
+        flex-direction: row;  /* oder column je nach Anordnung */
+        flex-wrap: wrap;
+        padding: 1%;
+    }
 
-img {
-    page-break-inside: avoid;  /* Verhindert, dass Bilder mitten in der Seite abgeschnitten werden */
-}
+    img {
+        page-break-inside: avoid;  /* Verhindert, dass Bilder mitten in der Seite abgeschnitten werden */
+    }
 
-/* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
-#galleryBox::-webkit-scrollbar {
-    display: none;
-}
+    /* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
+    #galleryBox::-webkit-scrollbar {
+        display: none;
+    }
 
-/* Scrollbar ausblenden für Firefox */
-#galleryBox {
-    scrollbar-width: none; /* Firefox */
-}
+    /* Scrollbar ausblenden für Firefox */
+    #galleryBox {
+        scrollbar-width: none; /* Firefox */
+    }
 
-#columnButtons {
-    display: grid;
-    grid-template-columns: 47.5% 47.5%;
-    grid-gap: 5%;
-    padding: 5%;
-}
+    #columnButtons {
+        display: grid;
+        grid-template-columns: 47.5% 47.5%;
+        grid-gap: 5%;
+        padding: 5%;
+    }
 
-#exportBox {
-    padding: 5%;
-}
+    #exportBox {
+        padding: 5%;
+    }
 
-body {
-    background-image: url('../pics/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 100vh; /* Volle Höhe des Bildschirms */
-    font-family: Arial, sans-serif;
-    background-attachment: fixed; /* Hintergrund bleibt fixiert */
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    font-size: 16px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center; /* Horizontales Zentrieren */
-    align-items: center; /* Vertikales Zentrieren */
-}
+    body {
+        background-image: url('../pics/background.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100vh; /* Volle Höhe des Bildschirms */
+        font-family: Arial, sans-serif;
+        background-attachment: fixed; /* Hintergrund bleibt fixiert */
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; /* Horizontales Zentrieren */
+        align-items: center; /* Vertikales Zentrieren */
+    }
 
-#settingsBox {
-    width: 100vw;
-    height: auto;
-    background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 0;
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
+    #settingsBox {
+        width: 100vw;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+    }
 }
-
 @media screen and (min-width: 500px) {
     #galleryBox {
         width: 50vw;
