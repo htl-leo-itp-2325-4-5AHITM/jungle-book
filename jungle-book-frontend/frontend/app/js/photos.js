@@ -208,7 +208,6 @@ async function displayAllImages() {
     }
 }
 
-
 function exportToPDF() {
     let pdfBox = document.getElementById("imageGallery");
 
@@ -216,6 +215,16 @@ function exportToPDF() {
         console.error("Das HTML-Element mit der ID 'imageGallery' wurde nicht gefunden.");
         return;
     }
+
+    // Dynamische Erstellung der Startseite
+    let startPage = document.createElement("div");
+    startPage.style.textAlign = "center";
+    startPage.style.margin = "50px";
+    startPage.innerHTML = `
+        <h1>Fotobuch</h1>
+        <p>Willkommen zu meinem Fotobuch</p>
+        <p>Erstellt am: ${new Date().toLocaleDateString()}</p>
+    `;
 
     // Warten, bis alle Bilder geladen sind
     let images = pdfBox.querySelectorAll("img");
@@ -231,6 +240,11 @@ function exportToPDF() {
     });
 
     Promise.all(loadedPromises).then(() => {
+        // Kombiniere Startseite und Galerie in einen Container
+        let combinedContent = document.createElement("div");
+        combinedContent.appendChild(startPage);
+        combinedContent.appendChild(pdfBox.cloneNode(true)); // Galerie kopieren, um Änderungen am DOM zu vermeiden
+
         let options = {
             margin: [0, 5, 0, 5],
             filename: "Fotobuch.pdf",
@@ -245,13 +259,12 @@ function exportToPDF() {
             }
         };
 
-        html2pdf().set(options).from(pdfBox).save();
+        // Exportiere das kombinierte Element
+        html2pdf().set(options).from(combinedContent).save();
     }).catch(error => {
         console.error("Einige Bilder konnten nicht geladen werden:", error);
     });
 }
-
-
 
 function set3Columns () {
     const allImageContainers = document.getElementsByClassName("image-container");
