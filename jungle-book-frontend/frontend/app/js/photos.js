@@ -236,11 +236,10 @@ function exportToPDF() {
     startPage.style.alignItems = "center";
     startPage.style.justifyContent = "flex-end";  // Um die Texte am unteren Rand zu platzieren
 
-    startPage.innerHTML = `
-        <h1 style="font-size: 128px; margin-top: 50px; color: white !important;">Fotobuch</h1>
-        <p style="font-size: 40px; color: white; margin-bottom: 10px;">Willkommen zu meinem Junglebuch!</p>
-        <p style="font-size: 14px; color: white; margin-bottom: 10px;">Erstellt am: ${new Date().toLocaleDateString()}</p>
-    `;
+    startPage.innerHTML = 
+        `<h1 style="font-size: 128px; margin-top: 50px; color: white !important;">Fotobuch</h1>
+         <p style="font-size: 40px; color: white; margin-bottom: 10px;">Willkommen zu meinem Junglebuch!</p>
+         <p style="font-size: 14px; color: white; margin-bottom: 10px;">Erstellt am: ${new Date().toLocaleDateString()}</p>`;
 
     // Warten, bis alle Bilder geladen sind
     let images = pdfBox.querySelectorAll("img");
@@ -271,7 +270,7 @@ function exportToPDF() {
             },
             jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
             pagebreak: {
-                mode: ['avoid-all', 'css', 'legacy']
+                mode: ['avoid-all']  // Bilder auf die nächste Seite verschieben
             }
         };
 

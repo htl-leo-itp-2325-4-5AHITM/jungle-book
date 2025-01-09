@@ -13,11 +13,6 @@
     margin: auto; /* Zentrieren des Containers */
 }
 
-.image-container, img {
-    page-break-inside: avoid; /* Verhindere, dass Bilder aufgeteilt werden */
-    break-inside: avoid;
-}
-
 .image-container {
     width: 50%; /* Bilder füllen die Spaltenbreite */
     height: auto; /* Höhe passt sich proportional an */
@@ -31,9 +26,13 @@ h2 {
 
 #imageGallery {
     display: flex;
-    flex-direction: row;  /* oder row je nach Anordnung */
+    flex-direction: row;  /* oder column je nach Anordnung */
     flex-wrap: wrap;
     padding: 1%;
+}
+
+img {
+    page-break-inside: avoid;  /* Verhindert, dass Bilder mitten in der Seite abgeschnitten werden */
 }
 
 /* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
