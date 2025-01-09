@@ -86,7 +86,7 @@
         -webkit-backdrop-filter: blur(30px);
     }
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 500px) and (pointer: fine) {
     #galleryBox {
         width: 50vw;
         height: 75vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
