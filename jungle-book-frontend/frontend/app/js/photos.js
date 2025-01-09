@@ -108,7 +108,7 @@ async function getAllImageNames() {
 }
 
 // Funktion um ein Bild anhand seines Namens zu holen
-async function getImageById(id) {
+async function getImageByID(id) {
     try {
         let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${id}`);
         if (!response.ok) {
@@ -296,3 +296,4 @@ function set2Columns () {
         allImageContainers[i].style.flexBasis = "50%";  
     }
 }
+  
