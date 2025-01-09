@@ -216,14 +216,30 @@ function exportToPDF() {
         return;
     }
 
-    // Dynamische Erstellung der Startseite
+    // Dynamische Erstellung der Startseite mit lokalem Hintergrundbild und weißem Text
     let startPage = document.createElement("div");
+    startPage.style.position = "relative";
     startPage.style.textAlign = "center";
-    startPage.style.margin = "50px";
+    startPage.style.margin = "0";
+    startPage.style.padding = "50px";
+    startPage.style.height = "297mm"; // A4-Höhe
+    startPage.style.width = "210mm"; // A4-Breite
+    startPage.style.backgroundImage = "url('../pics/background.jpg')"; // Lokales Bild im Verzeichnis "pics"
+    startPage.style.backgroundSize = "cover";
+    startPage.style.backgroundPosition = "center";
+    startPage.style.backgroundRepeat = "no-repeat";
+    startPage.style.color = "white !important";  // Weißer Text mit !important, um CSS-Überschreibungen zu umgehen
+
+    // Positioniere die Texte am unteren Rand der Seite
+    startPage.style.display = "flex";
+    startPage.style.flexDirection = "column";
+    startPage.style.alignItems = "center";
+    startPage.style.justifyContent = "flex-end";  // Um die Texte am unteren Rand zu platzieren
+
     startPage.innerHTML = `
-        <h1>Fotobuch</h1>
-        <p>Willkommen zu meinem Fotobuch</p>
-        <p>Erstellt am: ${new Date().toLocaleDateString()}</p>
+        <h1 style="font-size: 128px; margin-top: 50px; color: white !important;">Fotobuch</h1>
+        <p style="font-size: 40px; color: white; margin-bottom: 10px;">Willkommen zu meinem Junglebuch!</p>
+        <p style="font-size: 14px; color: white; margin-bottom: 10px;">Erstellt am: ${new Date().toLocaleDateString()}</p>
     `;
 
     // Warten, bis alle Bilder geladen sind
@@ -246,7 +262,7 @@ function exportToPDF() {
         combinedContent.appendChild(pdfBox.cloneNode(true)); // Galerie kopieren, um Änderungen am DOM zu vermeiden
 
         let options = {
-            margin: [0, 5, 0, 5],
+            margin: [0, 0, 0, 0],
             filename: "Fotobuch.pdf",
             image: { type: "jpg", quality: 1 },
             html2canvas: {
@@ -265,6 +281,8 @@ function exportToPDF() {
         console.error("Einige Bilder konnten nicht geladen werden:", error);
     });
 }
+
+
 
 function set3Columns () {
     const allImageContainers = document.getElementsByClassName("image-container");
