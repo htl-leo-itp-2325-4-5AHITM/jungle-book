@@ -68,25 +68,14 @@ public class JournalRepository {
                 //String fileName = getFileName(inputPart.getHeaders());
                 List<InputPart> fileNameInputParts = uploadForm.get("filename");
                 String fileName = fileNameInputParts.get(0).getBodyAsString();
-                Path path = Path.of("/media/jungle-book/", fileName.toLowerCase().replaceAll("\\s+", "-") + ".jpg");
-                Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
-                journal.setImage(fileName.toLowerCase().replaceAll("\\s+", "-"));
                 journal.setName(fileName);
+                entityManager.persist(journal);
+                Path path = Path.of("/media/jungle-book/", journal.getId() + ".jpg");
+                Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        entityManager.persist(journal);
-    }
-    private String getFileName(MultivaluedMap<String, String> header) {
-        String[] contentDisposition = header.getFirst("Content-Disposition").split(";");
-        for (String filename : contentDisposition) {
-            if ((filename.trim().startsWith("filename"))) {
-                String[] name = filename.split("=");
-                return name[1].trim().replaceAll("\"", "");
-            }
-        }
-        return "unknown";
     }
 
     public List<Journal> getAllJournals() {
