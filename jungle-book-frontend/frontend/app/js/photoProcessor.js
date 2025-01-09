@@ -119,9 +119,7 @@
   })();
   
   function sendImageToServer(dataUrl) {
-    console.log("test test test")
     if (window.checkLocation()) {
-      console.log("test test test")
       // Remove the prefix from the dataUrl
       const base64Data = dataUrl.replace('data:image/jpg;base64,', '');
       
