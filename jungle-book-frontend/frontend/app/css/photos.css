@@ -1,4 +1,4 @@
-@media (hover: none) and (pointer: coarse) {
+@media screen, (pointer: coarse) {
     #galleryBox {
         width: 100vw;
         height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
