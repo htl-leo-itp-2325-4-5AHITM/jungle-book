@@ -211,15 +211,46 @@ async function displayAllImages() {
 
 function exportToPDF() {
     let pdfBox = document.getElementById("imageGallery");
-    let options = {
-        margin: [0, 5, 0, 5],
-        filename: "Fotobuch.pdf",
-        image: { type: "jpg", quality: 1 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-    };
-    html2pdf().set(options).from(pdfBox).save();
+
+    if (!pdfBox) {
+        console.error("Das HTML-Element mit der ID 'imageGallery' wurde nicht gefunden.");
+        return;
+    }
+
+    // Warten, bis alle Bilder geladen sind
+    let images = pdfBox.querySelectorAll("img");
+    let loadedPromises = Array.from(images).map(img => {
+        return new Promise((resolve, reject) => {
+            if (img.complete) {
+                resolve();
+            } else {
+                img.onload = resolve;
+                img.onerror = reject;
+            }
+        });
+    });
+
+    Promise.all(loadedPromises).then(() => {
+        let options = {
+            margin: [0, 5, 0, 5],
+            filename: "Fotobuch.pdf",
+            image: { type: "jpg", quality: 1 },
+            html2canvas: {
+                scale: 3,  // Höhere Auflösung
+                useCORS: true // Cross-Origin-Unterstützung aktivieren
+            },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            pagebreak: {
+                mode: ['avoid-all', 'css', 'legacy']
+            }
+        };
+
+        html2pdf().set(options).from(pdfBox).save();
+    }).catch(error => {
+        console.error("Einige Bilder konnten nicht geladen werden:", error);
+    });
 }
+
 
 
 function set3Columns () {
@@ -229,7 +260,6 @@ function set3Columns () {
     }
 }
   
-
 function set2Columns () {
     const allImageContainers = document.getElementsByClassName("image-container");
     for (let i = 0; i < allImageContainers.length; i++) {
