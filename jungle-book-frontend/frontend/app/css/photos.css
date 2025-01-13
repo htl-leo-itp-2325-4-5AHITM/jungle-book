@@ -10,12 +10,6 @@
     margin: auto; /* Zentrieren des Containers */
 }
 
-#galleryBox {
-    width: 100vw;
-    height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
-    border-radius: 0;
-}
-
 .image-container {
     width: 50%; /* Bilder füllen die Spaltenbreite */
     height: auto; /* Höhe passt sich proportional an */
@@ -92,6 +86,12 @@ body {
         border-radius: 0;
         backdrop-filter: blur(0px);
         -webkit-backdrop-filter: blur(0px);
+    }
+
+    #galleryBox {
+        width: 100vw;
+        height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+        border-radius: 0;
     }
 }
 
