@@ -10,6 +10,14 @@
     margin: auto; /* Zentrieren des Containers */
 }
 
+#outerBox {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .image-container {
     width: 50%; /* Bilder füllen die Spaltenbreite */
     height: auto; /* Höhe passt sich proportional an */
@@ -100,14 +108,6 @@ body {
         width: 50vw;
         height: 75vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
         border-radius: 10px;
-    }
-
-    #outerBox {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
     }
 
     #placeholder {
