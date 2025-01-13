@@ -273,6 +273,11 @@ input[type="text"]:focus, select:focus {
         overflow: scroll;
         border-radius: 0;
     }
+
+    
+    #header {
+        font-size: 1.5em;
+    }   
 }
 
 @media screen and (min-width: 500px) and (pointer: fine) {
