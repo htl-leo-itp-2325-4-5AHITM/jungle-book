@@ -100,8 +100,8 @@ input[type="checkbox"] {
     justify-content: space-between;
     margin-top: 10px;
 }
-
-@media screen and (min-width: 500px) {
+/*
+@media screen and (min-width: 500px) and (pointer: fine) {
     #adminpageContainer {
         height: 600px;
         width: auto;
@@ -122,4 +122,4 @@ input[type="checkbox"] {
     .col3, .col4 {
         display: table-cell;
     }
-}
+}*/
