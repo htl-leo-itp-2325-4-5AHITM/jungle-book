@@ -83,7 +83,8 @@ body {
     -webkit-backdrop-filter: blur(30px);
 }
 
-@media screen, (pointer: coarse) {
+
+/*@media screen, (pointer: coarse) {
     #settingsBox {
         width: 100vw;
         height: auto;
@@ -96,15 +97,15 @@ body {
 
     #galleryBox {
         width: 100vw;
-        height: 100vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+        height: 100vh; 
         border-radius: 0;
     }
-}
-
+}*/
+/*
 @media screen and (min-width: 500px) and (pointer: fine) {
     #galleryBox {
         width: 50vw;
-        height: 75vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
+        height: 75vh; 
         border-radius: 10px;
     }
 
