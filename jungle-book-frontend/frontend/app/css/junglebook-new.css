@@ -76,7 +76,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .register-container {
@@ -104,7 +104,7 @@ body {
 }
 
 input {
-    width: 320px;
+    width: 100%;
 }
 
 button {
@@ -228,12 +228,8 @@ input[type="text"]:focus, select:focus {
     align-items: center;
 }
 
-#startButton {
-    width: 320px;
-}
-
 #canvasBox {
-    width: 320px;
+    width: 100%;
     display: flex;
     justify-content: center;
     height: 240px;
@@ -270,7 +266,7 @@ input[type="text"]:focus, select:focus {
 
 #homeContainer, #newCheckpoint-container {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     position: fixed;
     overflow: scroll;
     border-radius: 0;
@@ -313,5 +309,13 @@ input[type="text"]:focus, select:focus {
     #switchPage, #switchPageRight, #switchPageMiddle {
         font-size: 12px;
     } 
+
+    #canvasBox {
+        width: 320px;
+    }
+
+    input {
+        width: 320px;
+    }
 }
 */
