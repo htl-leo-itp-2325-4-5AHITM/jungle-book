@@ -290,7 +290,7 @@ input[type="text"]:focus, select:focus {
         font-size: 1.5em;
     }   
 }*/ 
-
+/*
 @media screen and (min-width: 500px) and (pointer: fine) {
     #homeContainer {
         height: 960px;
@@ -314,3 +314,4 @@ input[type="text"]:focus, select:focus {
         font-size: 12px;
     } 
 }
+*/
