@@ -31,6 +31,10 @@ body {
     padding: 0;
 }
 
+#mapIframe, .contentarea2, .camera, #videoBox, #video, .buttonBox, #buttonInnerBox, #startButton {
+    width: 100%;
+}
+
 #googleMap {
     display: flex;
     justify-content: center;
@@ -63,7 +67,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 320px;
 }
 
 /* LOGIN - REGISTER  */
@@ -100,7 +103,7 @@ body {
     -webkit-backdrop-filter: blur(30px);
 }
 
-input, #buttonInnerBox {
+input {
     width: 320px;
 }
 
@@ -201,7 +204,7 @@ input[type="text"]:focus, select:focus {
 
 #switchPage, #switchPageRight, #switchPageMiddle {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 1.5em;
     padding: 5px;
     display: block;
 }
@@ -286,7 +289,7 @@ input[type="text"]:focus, select:focus {
     #header {
         font-size: 1.5em;
     }   
-}*/
+}*/ 
 
 @media screen and (min-width: 500px) and (pointer: fine) {
     #homeContainer {
@@ -302,4 +305,12 @@ input[type="text"]:focus, select:focus {
         width: auto;
         height: auto;
     }
+
+    #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton {
+        width: 320px;
+    }   
+
+    #switchPage, #switchPageRight, #switchPageMiddle {
+        font-size: 12px;
+    } 
 }
