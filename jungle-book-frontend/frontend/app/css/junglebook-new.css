@@ -91,6 +91,9 @@ body {
 
 #videoBox {
     height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #buttonBox {
@@ -99,6 +102,9 @@ body {
 
 #canvasBox {
     height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #canvas {
