@@ -7,13 +7,14 @@
 #header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    height: 50px;
+    height: 5%;
 }   
 
 #main-content {
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 70%;
 }
 
 body {
@@ -31,12 +32,26 @@ body {
     padding: 0;
 }
 
+.contentarea2, .camera {
+    height: 100%;
+}
+
+#acceptBox {
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+#userPhotoChecker {
+    height: 50%;
+}
+
 #mapIframe, .contentarea2, .camera, #videoBox, #video, .buttonBox, #buttonInnerBox, #startButton {
     width: 100%;
 }
 
 #startButton, #usePhotoButton, #dontUsePhotoButton {
-    height: 20vh;
+    height: 5vh !important;
 }
 
 #googleMap {
@@ -57,6 +72,7 @@ body {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 1%;
+    height: 20%;
 }
 
 #video {
@@ -112,7 +128,6 @@ input {
 }
 
 button {
-    height: auto;
     width: 100%;
     padding: 10px;
     border-radius: 8px;
@@ -244,7 +259,6 @@ input[type="text"]:focus, select:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
     padding: 0;
     border-radius: 8px;
 }
@@ -273,6 +287,11 @@ input[type="text"]:focus, select:focus {
     border-radius: 0;
 }
 
+.camera {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (min-width: 800px) and (pointer: fine) {
     #homeContainer {
         height: 960px;
@@ -280,6 +299,11 @@ input[type="text"]:focus, select:focus {
         position: unset;
         border-radius: 10px;
         overflow: hidden;
+    }
+
+    .camera {
+        display: flex;
+        flex-direction: column;
     }
     
     #newCheckpoint-container {
@@ -290,8 +314,11 @@ input[type="text"]:focus, select:focus {
 
     #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton, #usePhotoButton, #dontUsePhotoButton {
         width: 320px;
-        height: auto;
     }   
+
+    #startButton, #usePhotoButton, #dontUsePhotoButton {
+        height: 3vh !important;
+    }
 
     #canvasBox {
         width: 320px;
