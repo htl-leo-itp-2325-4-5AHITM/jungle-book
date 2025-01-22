@@ -26,13 +26,17 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 1em;
     margin: 0;
     padding: 0;
 }
 
 #mapIframe, .contentarea2, .camera, #videoBox, #video, .buttonBox, #buttonInnerBox, #startButton {
     width: 100%;
+}
+
+#startButton, #usePhotoButton, #dontUsePhotoButton {
+    height: 20vh;
 }
 
 #googleMap {
@@ -112,19 +116,16 @@ button {
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-input {
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-}
-
-button {
+    border: 1px solid #ccc;    
     background-color: #008000;
     color: #fff;
     cursor: pointer;
     margin-bottom: 0;
     box-shadow: 0 5px 15px rgb(204, 204, 204);
+}
+
+input {
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 button:active {
@@ -139,7 +140,7 @@ h3 {
 
 a, p {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 1em;
     color: #0a5c0a;
 }
 
@@ -161,7 +162,7 @@ a, p {
     cursor: pointer;
     padding: 5px;
     color: darkred;
-    font-size: 12px;
+    font-size: 1em;
     margin-bottom: 15px;
 }
 
@@ -204,7 +205,7 @@ input[type="text"]:focus, select:focus {
 
 #switchPage, #switchPageRight, #switchPageMiddle {
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 5px;
     display: block;
 }
@@ -272,22 +273,7 @@ input[type="text"]:focus, select:focus {
     border-radius: 0;
 }
 
-/*
-@media screen, (pointer: coarse) {
-    #homeContainer, #newCheckpoint-container {
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        overflow: scroll;
-        border-radius: 0;
-    }
-
-    #header {
-        font-size: 1.5em;
-    }   
-}*/ 
-/*
-@media screen and (min-width: 500px) and (pointer: fine) {
+@media screen and (min-width: 800px) and (pointer: fine) {
     #homeContainer {
         height: 960px;
         width: 25%;
@@ -302,13 +288,10 @@ input[type="text"]:focus, select:focus {
         height: auto;
     }
 
-    #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton {
+    #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton, #usePhotoButton, #dontUsePhotoButton {
         width: 320px;
+        height: auto;
     }   
-
-    #switchPage, #switchPageRight, #switchPageMiddle {
-        font-size: 12px;
-    } 
 
     #canvasBox {
         width: 320px;
@@ -318,4 +301,3 @@ input[type="text"]:focus, select:focus {
         width: 320px;
     }
 }
-*/
