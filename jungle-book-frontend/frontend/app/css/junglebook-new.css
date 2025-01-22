@@ -30,7 +30,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -125,6 +126,7 @@ body {
     align-items: center;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
 }
 
 .register-container {
@@ -321,6 +323,13 @@ input[type="text"]:focus, select:focus {
 }
 
 @media screen and (min-width: 800px) and (pointer: fine) {
+    html, body {
+        width: 100%; 
+        height: 100%; 
+        overflow: hidden; 
+        font-size: 300%
+    }
+
     #homeContainer {
         height: 960px;
         width: 25%;
