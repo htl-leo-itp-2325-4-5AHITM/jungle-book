@@ -10,11 +10,19 @@
     height: 5%;
 }   
 
+#gridMap {
+    height: 30%;
+}
+
+#mapIframe, #googleMap {
+    height: 100%;
+}
+
 #main-content {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 70%;
+    height: 65%;
 }
 
 body {
@@ -37,13 +45,16 @@ body {
 }
 
 #acceptBox {
-    height: 20%;
     display: flex;
     flex-direction: column;
 }
 
 #userPhotoChecker {
     height: 50%;
+}
+
+#video {
+    width: 100%;
 }
 
 #mapIframe, .contentarea2, .camera, #videoBox, #video, .buttonBox, #buttonInnerBox, #startButton {
@@ -80,7 +91,19 @@ body {
 }
 
 #videoBox {
-    height: 240px;
+    height: 35%;
+}
+
+#buttonBox {
+    height: 10%;
+}
+
+#canvasBox {
+    height: 35%;
+}
+
+#acceptBox {
+    height: 20%;
 }
 
 .buttonBox {
@@ -248,7 +271,6 @@ input[type="text"]:focus, select:focus {
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 240px;
     flex-direction: column ;
 }
 
@@ -313,7 +335,7 @@ input[type="text"]:focus, select:focus {
     }
 
     #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton, #usePhotoButton, #dontUsePhotoButton {
-        width: 320px;
+        width: 100%;
     }   
 
     #startButton, #usePhotoButton, #dontUsePhotoButton {
