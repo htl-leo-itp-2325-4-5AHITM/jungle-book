@@ -364,6 +364,14 @@ input[type="text"]:focus, select:focus {
     input {
         width: 320px;
     }
+
+    button { 
+        font-size: 1em
+    }
+
+    input { 
+        font-size: 1em
+    }
 }
 
 @media screen and (pointer: coarse) {
