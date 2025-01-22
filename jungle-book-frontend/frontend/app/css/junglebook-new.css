@@ -356,3 +356,9 @@ input[type="text"]:focus, select:focus {
         width: 320px;
     }
 }
+
+@media screen and (pointer: coarse) {
+    body {
+        font-size: 3em;
+    }
+}
