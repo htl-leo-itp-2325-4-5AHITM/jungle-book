@@ -7,11 +7,11 @@
 #header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    height: 5%;
+    height: 4%;
 }   
 
 #gridMap {
-    height: 30%;
+    height: 26%;
 }
 
 #mapIframe, #googleMap {
@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 65%;
+    height: 70%;
 }
 
 body {
@@ -343,10 +343,6 @@ html, body {
         height: 100%; 
         overflow: hidden; 
         font-size: 100%
-    }
-
-    .container {
-        background-color: red !important;
     }
 
     #homeContainer {
