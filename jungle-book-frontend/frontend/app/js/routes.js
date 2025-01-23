@@ -1,5 +1,5 @@
 const routes = {
-    1: ["Leonding", 101, 151],
+    1: ["Leonding", 101, 201],
     2: ["Europa", 110, 111],
     3: ["Bodendorf", 152]
 };
@@ -17,6 +17,7 @@ async function loadRoutes() {
         checkpoints.forEach(checkpoint => {
             checkpointMap[checkpoint.id] = checkpoint.name;
             console.log(checkpoint.name)
+            console.log(checkpoint.id)
         });
 
         // Build the routes list with checkpoint names
