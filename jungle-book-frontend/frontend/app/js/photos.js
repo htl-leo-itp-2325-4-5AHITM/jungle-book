@@ -67,6 +67,7 @@ async function uploadImage() {
         let formData = new FormData();
         formData.append("file", blob);
         formData.append("filename", imageName);
+        //formData.append("checkpointId", checkpointId);
 
         console.log(formData);
         console.log(blob);
@@ -123,6 +124,7 @@ async function displayImagesByRoute() {
         for (let journal of imageList) {
             const imageName = journal.name; 
             const idMatch = imageName.match(/::(\d+)$/); 
+            //const idMatch = journal.checkpointId; 
             if (!idMatch) continue; 
 
             const checkpointId = parseInt(idMatch[1]); 
