@@ -95,7 +95,7 @@ async function uploadImage() {
     
 async function getAllImageNames() {
     try {
-        let response = await fetch('https://it200247.cloud.htl-leonding.ac.at/api/journal/list');
+        let response = await fetch(`${ipAddress}/api/journal/list`);
         if (!response.ok) {
             throw new Error('Failed to fetch image names');
         }
@@ -110,7 +110,7 @@ async function getAllImageNames() {
 // Funktion um ein Bild anhand seines Namens zu holen
 async function getImageByID(id) {
     try {
-        let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${id}`);
+        let response = await fetch(`${ipAddress}/api/image/${id}`);
         if (!response.ok) {
             throw new Error('Failed to fetch image');
         }
@@ -283,7 +283,7 @@ function exportToPDF() {
 
 async function getPdf() {
     try {
-        const response = await fetch('https://it200247.cloud.htl-leonding.ac.at/api/journal/get-pdf', {
+        const response = await fetch(`${ipAddress}/api/journal/get-pdf`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/pdf'
