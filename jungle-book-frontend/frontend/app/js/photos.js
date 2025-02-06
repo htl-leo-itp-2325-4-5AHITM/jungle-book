@@ -281,7 +281,32 @@ function exportToPDF() {
     });
 }
 
+async function getPdf() {
+    try {
+        const response = await fetch('https://it200247.cloud.htl-leonding.ac.at/api/journal/get-pdf', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/pdf'
+            }
+        });
 
+        if (!response.ok) {
+            throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+        }
+
+        const pdfBlob = await response.blob();
+
+        // Create a URL for the Blob
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'fotobuch.pdf';
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(pdfUrl), 1000);
+    } catch (error) {
+        console.error('Error fetching or opening the PDF:', error);
+    }
+}
 
 function set3Columns () {
     const allImageContainers = document.getElementsByClassName("image-container");
