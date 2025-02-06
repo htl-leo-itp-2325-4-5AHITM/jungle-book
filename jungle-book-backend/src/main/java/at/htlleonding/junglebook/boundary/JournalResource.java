@@ -37,11 +37,19 @@ public class JournalResource {
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
     public void uploadImageJson(String imageData) throws IOException {
         byte[] imageBytes = Base64.getDecoder().decode(imageData);
-/*        return Response
-                .ok(journalRepository.addJournal(imageBytes), MediaType.APPLICATION_OCTET_STREAM)
-                .header("content-disposition", "attachment; filename = new.pdf")
-                .build();*/
     }
+
+    @GET
+    @Path("/get-pdf")
+    @Produces(MediaType.APPLICATION_OCTET_STREAM)
+    public Response getPhotobook() throws IOException {
+        return Response
+                .ok(journalRepository.getPhotobookFromJournals(), MediaType.APPLICATION_OCTET_STREAM)
+                .header("content-disposition", "attachment; filename = photobook.pdf")
+                .build();
+    }
+
+
     /**
      * Returns all journals
      * @return a list of all journals
