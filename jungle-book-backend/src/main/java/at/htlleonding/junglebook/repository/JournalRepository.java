@@ -54,7 +54,7 @@ public class JournalRepository {
         return entityManager.createNamedQuery(Journal.QUERY_GET_ALL, Journal.class).getResultList();
     }
 
-    public byte[] getPhotobookFromJournals() throws IOException {
+    public byte[] getPhotobookFromJournals() throws Exception {
         return photobookGenerator.getPhotobook(getAllJournals());
     }
 }

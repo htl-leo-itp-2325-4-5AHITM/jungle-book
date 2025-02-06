@@ -1,61 +1,82 @@
 package at.htlleonding.junglebook.service;
 
 import at.htlleonding.junglebook.model.Journal;
-import jakarta.ws.rs.core.MultivaluedMap;
-import org.apache.commons.io.output.ByteArrayOutputStream;
-import org.apache.pdfbox.Loader;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.common.PDRectangle;
-import org.apache.pdfbox.pdmodel.font.PDSimpleFont;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
-import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
-import org.apache.pdfbox.text.PDFTextStripper;
-import org.apache.pdfbox.text.PDFTextStripperByArea;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.itextpdf.text.pdf.parser.Vector;
 
-import java.awt.geom.Rectangle2D;
-import java.io.IOException;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
 public class PhotobookGenerator {
-    public byte[] getPhotobook(List<Journal> journals) throws IOException {
-        PDDocument document;
-        try (InputStream is = getClass().getResourceAsStream("/pdf/Photobook design.pdf")) {
-            assert is != null;
-            byte[] byteArray = is.readAllBytes();
-            document = Loader.loadPDF(byteArray);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public byte[] getPhotobook(List<Journal> journals) throws Exception {
+        InputStream templateStream = getClass().getResourceAsStream("/pdf/Photobook design.pdf");
+        if (templateStream == null) {
+            throw new FileNotFoundException("Template PDF '/pdf/Photobook design.pdf' not found.");
         }
-        for(int i = 0; i <  document.getNumberOfPages() - 1; i++) {
-            PDPage page = document.getPage(i);
+        PdfReader templateReader = new PdfReader(templateStream);
+        int templatePageCount = templateReader.getNumberOfPages();
 
-            PDRectangle cropBox = page.getCropBox();
-            float pageHeight = cropBox.getHeight();
+        // The output stream where the final PDF will be written
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-            try (PDPageContentStream contentStream = new PDPageContentStream(document, page, PDPageContentStream.AppendMode.APPEND, true, true)) {
+        // Create a new Document and PdfCopy to merge pages
+        Document document = new Document();
+        PdfCopy pdfCopy = new PdfCopy(document, outputStream);
+        document.open();
 
-                // Add new text
-                contentStream.beginText();
-                contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD), 12);
-                contentStream.newLineAtOffset(100, pageHeight - 500); // Adjust position
-                if (!journals.isEmpty()) {
-                    contentStream.showText(journals.get(i).getName());
-                    contentStream.endText();
+        BaseFont baseFont = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
 
-                    PDImageXObject image = PDImageXObject.createFromFile(String.format("/media/jungle-book/%d.jpg", journals.get(i).getId()), document);
-                    contentStream.drawImage(image, 100, 500);
-                }
-            }
+        // Iterate over the journals; for each one we will import a page from the template
+        for (int i = 0; i < journals.size(); i++) {
+            // Cycle through the pages in the template. (For example, if there are 3 pages in the template,
+            // journal 1 uses page 1, journal 2 uses page 2, journal 4 uses page 1 again, etc.)
+            int templatePageNumber = (i % templatePageCount) + 1;
+            PdfImportedPage importedPage = pdfCopy.getImportedPage(templateReader, templatePageNumber);
+
+            // Create a stamp on the page to add extra content (the journal image)
+            PdfCopy.PageStamp pageStamp = pdfCopy.createPageStamp(importedPage);
+
+            // Construct the marker string (e.g. "§1%1" for the first page).
+            // In a more advanced implementation you could parse the page content to locate this marker.
+            String marker = "§" + (i + 1) + "%" + (i + 1);
+            // For this example we assume the image should be placed at fixed coordinates.
+            // You could determine x, y based on the marker position if needed.
+            float headerX = 300f;
+            float headerY = 730f;
+            float imageX = 125f;
+            float imageY = 300f;
+
+            PdfContentByte overContent = pageStamp.getOverContent();
+
+            overContent.beginText();
+            overContent.setFontAndSize(baseFont, 50);
+            overContent.showTextAligned(Element.ALIGN_CENTER, journals.get(i).getName(), headerX, headerY, 0);
+            overContent.endText();
+
+            // Build the image path using the journal id
+            String imagePath = "/media/jungle-book/" + journals.get(i).getId() + ".jpg";
+            // Load the image. (Make sure the file is accessible from the file system or adjust the method as needed.)
+            Image journalImage = Image.getInstance(imagePath);
+            // Optionally, scale the image to fit the available space on the page
+            journalImage.scaleToFit(400, 400);
+            journalImage.setAbsolutePosition(imageX, imageY);
+
+
+            overContent.addImage(journalImage);
+
+            pageStamp.alterContents();
+            pdfCopy.addPage(importedPage);
         }
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        document.save(baos);
+        // Close all documents/readers
         document.close();
-
-        return baos.toByteArray();
+        templateReader.close();
+        return outputStream.toByteArray();
     }
 }

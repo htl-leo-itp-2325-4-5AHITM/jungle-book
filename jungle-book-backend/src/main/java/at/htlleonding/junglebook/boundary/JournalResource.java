@@ -42,7 +42,7 @@ public class JournalResource {
     @GET
     @Path("/get-pdf")
     @Produces(MediaType.APPLICATION_OCTET_STREAM)
-    public Response getPhotobook() throws IOException {
+    public Response getPhotobook() throws Exception {
         return Response
                 .ok(journalRepository.getPhotobookFromJournals(), MediaType.APPLICATION_OCTET_STREAM)
                 .header("content-disposition", "attachment; filename = photobook.pdf")
