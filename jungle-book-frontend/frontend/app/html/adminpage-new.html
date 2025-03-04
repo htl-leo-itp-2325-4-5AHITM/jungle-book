@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../css/junglebook-new.css">
+    <link rel="stylesheet" href="../css/adminpage-new.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container" id="adminpageContainer"> 
+        <div id="header">  
+            <p onclick="window.location.href='routes.html'">Zurück</p>
+            <p></p>
+            <p id="switchPageRight" onclick="window.location.href='../../index.html'">Homepage</p>
+          </div>   
+        <h1>Checkpoints</h1>
+
+        <table id="checkpointTable"></table>
+
+        <div id="bottomBox">
+            <div class="switchPage">
+                <button id="prevBtn" onclick="changePage(-1)"><i class="fas fa-arrow-left"></i></button>
+                <button id="nextBtn" onclick="changePage(1)"><i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <div class="bottomMenu">
+                <p></p>
+                <p onclick="window.location.href='details-new.html'">Neuer Checkpoint</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/admin.js">displayCheckpoints();</script>
+</html>

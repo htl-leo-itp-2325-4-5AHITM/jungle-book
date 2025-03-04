@@ -1,9 +1,22 @@
 # Jungelbuch
-A application to log checkpoints in european jungles
 
-The people who live in these areas earn their money by cutting down the trees!
-We now want to put an end to this!
+## Overview
+JungleBook is an innovative mobile app aimed at promoting eco-conscious tourism and sustainable practices in European forests. The app allows users to take photos at designated checkpoints along various jungle routes. After completing their tour, users can compile these photos into a personalized photo book or export them as a PDF.
 
-link:https://jungle-book.ddns.net[Frontend] +
-link:http://jungle-book.ddns.net:8000[Backend] +
+Our primary goal is to raise awareness about the negative effects of deforestation and to provide local communities with an alternative source of income. Currently, many people in these regions earn their living by cutting down trees. With JungleBook, we aim to help preserve these valuable ecosystems by promoting eco-tourism as a sustainable income source for local communities.
+
+## Key Features
+- Checkpoint Photo Logging: Users can take photos at specific checkpoints along the jungle routes.
+- Route-Based Photo Collection: Each route offers multiple photo points where users can capture unique moments.
+- Photo Book or PDF Creation: After completing the route, users can easily compile their photos into a beautifully designed photo book or PDF.
+- Monetization: JungleBook offers a paid service for printing photo books or free downloads of PDFs.
+
+## Goals
+- Preservation of European Forests: Through eco-tourism, we aim to reduce deforestation by providing local communities with a sustainable source of income.
+- User Engagement: We want to offer users an enjoyable and interactive experience that allows them to explore nature while making a positive contribution.
+
+link:https://it200247.cloud.htl-leonding.ac.at/[Frontend] +
+link:http://it200247.cloud.htl-leonding.ac.at/api/[Backend] +
+link:https://github.com/htl-leo-itp-2325-4-5AHITM/jungle-book/blob/main/jungle-book-backend/README.adoc[Backend Docs] +
+link:https://github.com/htl-leo-itp-2325-4-5AHITM/jungle-book-ios-app[iOS App] +
 link:https://www.figma.com/file/r7u9bXv4ycp27ligF0aUAt/Untitled?type=design&node-id=0%3A1&mode=design&t=RNYeMrwXgMmMNgUI-1[figma]

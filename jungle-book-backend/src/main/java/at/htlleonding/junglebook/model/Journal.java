@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import java.io.File;
 
 @Entity
+@NamedQuery(name=Journal.QUERY_GET_ALL, query = "SELECT j from Journal j")
 public class Journal {
+    public static final String QUERY_GET_ALL = "Journal.getAll";
     @GeneratedValue
     @Id
     private Long id;
@@ -22,7 +24,7 @@ public class Journal {
     @JoinColumn(name="checkpoint_id", referencedColumnName = "id")
     private Checkpoint checkpoint;
 
-    private File image;
+    private String image;
 
     //<editor-fold desc="//getter and setter">
     public Long getId() {
@@ -51,6 +53,14 @@ public class Journal {
 
     public void setName(String journalName) {
         this.name = journalName;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
     //</editor-fold>
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beiträge - Alpenverein</title>
+    <link rel="stylesheet" href="../css/junglebook-new.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="container" id="newCheckpoint-container">
+        <div id="header">  
+            <p id="switchPage" onclick="window.location.href='adminpage-new.html'">Checkpoints</p>
+            <p id="switchPageMiddle" onclick="window.location.href='csv-upload.html'">CSV-Datei hochladen</p>
+            <p id="switchPageRight" onclick="window.location.href='../../index.html'">Homepage</p>
+        </div>   
+
+        <h1>Checkpoint erstellen</h1>
+
+        <p>Name</p>
+        <label>
+            <input type="text" id="name">
+        </label>
+
+        <p>Längengrad</p>
+        <label>
+            <input type="text" id="longitude">
+        </label>
+
+        <p>Breitengrad</p>
+        <label>
+            <input type="text" id="latitude">
+        </label>
+
+        <p>Kommentar</p>
+        <label>
+            <input type="text" id="comment">
+        </label>
+
+        <p>Notitz</p>
+        <label>
+            <input type="text" id="note">
+        </label>
+
+        <p id="error-message" style="color: darkred; margin-top: 8px; text-align: center; display: none">Keine Daten vorhanden</p>
+        <button onclick="addCheckpoint()" class="sendButton">Speichern</button>
+
+    </div>
+</div>
+</body>
+    <script src="../js/newCheckpoint.js"></script>
+</html>

@@ -2,16 +2,10 @@
     height: 25rem;
 }
 
-.textBackground {
-    background-color: black;
-    padding: 2%;
-    border-radius: 30px;
-}
 .flexen {
     display: flex;
     align-items: center;
   }
-
 
   .flexen > div {
     float: left; 
@@ -30,6 +24,16 @@
 
   .smalltext {
     font-size: 60%;
+    text-align: left;
+  }
+
+  .motivation {
+    font-size: 90%;
+    text-align: left;
+  }
+
+  ul {
+    text-align: left;
   }
 
   .smalltextTwo {
@@ -39,6 +43,12 @@
     padding: 2%;
     border-radius: 30px;
   }
+
+  .smalltextTwo, ul, li {
+    padding: 1%;
+    margin: 3%;
+  }
+
   .primList {
     width: 70%;
     font-size: large;
@@ -57,3 +67,76 @@
     font-size: 80%;
   }
 
+  .section-contr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    text-align: left;
+    font-size: 1rem;
+  }
+
+.backgroundTrees {
+  background-color: rgba(255, 255, 255, 0.5); 
+  padding: 20px;
+  border-radius: 30px; 
+  width: fit-content; 
+  text-align: center; 
+  margin-left: -20%;
+}
+
+.reveal .slides section .undertitle {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-content h2 {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-content p {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-content ul {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+  text-align: left;
+  width: 100%;
+}
+
+.section-content ul li {
+  margin-left: 1rem;
+}
+
+h4 {
+  display: flex;
+  text-align: left;
+  margin-bottom: -3;
+}
+
+.left_centered {
+  text-align: left;
+
+}
