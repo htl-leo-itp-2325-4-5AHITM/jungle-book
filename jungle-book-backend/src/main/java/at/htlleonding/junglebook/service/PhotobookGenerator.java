@@ -5,76 +5,120 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 import com.itextpdf.text.pdf.parser.Vector;
+import com.itextpdf.text.BaseColor;
 
+import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.List;
 
 public class PhotobookGenerator {
+
     public byte[] getPhotobook(List<Journal> journals) throws Exception {
+        // Lade das Template
         InputStream templateStream = getClass().getResourceAsStream("/pdf/Photobook design.pdf");
         if (templateStream == null) {
             throw new FileNotFoundException("Template PDF '/pdf/Photobook design.pdf' not found.");
         }
+
         PdfReader templateReader = new PdfReader(templateStream);
         int templatePageCount = templateReader.getNumberOfPages();
 
-        // The output stream where the final PDF will be written
+        // Das Ausgabestream für das endgültige PDF
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-        // Create a new Document and PdfCopy to merge pages
-        Document document = new Document();
+        Document document = new Document(PageSize.A4.rotate());  // Querformat
         PdfCopy pdfCopy = new PdfCopy(document, outputStream);
         document.open();
 
-        BaseFont baseFont = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+        // Benutzte Schriftarten
+        BaseFont baseFont = BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
+        BaseFont regularFont = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
 
-        // Iterate over the journals; for each one we will import a page from the template
-        for (int i = 0; i < journals.size(); i++) {
-            // Cycle through the pages in the template. (For example, if there are 3 pages in the template,
-            // journal 1 uses page 1, journal 2 uses page 2, journal 4 uses page 1 again, etc.)
-            int templatePageNumber = (i % templatePageCount) + 1;
+        // Farbgestaltung für Text und Elemente
+        BaseColor titleColor = new BaseColor(34, 139, 34);  // Dschungelgrün
+        BaseColor textColor = new BaseColor(0, 0, 0);  // Standard Schwarz für normalen Text
+
+        // Berechnen, wie viele Bilder pro Seite platziert werden können
+        int imagesPerRow = 3;  // Anzahl der Bilder pro Reihe
+        int imagesPerColumn = 2;  // Anzahl der Bilder pro Spalte
+        float imageWidth = 200f;  // Bildbreite
+        float imageHeight = 200f; // Bildhöhe
+
+        float xOffset = 50f;  // Horizontaler Abstand
+        float yOffset = 150f; // Vertikaler Abstand
+
+        int totalImages = journals.size();
+        int imagesPerPage = imagesPerRow * imagesPerColumn;
+
+        // Text, der in den Header eingefügt werden soll (z.B. "Auf den Spuren des Dschungels")
+        String headerText = "Auf den Spuren des Dschungels";
+
+        for (int i = 0; i < totalImages; i++) {
+            // Neue Seite erstellen, wenn der Platz für Bilder voll ist
+            int templatePageNumber = 0;
+            if (i % imagesPerPage == 0) {
+                // Lade die entsprechende Seite aus dem Template
+                templatePageNumber = (i % templatePageCount) + 1;
+                PdfImportedPage importedPage = pdfCopy.getImportedPage(templateReader, templatePageNumber);
+                PdfCopy.PageStamp pageStamp = pdfCopy.createPageStamp(importedPage);
+
+                // Erstelle Inhalt zum Bearbeiten der Seite
+                PdfContentByte overContent = pageStamp.getOverContent();
+
+                // Titel im Header (z. B. "Auf den Spuren des Dschungels")
+                overContent.beginText();
+                overContent.setFontAndSize(baseFont, 50);  // Große Schrift für den Titel
+                overContent.setColorFill(titleColor);  // Dschungelgrün
+                overContent.showTextAligned(Element.ALIGN_CENTER, headerText, document.getPageSize().getWidth() / 2, 700f, 0);
+                overContent.endText();
+
+                pageStamp.alterContents();
+                pdfCopy.addPage(importedPage);
+            }
+
+            // Berechne die Position für das Bild
+            float xPosition = xOffset + (i % imagesPerRow) * (imageWidth + 20f);  // 20px Abstand zwischen den Bildern
+            float yPosition = yOffset + (i / imagesPerRow) * (imageHeight + 20f);
+
+            // Lade das Bild
+            String imagePath = "/media/jungle-book/" + journals.get(i).getId() + ".jpg";
+            Image journalImage = Image.getInstance(imagePath);
+            journalImage.setAbsolutePosition(xPosition, yPosition);
+            journalImage.scaleToFit(imageWidth, imageHeight);
+
+            // Lade die Seite aus dem Template
             PdfImportedPage importedPage = pdfCopy.getImportedPage(templateReader, templatePageNumber);
-
-            // Create a stamp on the page to add extra content (the journal image)
             PdfCopy.PageStamp pageStamp = pdfCopy.createPageStamp(importedPage);
 
-            // Construct the marker string (e.g. "§1%1" for the first page).
-            // In a more advanced implementation you could parse the page content to locate this marker.
-            String marker = "§" + (i + 1) + "%" + (i + 1);
-            // For this example we assume the image should be placed at fixed coordinates.
-            // You could determine x, y based on the marker position if needed.
-            float headerX = 300f;
-            float headerY = 730f;
-            float imageX = 125f;
-            float imageY = 300f;
-
+            // Zugriff auf den OverContent der Seite (Hier fügst du das Bild hinzu)
             PdfContentByte overContent = pageStamp.getOverContent();
-
-            overContent.beginText();
-            overContent.setFontAndSize(baseFont, 50);
-            overContent.showTextAligned(Element.ALIGN_CENTER, journals.get(i).getName(), headerX, headerY, 0);
-            overContent.endText();
-
-            // Build the image path using the journal id
-            String imagePath = "/media/jungle-book/" + journals.get(i).getId() + ".jpg";
-            // Load the image. (Make sure the file is accessible from the file system or adjust the method as needed.)
-            Image journalImage = Image.getInstance(imagePath);
-            // Optionally, scale the image to fit the available space on the page
-            journalImage.scaleToFit(400, 400);
-            journalImage.setAbsolutePosition(imageX, imageY);
-
-
             overContent.addImage(journalImage);
 
+            // Bestätige die Änderungen
             pageStamp.alterContents();
+
+            // Füge die bearbeitete Seite zum PDF hinzu
             pdfCopy.addPage(importedPage);
+
+
+            // Optional: Füge einen Text unter dem Bild hinzu (z.B. Journalname)
+            String journalName = journals.get(i).getName();
+            overContent.beginText();
+            overContent.setFontAndSize(regularFont, 20);
+            overContent.setColorFill(textColor);  // Standardfarbe für Text
+            overContent.showTextAligned(Element.ALIGN_LEFT, journalName, xPosition, yPosition - 20f, 0); // Unter dem Bild
+            overContent.endText();
+
+            // Wenn alle Bilder auf der Seite hinzugefügt wurden, zur nächsten Seite wechseln
+            if ((i + 1) % imagesPerPage == 0) {
+                pdfCopy.addPage(pdfCopy.getImportedPage(templateReader, 1));
+            }
         }
 
-        // Close all documents/readers
         document.close();
         templateReader.close();
         return outputStream.toByteArray();
