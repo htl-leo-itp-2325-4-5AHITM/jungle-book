@@ -2,81 +2,173 @@ package at.htlleonding.junglebook.service;
 
 import at.htlleonding.junglebook.model.Journal;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.*;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-import com.itextpdf.text.pdf.parser.Vector;
+import com.itextpdf.text.pdf.parser.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PhotobookGenerator {
     public byte[] getPhotobook(List<Journal> journals) throws Exception {
-        InputStream templateStream = getClass().getResourceAsStream("/pdf/Photobook design.pdf");
-        if (templateStream == null) {
-            throw new FileNotFoundException("Template PDF '/pdf/Photobook design.pdf' not found.");
-        }
-        PdfReader templateReader = new PdfReader(templateStream);
-        int templatePageCount = templateReader.getNumberOfPages();
-
-        // The output stream where the final PDF will be written
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
-        // Create a new Document and PdfCopy to merge pages
-        Document document = new Document();
-        PdfCopy pdfCopy = new PdfCopy(document, outputStream);
-        document.open();
-
-        BaseFont baseFont = BaseFont.createFont(BaseFont.HELVETICA, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
-
-        // Iterate over the journals; for each one we will import a page from the template
         for (int i = 0; i < journals.size(); i++) {
-            // Cycle through the pages in the template. (For example, if there are 3 pages in the template,
-            // journal 1 uses page 1, journal 2 uses page 2, journal 4 uses page 1 again, etc.)
-            int templatePageNumber = (i % templatePageCount) + 1;
-            PdfImportedPage importedPage = pdfCopy.getImportedPage(templateReader, templatePageNumber);
+            if(i == 0) {
+                int test = i+1;
+                overlayImagesOnText("/pdf/Photobook design.pdf", "tempPdf.pdf", String.format("!$%d?$",test), journals.get(i));
+            }
+            if (i <= 5) {
+                int test = i+1;
+                overlayImagesOnText("tempPdf.pdf", "tempPdf.pdf", String.format("!$%d?$",test), journals.get(i));
+            }
+        }
+        PdfReader reader = new PdfReader("tempPdf.pdf");
+        return convertPdfReaderToByteArrayOutputStream(reader).toByteArray();
+    }
+    private static ByteArrayOutputStream convertPdfReaderToByteArrayOutputStream(PdfReader reader)
+            throws IOException, DocumentException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PdfStamper stamper = new PdfStamper(reader, baos);
+        stamper.close();
+        reader.close();
+        return baos;
+    }
+    public void overlayImagesOnText(String inputPdf, String outputPdf,
+                                           String textToReplace, Journal journal)
+            throws IOException, DocumentException {
 
-            // Create a stamp on the page to add extra content (the journal image)
-            PdfCopy.PageStamp pageStamp = pdfCopy.createPageStamp(importedPage);
+        // Find all occurrences of the text
+        List<TextRectangle> textLocations = findTextInPdf(inputPdf, textToReplace);
 
-            // Construct the marker string (e.g. "§1%1" for the first page).
-            // In a more advanced implementation you could parse the page content to locate this marker.
-            String marker = "§" + (i + 1) + "%" + (i + 1);
-            // For this example we assume the image should be placed at fixed coordinates.
-            // You could determine x, y based on the marker position if needed.
-            float headerX = 300f;
-            float headerY = 730f;
-            float imageX = 125f;
-            float imageY = 300f;
-
-            PdfContentByte overContent = pageStamp.getOverContent();
-
-            overContent.beginText();
-            overContent.setFontAndSize(baseFont, 50);
-            overContent.showTextAligned(Element.ALIGN_CENTER, journals.get(i).getName(), headerX, headerY, 0);
-            overContent.endText();
-
-            // Build the image path using the journal id
-            String imagePath = "/media/jungle-book/" + journals.get(i).getId() + ".jpg";
-            // Load the image. (Make sure the file is accessible from the file system or adjust the method as needed.)
-            Image journalImage = Image.getInstance(imagePath);
-            // Optionally, scale the image to fit the available space on the page
-            journalImage.scaleToFit(400, 400);
-            journalImage.setAbsolutePosition(imageX, imageY);
-
-
-            overContent.addImage(journalImage);
-
-            pageStamp.alterContents();
-            pdfCopy.addPage(importedPage);
+        if (textLocations.isEmpty()) {
+            System.out.println("Text '" + textToReplace + "' not found in the document.");
+            return;
         }
 
-        // Close all documents/readers
-        document.close();
-        templateReader.close();
-        return outputStream.toByteArray();
+        // Open the PDF for modification
+        PdfReader reader = new PdfReader(inputPdf);
+        PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(outputPdf));
+
+        // Load the image to place
+        Image image = Image.getInstance("/media/jungle-book/" + journal.getId() + ".jpg");
+
+        // For each found text location, place an image
+        for (TextRectangle location : textLocations) {
+            // Get the overlay canvas for the page
+            PdfContentByte canvas = stamper.getOverContent(location.getPage());
+
+            // Position and scale the image to match the text dimensions
+            image.setAbsolutePosition(location.getLlx(), location.getLly());
+            image.scaleToFit(location.getWidth(), location.getHeight());
+
+            // Add the image to the page
+            canvas.addImage(image);
+        }
+
+        // Close resources
+        stamper.close();
+        reader.close();
+    }
+
+    public List<TextRectangle> findTextInPdf(String pdfPath, final String searchText)
+            throws IOException {
+        System.out.println(pdfPath);
+        final List<TextRectangle> results = new ArrayList<>();
+        PdfReader reader;
+        if(pdfPath.equals("/pdf/Photobook design.pdf")) {
+            reader = new PdfReader(Objects.requireNonNull(getClass().getResourceAsStream(pdfPath)));
+        } else {
+            reader = new PdfReader(pdfPath);
+        }
+
+
+        // Process each page of the PDF
+        for (int page = 1; page <= reader.getNumberOfPages(); page++) {
+            final int currentPage = page;
+
+            // Create a text extraction strategy that captures text positions
+            TextExtractionStrategy strategy = new TextExtractionStrategy() {
+                private final List<TextRectangle> pageResults = new ArrayList<>();
+
+                @Override
+                public String getResultantText() {
+                    // Add page results to the overall results
+                    results.addAll(pageResults);
+                    return "";
+                }
+
+                @Override
+                public void beginTextBlock() {}
+
+                @Override
+                public void renderText(TextRenderInfo renderInfo) {
+                    String text = renderInfo.getText();
+                    System.out.println(text);
+                    System.out.println(searchText);
+                    if (text != null && text.contains(searchText)) {
+                        // Get text boundaries
+                        Vector baseStart = renderInfo.getBaseline().getStartPoint();
+                        Vector baseEnd = renderInfo.getBaseline().getEndPoint();
+
+                        // Calculate ascent for height
+                        float ascent = renderInfo.getAscentLine().getStartPoint().get(1) -
+                                renderInfo.getBaseline().getStartPoint().get(1);
+
+                        // Calculate descent for complete height
+                        float descent = renderInfo.getBaseline().getStartPoint().get(1) -
+                                renderInfo.getDescentLine().getStartPoint().get(1);
+
+                        // Create rectangle with text boundaries
+                        float x = baseStart.get(0);
+                        float y = baseStart.get(1) - descent; // Lower-left y
+                        float width = baseEnd.get(0) - baseStart.get(0);
+                        float height = ascent + descent;
+
+                        // Store the text position
+                        pageResults.add(new TextRectangle(currentPage, x, y, width, height));
+                    }
+                }
+
+                @Override
+                public void endTextBlock() {}
+
+                @Override
+                public void renderImage(ImageRenderInfo renderInfo) {}
+            };
+
+            // Extract text with the strategy
+            PdfTextExtractor.getTextFromPage(reader, currentPage, strategy);
+        }
+
+        reader.close();
+        return results;
+    }
+
+    /**
+     * Class to hold information about a text location in a PDF
+     */
+    public static class TextRectangle {
+        private final int page;
+        private final float llx; // lower left x
+        private final float lly; // lower left y
+        private final float width;
+        private final float height;
+
+        public TextRectangle(int page, float llx, float lly, float width, float height) {
+            this.page = page;
+            this.llx = llx;
+            this.lly = lly;
+            this.width = width;
+            this.height = height;
+        }
+
+        public int getPage() { return page; }
+        public float getLlx() { return llx; }
+        public float getLly() { return lly; }
+        public float getWidth() { return width; }
+        public float getHeight() { return height; }
     }
 }
