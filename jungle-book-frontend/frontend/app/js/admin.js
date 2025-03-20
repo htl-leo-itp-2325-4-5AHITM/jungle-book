@@ -1,4 +1,4 @@
-const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
+const ipAddress4 = "https://it200247.cloud.htl-leonding.ac.at";
 
 window.addEventListener('load', () => {
     reload();
@@ -10,7 +10,7 @@ function reload() {
 
 async function getAllCheckpoints() {
     try {
-        const response = await fetch(`${ipAddress}/api/checkpoint/list`, {
+        const response = await fetch(`${ipAddress4}/api/checkpoint/list`, {
             method: 'GET'
         });
 
@@ -22,7 +22,7 @@ async function getAllCheckpoints() {
 
 async function deleteCheckpoint(id) {
     console.log(id);
-    const response = await fetch(`${ipAddress}/api/checkpoint/remove-checkpoint/${id}`, {
+    const response = await fetch(`${ipAddress4}/api/checkpoint/remove-checkpoint/${id}`, {
         method: 'DELETE'
     });
 
@@ -87,14 +87,14 @@ function displayCheckpoints(checkpoints) {
     totalCheckpoints = checkpoints.length;
 
     const checkpointTable = document.getElementById('checkpointTable');
-    checkpointTable.innerHTML = '<tr><th>ID</th><th>Name</th><th>Längengrad</th><th>Breitengrad</th><th>Löschen</th></tr>';
+    checkpointTable.innerHTML = '<tr><th class="col1">ID</th> <th class="col2">Name</th> <th class="col3">Längengrad</th> <th class="col4">Breitengrad</th> <th class="col5"><img src="../pics/mulleimer.png"></th></tr>';
 
     const start = currentPage * CheckpointsPerPage;
     const end = start + CheckpointsPerPage;
 
     for (let i = start; i < end; i++) {
         const checkpoint = checkpoints[i];
-        checkpointTable.innerHTML += `<tr><td>${checkpoint.id}</td><td>${checkpoint.name}</td><td>${checkpoint.longitude}</td><td>${checkpoint.latitude}</td><td><button onclick='deleteCheckpoint("${checkpoint.id}")'>Löschen</button></td></tr>`;
+        checkpointTable.innerHTML += `<tr><td class="col1">${checkpoint.id}</td><td class="col2">${checkpoint.name}</td><td class="col3">${checkpoint.longitude}</td><td class="col4">${checkpoint.latitude}</td><td class="col5"><button onclick='deleteCheckpoint("${checkpoint.id}")'><img src="../pics/delete.svg" width="16px"></button></td></tr>`;
     }
 }
 

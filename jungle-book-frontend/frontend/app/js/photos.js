@@ -1,5 +1,10 @@
 const ipAddress = "https://it200247.cloud.htl-leonding.ac.at";
 
+console.log("uploadImage loaded")
+
+addEventListenerToButton();
+addEventListenerToButtonsAndInputField();
+
 function addEventListenerToButton() {
     document.getElementById('nameInput').addEventListener('keyup', function() {
         let inputValue = this.value;
@@ -40,36 +45,33 @@ function addEventListenerToButtonsAndInputField() {
 }
 
 async function uploadImage() {
-    if(await window.checkLocation() == true) {
-        console.log("drinnen")
+    console.log("upload Image");
+    console.log(window.checkLocation)
+    if(await window.checkLocation() == true) {  
         let canvas = document.getElementById("canvas");
         const dataURL = canvas.toDataURL("image/jpg");
         let imageName = document.getElementById("nameInput").value;
-        // Remove the prefix from the dataUrl
-        const base64Data = dataURL.replace('data:image/png;base64,', '');
+        const urlParams = new URLSearchParams(window.location.search);
+        const checkpointId = urlParams.get('id'); 
 
-        // Convert base64 to raw binary data held in a string
+        imageName += "::" + checkpointId;
+        console.log("imageName:" + imageName);
+        const base64Data = dataURL.replace('data:image/png;base64,', '');
         const byteCharacters = atob(base64Data);
-        
-        // Convert raw binary to an array of 8-bit unsigned integers
         const byteNumbers = new Array(byteCharacters.length);
         for (let i = 0; i < byteCharacters.length; i++) {
         byteNumbers[i] = byteCharacters.charCodeAt(i);
         }
-        
-        console.log(imageName);
 
-        // Convert the array to a Blob
         const blob = new Blob([new Uint8Array(byteNumbers)], {type: 'image/jpg'});
         let formData = new FormData();
         formData.append("file", blob);
         formData.append("filename", imageName);
+        //formData.append("checkpointId", checkpointId);
 
         console.log(formData);
         console.log(blob);
 
-
-        // Send the Blob to the server
         fetch(ipAddress + '/api/journal/upload-photo', {
         method: 'POST',
         body: formData
@@ -84,59 +86,215 @@ async function uploadImage() {
     
 async function getAllImageNames() {
     try {
-        let response = await fetch('https://it200247.cloud.htl-leonding.ac.at/api/journal/list');
+        let response = await fetch(`${ipAddress}/api/journal/list`);
         if (!response.ok) {
             throw new Error('Failed to fetch image names');
         }
-        let imageList = await response.json(); // Hier wird die Liste von Journals erwartet
+        let imageList = await response.json();
         console.log(imageList);
-        return imageList; // Liste aller Journals, inklusive der Bildnamen
+        return imageList; 
     } catch (error) {
         console.error('Error fetching image names:', error);
     }
 }
 
-// Funktion um ein Bild anhand seines Namens zu holen
-async function getImageByName(imageName) {
-    imageName = imageName.toLowerCase();
+async function getImageByID(id) {
     try {
-        let response = await fetch(`https://it200247.cloud.htl-leonding.ac.at/api/image/${imageName}`);
+        let response = await fetch(`${ipAddress}/api/image/${id}`);
         if (!response.ok) {
             throw new Error('Failed to fetch image');
         }
         
-        // Bild als Blob erhalten und URL erstellen
         let imageBlob = await response.blob();
         let imageURL = URL.createObjectURL(imageBlob);
 
-        return imageURL;  // Gebe die Bild-URL zurück
+        return imageURL; 
     } catch (error) {
         console.error('Error fetching image:', error);
     }
 }
 
-// Funktion um alle Bilder anzuzeigen
+async function displayImagesByRoute() {
+    console.log("Fetching and displaying images grouped by routes...");
+    let imageList = await getAllImageNames(); 
+    const gallery = document.getElementById('imageGallery');
+
+    if (imageList && imageList.length > 0) {
+        const routeImagesMap = {};
+        for (let journal of imageList) {
+            const imageName = journal.name; 
+            const idMatch = imageName.match(/::(\d+)$/); 
+            //const idMatch = journal.checkpointId; 
+            if (!idMatch) continue; 
+
+            const checkpointId = parseInt(idMatch[1]); 
+
+            for (const route in routes) {
+                if (routes[route].includes(checkpointId)) {
+                    const routeName = routes[route][0];
+                    if (!routeImagesMap[routeName]) {
+                        routeImagesMap[routeName] = [];
+                    }
+                    routeImagesMap[routeName].push({
+                        checkpointId, 
+                        imageId: journal.id,
+                        imageName: journal.name
+                    });
+                    break;
+                }
+            }
+        }
+
+        for (const routeName in routeImagesMap) {
+            const routeHeader = document.createElement('h2');
+            routeHeader.textContent = routeName;
+            gallery.appendChild(routeHeader);
+        
+            for (const image of routeImagesMap[routeName]) {
+                console.log("Image ID:", image.imageId); 
+                const imageURL = await getImageByID(image.imageId);
+                if (imageURL) {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageURL;
+                    imgElement.alt = image.imageName;
+                    imgElement.classList.add('image-container');
+                    gallery.appendChild(imgElement);
+                }
+            }
+        }
+        
+    } else {
+        gallery.innerHTML = '<p>No images found.</p>';
+    }
+}
+
 async function displayAllImages() {
     console.log("get images");
-    let imageList = await getAllImageNames();  // Hole die Bildnamen
+    let imageList = await getAllImageNames();  
     const gallery = document.getElementById('imageGallery');
 
     if (imageList && imageList.length > 0) {
         for (let journal of imageList) {
-            let imageName = journal.name; // Verwende jetzt 'imageName' anstelle von 'imageId'
-            console.log(imageName);
-            let imageURL = await getImageByName(imageName); // Hole das Bild mit dem Namen
+            let id = journal.id; 
+            console.log(id);
+            let imageURL = await getImageByID(id);
 
-            // Erstelle ein <img> Element für jedes Bild und füge es zur Galerie hinzu
             if (imageURL) {
                 let imgElement = document.createElement('img');
                 imgElement.src = imageURL;
-                imgElement.alt = imageName;  // Alt-Text ist jetzt der Bildname
-                gallery.appendChild(imgElement); // Füge das Bild in die Galerie ein
+                imgElement.classList.add('image-container');
+                gallery.appendChild(imgElement); 
             }
         }
     } else {
-        // Wenn keine Bilder vorhanden sind, zeige eine Nachricht an
         gallery.innerHTML = '<p>No images found.</p>';
     }
 }
+
+function exportToPDF() {
+    let pdfBox = document.getElementById("imageGallery");
+
+    if (!pdfBox) {
+        console.error("Das HTML-Element mit der ID 'imageGallery' wurde nicht gefunden.");
+        return;
+    }
+
+    let startPage = document.createElement("div");
+    startPage.style.position = "relative";
+    startPage.style.textAlign = "center";
+    startPage.style.margin = "0";
+    startPage.style.padding = "50px";
+    startPage.style.height = "297mm"; 
+    startPage.style.width = "210mm"; 
+    startPage.style.backgroundImage = "url('../pics/background.jpg')";
+    startPage.style.backgroundSize = "cover";
+    startPage.style.backgroundPosition = "center";
+    startPage.style.backgroundRepeat = "no-repeat";
+    startPage.style.color = "white !important"; 
+    startPage.style.display = "flex";
+    startPage.style.flexDirection = "column";
+    startPage.style.alignItems = "center";
+    startPage.style.justifyContent = "flex-end"; 
+
+    startPage.innerHTML = 
+        `<h1 style="font-size: 128px; margin-top: 50px; color: white !important;">Fotobuch</h1>
+         <p style="font-size: 40px; color: white; margin-bottom: 10px;">Willkommen zu meinem Junglebuch!</p>
+         <p style="font-size: 14px; color: white; margin-bottom: 10px;">Erstellt am: ${new Date().toLocaleDateString()}</p>`;
+
+    let images = pdfBox.querySelectorAll("img");
+    let loadedPromises = Array.from(images).map(img => {
+        return new Promise((resolve, reject) => {
+            if (img.complete) {
+                resolve();
+            } else {
+                img.onload = resolve;
+                img.onerror = reject;
+            }
+        });
+    });
+
+    Promise.all(loadedPromises).then(() => {
+        let combinedContent = document.createElement("div");
+        combinedContent.appendChild(startPage);
+        combinedContent.appendChild(pdfBox.cloneNode(true));
+
+        let options = {
+            margin: [0, 0, 0, 0],
+            filename: "Fotobuch.pdf",
+            image: { type: "jpg", quality: 1 },
+            html2canvas: {
+                scale: 3,  
+                useCORS: true 
+            },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            pagebreak: {
+                mode: ['avoid-all'] 
+            }
+        };
+
+        html2pdf().set(options).from(combinedContent).save();
+    }).catch(error => {
+        console.error("Einige Bilder konnten nicht geladen werden:", error);
+    });
+}
+
+async function getPdf() {
+    try {
+        const response = await fetch(`${ipAddress}/api/journal/get-pdf`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/pdf'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch PDF: ${response.statusText}`);
+        }
+
+        const pdfBlob = await response.blob();
+
+        const pdfUrl = URL.createObjectURL(pdfBlob);
+        const link = document.createElement('a');
+        link.href = pdfUrl;
+        link.download = 'fotobuch.pdf';
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(pdfUrl), 1000);
+    } catch (error) {
+        console.error('Error fetching or opening the PDF:', error);
+    }
+}
+
+function set3Columns () {
+    const allImageContainers = document.getElementsByClassName("image-container");
+    for (let i = 0; i < allImageContainers.length; i++) {
+        allImageContainers[i].style.flexBasis = "33.3%";  
+    }
+}
+  
+function set2Columns () {
+    const allImageContainers = document.getElementsByClassName("image-container");
+    for (let i = 0; i < allImageContainers.length; i++) {
+        allImageContainers[i].style.flexBasis = "50%";  
+    }
+}
+  

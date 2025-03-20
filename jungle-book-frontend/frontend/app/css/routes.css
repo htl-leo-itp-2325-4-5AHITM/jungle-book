@@ -1,0 +1,29 @@
+#routesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.routes, .routeName, .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1% 0 1% 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+.routeName {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    font-size: large;
+    height: 5vh;
+}
+
+.detailBox {
+    width: 90%;
+}
+
+.details {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    height: 4vh;
+}
