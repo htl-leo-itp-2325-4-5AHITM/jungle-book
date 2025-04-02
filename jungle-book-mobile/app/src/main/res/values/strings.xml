@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">JungleBookMobile</string>
+    <string name="title_home">Take photo</string>
+    <string name="title_checkpoints">Checkpoints</string>
+    <string name="title_journals">Journals</string>
+</resources>
