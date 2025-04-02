@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@types/google.maps": "^3.54.9"
+    "@types/google.maps": "^3.54.9",
+    "keycloak-js": "^26.1.4"
   }
 }

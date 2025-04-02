@@ -2,21 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../css/junglebook-new.css">
     <link rel="stylesheet" href="../css/photos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="../js/photos.js"></script>
+    <script src="../js/routes.js"></script>
 </head>
 <body>
-    <div id="galleryBox">
-        <div id="header">  
-            <p id="switchPage" onclick="window.location.href='home-new.html'">Zur Startseite</p>
-        </div>  
-        <div id="imageGallery"></div>
+    <div id="outerBox">
+        <div id="placeholder"></div>
+        <div id="galleryBox">
+            <div id="header">  
+                <p id="switchPage" onclick="window.location.href='routes.html'">Routen</p>
+                <p></p>
+                <p id="switchPageRight" onclick="window.location.href='../../index.html'">Homepage</p>
+            </div>  
+            <div id="imageGallery"></div>
+        </div>
+        <div id="settingsBox">
+            <div id="settings">
+                <div id="columnButtons">
+                    <button onclick="set2Columns()">2 Spalten</button>
+                    <button onclick="set3Columns()">3 Spalten</button>
+                </div>
+                <div id="exportBox">
+                    <button onclick="exportToPDF()">Fotobuch erstellen</button>
+                </div>
+                <!--<div id="getPdf">
+                    <button onclick="getPdf()">Fotobuch erstellen<br>mittels ApacheBox</button>
+                </div>-->
+            </div>
+        </div>
     </div>
 </body>
 <script>    
-    displayAllImages()
+    displayImagesByRoute()
 </script>
 </html>

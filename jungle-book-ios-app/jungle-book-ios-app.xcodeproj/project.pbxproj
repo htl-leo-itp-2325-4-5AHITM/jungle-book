@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84FD8E602C2B597600241036 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD8E5F2C2B597600241036 /* Config.swift */; };
+		E936A69B2BD144BA00821C4F /* CheckpointService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936A69A2BD144BA00821C4F /* CheckpointService.swift */; };
+		E971ADC22BFF704D00EAB46E /* sprint.adoc in Resources */ = {isa = PBXBuildFile; fileRef = E971ADC12BFF704D00EAB46E /* sprint.adoc */; };
+		E971ADC42BFF708000EAB46E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = E971ADC32BFF708000EAB46E /* .gitignore */; };
+		E9F9D3302BA1D90B0054FC9C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9D32F2BA1D90B0054FC9C /* Model.swift */; };
+		E9F9D3322BA1D9200054FC9C /* JournalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9D3312BA1D9200054FC9C /* JournalService.swift */; };
+		E9F9D3342BA1D9430054FC9C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F9D3332BA1D9430054FC9C /* ViewModel.swift */; };
+		EBBB801BFD0E601A0B82EF0D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB8125EF33453E9AA25EBA /* ContentView.swift */; };
+		EBBB8196B5843A9625B9E616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBBB8B55C8EA9CAEC845AA02 /* Assets.xcassets */; };
+		EBBB852DC996480574A0D00F /* jungle_book_ios_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB88E51E6D5427C242D93F /* jungle_book_ios_appUITests.swift */; };
+		EBBB87955615B57B8143BDE3 /* JunglebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB8AE316F615599FA9B62C /* JunglebookApp.swift */; };
+		EBBB8D2A40C15E929692E71D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBBB82490604319589DBF316 /* Preview Assets.xcassets */; };
+		EBBB8ED781664A8A8D438039 /* jungle_book_ios_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB8B735DDD8F228C7B2936 /* jungle_book_ios_appUITestsLaunchTests.swift */; };
+		EBBB8FCC0A3AEEB566DA0E0B /* jungle_book_ios_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBB821CCDDDC94B644BD331 /* jungle_book_ios_appTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBBB84DFB99922AC61C659CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBBB83A9A7C2DC510AB30522 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBBB8CC3F4253C7F43051CD2;
+			remoteInfo = "jungle-book-ios-app";
+		};
+		EBBB8530A7042A4A1376F6C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBBB83A9A7C2DC510AB30522 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBBB8CC3F4253C7F43051CD2;
+			remoteInfo = "jungle-book-ios-app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		84FD8E5F2C2B597600241036 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		E936A69A2BD144BA00821C4F /* CheckpointService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckpointService.swift; sourceTree = "<group>"; };
+		E971ADC12BFF704D00EAB46E /* sprint.adoc */ = {isa = PBXFileReference; lastKnownFileType = text; path = sprint.adoc; sourceTree = "<group>"; };
+		E971ADC32BFF708000EAB46E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		E9F9D32F2BA1D90B0054FC9C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E9F9D3312BA1D9200054FC9C /* JournalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalService.swift; sourceTree = "<group>"; };
+		E9F9D3332BA1D9430054FC9C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EBBB8125EF33453E9AA25EBA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EBBB821CCDDDC94B644BD331 /* jungle_book_ios_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jungle_book_ios_appTests.swift; sourceTree = "<group>"; };
+		EBBB82490604319589DBF316 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EBBB824A01CFDC9819D680F0 /* jungle-book-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jungle-book-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBB839616D095913C9D95E9 /* jungle-book-ios-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "jungle-book-ios-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBB86F2215123422DD4DF98 /* jungle-book-ios-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "jungle-book-ios-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBBB88E51E6D5427C242D93F /* jungle_book_ios_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jungle_book_ios_appUITests.swift; sourceTree = "<group>"; };
+		EBBB8AE316F615599FA9B62C /* JunglebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JunglebookApp.swift; sourceTree = "<group>"; };
+		EBBB8B55C8EA9CAEC845AA02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBBB8B735DDD8F228C7B2936 /* jungle_book_ios_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jungle_book_ios_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBBB85534404410EFD3F9768 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB89F63E39DA826245E1EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB8E6E7C8F25301F3757A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBBB82608C42073C1D17ECD7 /* jungle-book-ios-appTests */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB821CCDDDC94B644BD331 /* jungle_book_ios_appTests.swift */,
+			);
+			path = "jungle-book-ios-appTests";
+			sourceTree = "<group>";
+		};
+		EBBB86D71942F9DA30E93B82 = {
+			isa = PBXGroup;
+			children = (
+				E971ADC32BFF708000EAB46E /* .gitignore */,
+				EBBB87FC1CB4AD8E23807930 /* Products */,
+				E971ADC12BFF704D00EAB46E /* sprint.adoc */,
+				EBBB8C85776A6499949D4957 /* jungle-book-ios-app */,
+				EBBB82608C42073C1D17ECD7 /* jungle-book-ios-appTests */,
+				EBBB8C23858FC4097093E9D6 /* jungle-book-ios-appUITests */,
+			);
+			sourceTree = "<group>";
+		};
+		EBBB87FC1CB4AD8E23807930 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB824A01CFDC9819D680F0 /* jungle-book-ios-app.app */,
+				EBBB86F2215123422DD4DF98 /* jungle-book-ios-appTests.xctest */,
+				EBBB839616D095913C9D95E9 /* jungle-book-ios-appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBBB8C23858FC4097093E9D6 /* jungle-book-ios-appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB88E51E6D5427C242D93F /* jungle_book_ios_appUITests.swift */,
+				EBBB8B735DDD8F228C7B2936 /* jungle_book_ios_appUITestsLaunchTests.swift */,
+			);
+			path = "jungle-book-ios-appUITests";
+			sourceTree = "<group>";
+		};
+		EBBB8C85776A6499949D4957 /* jungle-book-ios-app */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB8B55C8EA9CAEC845AA02 /* Assets.xcassets */,
+				EBBB8FF4FC1267144E4E1011 /* Preview Content */,
+				EBBB8AE316F615599FA9B62C /* JunglebookApp.swift */,
+				EBBB8125EF33453E9AA25EBA /* ContentView.swift */,
+				E9F9D32F2BA1D90B0054FC9C /* Model.swift */,
+				E9F9D3312BA1D9200054FC9C /* JournalService.swift */,
+				E9F9D3332BA1D9430054FC9C /* ViewModel.swift */,
+				E936A69A2BD144BA00821C4F /* CheckpointService.swift */,
+				84FD8E5F2C2B597600241036 /* Config.swift */,
+			);
+			path = "jungle-book-ios-app";
+			sourceTree = "<group>";
+		};
+		EBBB8FF4FC1267144E4E1011 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EBBB82490604319589DBF316 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBBB81F1AE98D9B65378A1AB /* jungle-book-ios-appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBBB86D9DE1CDF0E74CB8132 /* Build configuration list for PBXNativeTarget "jungle-book-ios-appUITests" */;
+			buildPhases = (
+				EBBB809E2C8D5E1671B3CA1F /* Sources */,
+				EBBB89F63E39DA826245E1EA /* Frameworks */,
+				EBBB8E5C7654C96D08CE4281 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBBB8B1091A38BAC52D392D1 /* PBXTargetDependency */,
+			);
+			name = "jungle-book-ios-appUITests";
+			productName = "jungle-book-ios-appUITests";
+			productReference = EBBB839616D095913C9D95E9 /* jungle-book-ios-appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		EBBB8CC3F4253C7F43051CD2 /* jungle-book-ios-app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBBB8B0B3099779C8BC72F67 /* Build configuration list for PBXNativeTarget "jungle-book-ios-app" */;
+			buildPhases = (
+				EBBB89FCED02746DA76046FE /* Sources */,
+				EBBB85534404410EFD3F9768 /* Frameworks */,
+				EBBB87EE9123E15C3239BA7A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "jungle-book-ios-app";
+			productName = "jungle-book-ios-app";
+			productReference = EBBB824A01CFDC9819D680F0 /* jungle-book-ios-app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EBBB8D8A6D8FB4A5431C80F9 /* jungle-book-ios-appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBBB8B4C783532557CFA5021 /* Build configuration list for PBXNativeTarget "jungle-book-ios-appTests" */;
+			buildPhases = (
+				EBBB8CD79A85913C487715FA /* Sources */,
+				EBBB8E6E7C8F25301F3757A6 /* Frameworks */,
+				EBBB8A658F542358F3AFCEEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBBB893B118A7FDDD28D92EA /* PBXTargetDependency */,
+			);
+			name = "jungle-book-ios-appTests";
+			productName = "jungle-book-ios-appTests";
+			productReference = EBBB86F2215123422DD4DF98 /* jungle-book-ios-appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBBB83A9A7C2DC510AB30522 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = EBBB8FBFE9B0FFF32A54705F /* Build configuration list for PBXProject "jungle-book-ios-app" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = EBBB86D71942F9DA30E93B82;
+			productRefGroup = EBBB87FC1CB4AD8E23807930 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBBB8CC3F4253C7F43051CD2 /* jungle-book-ios-app */,
+				EBBB8D8A6D8FB4A5431C80F9 /* jungle-book-ios-appTests */,
+				EBBB81F1AE98D9B65378A1AB /* jungle-book-ios-appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBBB87EE9123E15C3239BA7A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E971ADC42BFF708000EAB46E /* .gitignore in Resources */,
+				EBBB8196B5843A9625B9E616 /* Assets.xcassets in Resources */,
+				E971ADC22BFF704D00EAB46E /* sprint.adoc in Resources */,
+				EBBB8D2A40C15E929692E71D /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB8A658F542358F3AFCEEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB8E5C7654C96D08CE4281 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBBB809E2C8D5E1671B3CA1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBB852DC996480574A0D00F /* jungle_book_ios_appUITests.swift in Sources */,
+				EBBB8ED781664A8A8D438039 /* jungle_book_ios_appUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB89FCED02746DA76046FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9F9D3342BA1D9430054FC9C /* ViewModel.swift in Sources */,
+				E936A69B2BD144BA00821C4F /* CheckpointService.swift in Sources */,
+				E9F9D3302BA1D90B0054FC9C /* Model.swift in Sources */,
+				84FD8E602C2B597600241036 /* Config.swift in Sources */,
+				EBBB87955615B57B8143BDE3 /* JunglebookApp.swift in Sources */,
+				EBBB801BFD0E601A0B82EF0D /* ContentView.swift in Sources */,
+				E9F9D3322BA1D9200054FC9C /* JournalService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBBB8CD79A85913C487715FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBBB8FCC0A3AEEB566DA0E0B /* jungle_book_ios_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBBB893B118A7FDDD28D92EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBBB8CC3F4253C7F43051CD2 /* jungle-book-ios-app */;
+			targetProxy = EBBB8530A7042A4A1376F6C6 /* PBXContainerItemProxy */;
+		};
+		EBBB8B1091A38BAC52D392D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBBB8CC3F4253C7F43051CD2 /* jungle-book-ios-app */;
+			targetProxy = EBBB84DFB99922AC61C659CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EBBB81627043EBD4D7C3A9A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "jungle-book-ios-app";
+			};
+			name = Debug;
+		};
+		EBBB82E41B1082056DCF574A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"jungle-book-ios-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "jungle-book-ios-app/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is used for capturing photos";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EBBB8357C1C8E6C2CE3B02C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EBBB85083DC0445AC2B2DDFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jungle-book-ios-app.app/jungle-book-ios-app";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+		EBBB8C39BFB31E3435373936 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"jungle-book-ios-app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "jungle-book-ios-app/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is used for capturing photos";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EBBB8CBECEB6F24D50709302 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/jungle-book-ios-app.app/jungle-book-ios-app";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		EBBB8D061BC073361198D7D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBBB8FD31232261D2EDB28EE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "at.htlleonding.mc.jungle-book-ios-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "jungle-book-ios-app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBBB86D9DE1CDF0E74CB8132 /* Build configuration list for PBXNativeTarget "jungle-book-ios-appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBB81627043EBD4D7C3A9A0 /* Debug */,
+				EBBB8FD31232261D2EDB28EE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBBB8B0B3099779C8BC72F67 /* Build configuration list for PBXNativeTarget "jungle-book-ios-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBB82E41B1082056DCF574A /* Debug */,
+				EBBB8C39BFB31E3435373936 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBBB8B4C783532557CFA5021 /* Build configuration list for PBXNativeTarget "jungle-book-ios-appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBB8CBECEB6F24D50709302 /* Debug */,
+				EBBB85083DC0445AC2B2DDFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBBB8FBFE9B0FFF32A54705F /* Build configuration list for PBXProject "jungle-book-ios-app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBB8357C1C8E6C2CE3B02C2 /* Debug */,
+				EBBB8D061BC073361198D7D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBBB83A9A7C2DC510AB30522 /* Project object */;
+}

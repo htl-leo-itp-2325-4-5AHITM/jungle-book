@@ -5,7 +5,9 @@ let coords;
 let iframe = "";
 let isInRange = false;
 const constantDeviation = 150;
-window.checkLocation = checkLocation;
+const ipAddress3 = "https://it200247.cloud.htl-leonding.ac.at";
+
+getLocation();
 
 //todo: positionsüberprüfung mit checkpoints aus der datenbank
 
@@ -49,7 +51,7 @@ async function getLocation() {
   return coords;
 }
 
-async function checkLocation() {
+window.checkLocation = async function checkLocation() {
   let coords = "";
   coords = await getLocation();
 
@@ -59,28 +61,9 @@ async function checkLocation() {
   console.log("coordinates checkLocation: ", latitude, longitude, accuracy);
   await compareCoordinates(latitude, longitude, accuracy);
   console.log("isInRange", isInRange);
-  console.log("isinrange")
   return isInRange;
 }
-
-async function getAllCheckpoints() {
-  try {
-      const response = await fetch(ipAddress + '/api/checkpoint/list', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
-      });
-
-      if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText);
-      }
-
-      const checkpoints = await response.json();  // Wandelt die JSON-Antwort in ein Array um
-      return checkpoints;  // Das Array mit den Checkpoints wird zurückgegeben
-  } catch (error) {
-      console.error('Error fetching checkpoints:', error);
-  }
-}
-
+/*
 async function compareCoordinates(lat, lon, acc) {
   const checkpoints = await getAllCheckpoints()
     console.log(checkpoints);  
@@ -102,7 +85,45 @@ async function compareCoordinates(lat, lon, acc) {
         console.log("no checkpoint found");
       }
     }
+}*/
+
+async function compareCoordinates(lat, lon, acc) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const checkpointId = urlParams.get('id'); 
+  console.log("id:" + checkpointId);
+  const checkpoints = await getAllCheckpoints();
+  console.log(checkpoints);
+
+  const checkpoint = checkpoints.find(cp => cp.id === Number(checkpointId));
+  console.log("checkpoint: " + checkpoint);
+
+  if (!checkpoint) {
+      console.log("Checkpoint not found.");
+      return false;
+  } else {
+    const lat2 = checkpoint.latitude;
+    const lon2 = checkpoint.longitude;
+    
+    const distance = await haversine(lat, lon, lat2, lon2);
+    let maxDeviation = constantDeviation + acc;
+    
+    console.log(distance + " abstand");
+
+    if (distance <= maxDeviation) {
+        console.log("Checkpoint found: " + checkpoint.name);
+        let result = 
+            "<p>Checkpoint Found: " + checkpoint.name + " </p><p>Abweichung: " + Math.round(distance * 100) / 100 + " Meter</p>";
+        document.getElementById("resultMap").innerHTML = result;
+        isInRange = true;
+        return true;
+    } else {
+        isInRange = false;
+        console.log("No checkpoint found");
+        return false;
+    }
+  }
 }
+
 
 async function haversine(lat1, lon1, lat2, lon2) {
   // Konvertiere Grad in Radian
@@ -134,7 +155,7 @@ async function haversine(lat1, lon1, lat2, lon2) {
 
 async function getAllCheckpoints() {
   try {
-      const response = await fetch(ipAddress + '/api/checkpoint/list', {
+      const response = await fetch(ipAddress3 + '/api/checkpoint/list', {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
       });
