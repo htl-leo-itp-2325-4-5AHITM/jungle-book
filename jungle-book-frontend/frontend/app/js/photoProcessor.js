@@ -170,5 +170,4 @@
 
   function usePhoto() {
     let data = localStorage.getItem("data");
-
   }
