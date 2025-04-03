@@ -21,7 +21,11 @@ spec:
               value: "admin"
             - name: KEYCLOAK_ADMIN_PASSWORD
               value: "admin"
-          command: ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy", "edge", "--hostname-admin-url=http://localhost:8080"]
+            - name: KC_HOSTNAME_URL
+              value: "https://it200247.cloud.htl-leonding.ac.at/auth" 
+            - name: KC_HTTP_RELATIVE_PATH
+              value: "/auth"
+          command: ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy", "edge", "--hostname-admin-url=http://it200247.cloud.htl-leonding.ac.at/auth"]           
           ports:
             - containerPort: 8080
               name: keycloak
