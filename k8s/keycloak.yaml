@@ -25,6 +25,12 @@ spec:
               value: "https://it200247.cloud.htl-leonding.ac.at/auth" 
             - name: KC_HTTP_RELATIVE_PATH
               value: "/auth"
+            - name: KC_HTTP_ENABLED
+              value: 'false'
+            - name: KC_HOSTNAME_STRICT
+              value: 'true'
+            - name: KC_HOSTNAME_STRICT_HTTPS
+              value: 'false'
           command: ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy", "edge", "--hostname-admin-url=http://it200247.cloud.htl-leonding.ac.at/auth"]           
           ports:
             - containerPort: 8080

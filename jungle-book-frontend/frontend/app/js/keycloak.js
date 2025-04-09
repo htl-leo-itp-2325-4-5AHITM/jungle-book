@@ -1,5 +1,5 @@
 const keycloak = new Keycloak({
-    url: "http://localhost:8085", // Ensure the correct Keycloak auth URL
+    url: "https://it200247.cloud.htl-leonding.ac.at/auth", // Ensure the correct Keycloak auth URL
     realm: "JungleBook",
     clientId: "app"
 });
