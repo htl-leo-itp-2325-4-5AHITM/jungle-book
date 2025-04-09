@@ -1,33 +1,59 @@
 #galleryBox {
-    width: 50vw;
-    height: 60vh; /* Begrenzte Höhe, damit der Scroll aktiviert wird */
     overflow-y: scroll; /* Ermöglicht Scrollen innerhalb des Containers */
     padding: 20px;
     padding-top: 10px;
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-        position: relative; /* Positionieren innerhalb des übergeordneten Elements */
+    position: relative; /* Positionieren innerhalb des übergeordneten Elements */
     margin: auto; /* Zentrieren des Containers */
 }
 
-#imageGallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Zwei Spalten mit gleicher Breite */
-    grid-gap: 10px; /* Abstand zwischen den Bildern */
-
+.image-container {
+    width: 50%; /* Bilder füllen die Spaltenbreite */
+    height: auto; /* Höhe passt sich proportional an */
+    padding: 1%;
 }
 
-/* Scrollbar ausblenden für Webkit-Browser (Chrome, Safari) */
+#outerBox {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+h2 {
+    width: 100%;
+    padding: 1%;
+}
+#imageGallery {
+    display: flex;
+    flex-direction: row;  /* oder column je nach Anordnung */
+    flex-wrap: wrap;
+    padding: 1%;
+}
+
+img {
+    page-break-inside: avoid;  /* Verhindert, dass Bilder mitten in der Seite abgeschnitten werden */
+}
+
 #galleryBox::-webkit-scrollbar {
     display: none;
 }
 
-/* Scrollbar ausblenden für Firefox */
 #galleryBox {
     scrollbar-width: none; /* Firefox */
+}
+
+#columnButtons {
+    display: grid;
+    grid-template-columns: 47.5% 47.5%;
+    grid-gap: 5%;
+    padding: 5%;
+}
+
+#exportBox, #getPdf {
+    padding: 5%;
 }
 
 body {
@@ -41,7 +67,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 1em;
     margin: 0;
     padding: 0;
     display: flex;
@@ -49,10 +75,69 @@ body {
     align-items: center; /* Vertikales Zentrieren */
 }
 
-/* Styling für die Bilder innerhalb der Galerie */
-#imageGallery img {
-    width: 100%; /* Bilder füllen die Spaltenbreite */
-    height: auto; /* Höhe passt sich proportional an */
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+#settings {
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
 }
+
+@media screen and (min-width: 500px) and (pointer: fine) {
+    #galleryBox {
+        width: 50vw;
+        height: 75vh; 
+        border-radius: 10px;
+    }
+
+    #outerBox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #placeholder {
+        width: 25vw;
+    }
+
+    #settingsBox {
+        display: flex;
+        justify-content: left;
+        width: 25vw;
+        height: 75vh;
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+        border-radius: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+
+    #settings {
+        width: 50%;
+        height: 50vh;
+        margin-left: 1vw;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+    }
+}
+
+/*@media screen, (pointer: coarse) {
+    #settingsBox {
+        width: 100vw;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+        border-radius: 0;
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+    }
+
+    #galleryBox {
+        width: 100vw;
+        height: 100vh; 
+        border-radius: 0;
+    }
+}*/

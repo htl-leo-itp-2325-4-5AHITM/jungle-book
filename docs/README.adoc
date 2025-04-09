@@ -1,0 +1,5 @@
+# Notitz für an die Leute, die das Projekt fortführen
+
+Verwerft den PDF Stamper und macht ihn neu mit iText 7, diese Library und Version ist besser auf den Use-Case ausgelegt und besser dokumentiert
+
+Werft den keycloak im frontend und kubernetes weg und machts des neu, das hätte niemals so im main branch landen dürfen

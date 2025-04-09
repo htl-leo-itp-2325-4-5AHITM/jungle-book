@@ -7,12 +7,22 @@
 #header {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    height: 4%;
 }   
 
-#main {
+#gridMap {
+    height: 21%;
+}
+
+#mapIframe, #googleMap {
+    height: 100%;
+}
+
+#main-content {
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 75%;
 }
 
 body {
@@ -20,15 +30,36 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 1em;
     margin: 0;
     padding: 0;
+}
+
+.contentarea2, .camera {
+    height: 100%;
+}
+
+#acceptBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#userPhotoChecker {
+    height: 50%;
+}
+
+#mapIframe, .contentarea2, .camera, #videoBox, #video, .buttonBox, #buttonInnerBox, #startButton {
+    width: 100%;
+}
+
+#startButton, #usePhotoButton, #dontUsePhotoButton {
+    height: 5vh !important;
 }
 
 #googleMap {
@@ -49,21 +80,47 @@ body {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 1%;
+    height: 20%;
 }
 
 #video {
-    width: 100%;
+    height: 100%;
+    max-width: 80%;
+    width: auto;
 }
 
 #videoBox {
-    height: 240px;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonBox {
+    height: 7.5%;
+}
+
+#canvasBox {
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#canvas {
+    height: 100%;
+    max-width: 80%;
+    width: auto;
+}
+
+#acceptBox {
+    height: 22.5%;
 }
 
 .buttonBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 320px;
 }
 
 /* LOGIN - REGISTER  */
@@ -73,6 +130,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
 .register-container {
@@ -99,28 +158,24 @@ body {
     -webkit-backdrop-filter: blur(30px);
 }
 
-input, #buttonInnerBox {
-    width: 320px;
+input {
+    width: 100%;
 }
 
 button {
-    height: auto;
     width: 100%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
-}
-
-input {
-    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
-}
-
-button {
+    border: 1px solid #ccc;    
     background-color: #008000;
     color: #fff;
     cursor: pointer;
     margin-bottom: 0;
     box-shadow: 0 5px 15px rgb(204, 204, 204);
+}
+
+input {
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
 }
 
 button:active {
@@ -135,7 +190,7 @@ h3 {
 
 a, p {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 1em;
     color: #0a5c0a;
 }
 
@@ -152,16 +207,12 @@ a, p {
     -webkit-backdrop-filter: blur(30px);
 }
 
-#homeContainer {
-    height: 960px;
-}
-
 .logout {
     text-align: right;
     cursor: pointer;
     padding: 5px;
     color: darkred;
-    font-size: 12px;
+    font-size: 1em;
     margin-bottom: 15px;
 }
 
@@ -202,9 +253,9 @@ input[type="text"]:focus, select:focus {
     width: 100%;
 }
 
-#switchPage, #switchPageRight {
+#switchPage, #switchPageRight, #switchPageMiddle {
     cursor: pointer;
-    font-size: 12px;
+    font-size: 1em;
     padding: 5px;
     display: block;
 }
@@ -228,16 +279,12 @@ input[type="text"]:focus, select:focus {
     align-items: center;
 }
 
-#startButton {
-    width: 320px;
-}
-
 #canvasBox {
-    width: 320px;
+    width: 100%;
     display: flex;
     justify-content: center;
-    height: 240px;
     flex-direction: column ;
+    align-items: center;
 }
 
 .userPhotoCheckerButton {
@@ -247,7 +294,6 @@ input[type="text"]:focus, select:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
     padding: 0;
     border-radius: 8px;
 }
@@ -268,3 +314,74 @@ input[type="text"]:focus, select:focus {
     background-color: #6eaa5e;
 }
 
+#homeContainer, #newCheckpoint-container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    overflow: scroll;
+    border-radius: 0;
+}
+
+.camera {
+    display: flex;
+    flex-direction: column;
+}
+
+button { 
+    font-size: 1em
+}
+
+input { 
+    font-size: 1em
+}
+
+html, body {
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    font-size: 100%
+}
+
+@media (min-width: 800px) {
+    html, body {
+        width: 100%; 
+        height: 100%; 
+        overflow: hidden; 
+        font-size: 100%
+    }
+
+    #homeContainer {
+        height: 960px;
+        width: 25%;
+        position: unset;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .camera {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #newCheckpoint-container {
+        min-width: 28%;
+        width: auto;
+        height: auto;
+    }
+
+    #mapIframe, .contentarea2, .camera, #videoBox, #video, #buttonInnerBox, #buttonBox, #startButton, #usePhotoButton, #dontUsePhotoButton {
+        width: 100%;
+    }   
+
+    #startButton, #usePhotoButton, #dontUsePhotoButton {
+        height: 3vh !important;
+    }
+
+    #canvasBox {
+        width: 320px;
+    }
+
+    input {
+        width: 320px;
+    }
+}
